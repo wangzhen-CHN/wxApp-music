@@ -14,4 +14,4 @@
 
 体验
 
-![app](./code.jpg)
+![app](./code.png)
