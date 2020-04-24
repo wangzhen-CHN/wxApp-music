@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "tabBar": {
+    "color": "#888d93",
+    "selectedColor": "#19a6ff",
+    "borderStyle": "white",
+    "list": [{
+      "selectedIconPath": "./images/nav-active/music.png",
+      "iconPath": "./images/nav/music.png",
+      "pagePath": "pages/index/index",
+      "text": "音乐"
+    }, {
+      "selectedIconPath": "./images/nav-active/video.png",
+      "iconPath": "./images/nav/video.png",
+      "pagePath": "pages/logs/logs",
+      "text": "视频"
+    }, {
+      "selectedIconPath": "./images/nav-active/v.png",
+      "iconPath": "./images/nav/v.png",
+      "pagePath": "pages/logs/logs",
+      "text": "K歌"
+    }, {
+      "selectedIconPath": "./images/nav-active/me.png",
+      "iconPath": "./images/nav/me.png",
+      "pagePath": "pages/logs/logs",
+      "text": "我的"
+    }]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "轻享音乐",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

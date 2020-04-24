@@ -1,0 +1,98 @@
+<!--index.wxml-->
+<view class="container index-container">
+	<!-- nav -->
+	<view class="page-nav">
+		<view class="nav">
+			<view class="nav-input">
+				<input class="search-input" placeholder-class="search-input-placeholder" placeholder="大家都在搜 麻雀 " />
+			</view>
+			<view class="nav-btn">
+				<image src="../../images/icon/music.png"></image>
+			</view>
+			<view class="nav-btn">
+				<image src="../../images/icon/columns.png" />
+			</view>
+		</view>
+	</view>
+	<!-- swiper -->
+	<view class="page-swiper swiper-view">
+		<swiper bindchange="swiperChange" autoplay="true" circular="true">
+			<block wx:for="{{banners}}" wx:key="key">
+				<swiper-item class="swiper-item">
+					<image src="{{item.url}}"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="swiper-dots">
+			<block wx:for="{{banners}}" wx:key="key">
+				<view class="swiper-dot {{index == currentSwiper ? 'swiper-dot-active' : ''}}"></view>
+			</block>
+		</view>
+	</view>
+	<!-- list -->
+	<view class="page-list">
+		<view class="day-push">
+			<image src="../../images/pic01.jpg"></image>
+			<view class="day-push-title">每日推荐</view>
+			<view class="day-push-content">暖心单曲</view>
+		</view>
+		<view class="option-list">
+			<view class="list-item">
+				<image src="../../images/icon/music-list.png"></image>
+				歌单
+			</view>
+			<view class="list-item">
+				<image src="../../images/icon/songer.png"></image>
+				歌手
+			</view>
+			<view class="list-item">
+				<image src="../../images/icon/lisent.png"></image>
+				电台
+			</view>
+			<view class="list-item">
+				<image src="../../images/icon/love.png"></image>
+				猜你喜欢
+			</view>
+			<view class="list-item">
+				<image src="../../images/icon/sort.png"></image>
+				排行
+			</view>
+			<view class="list-item">
+				<image src="../../images/icon/more.png"></image>
+				更多
+			</view>
+		</view>
+	</view>
+	<view class="music-recommend">
+		<view class="music-recommend-top">
+			<view class="music-recommend-title">歌单推荐</view>
+			<view class="music-recommend-more">查看全部 ></view>
+		</view>
+		<view class="music-recommend-ul">
+			<view class="music-recommend-li">
+				<image src="../../images/pic01.jpg"></image>
+				<view class="music-recommend-name">纸船摇啊摇</view>
+			</view>
+			<view class="music-recommend-li">
+				<image src="../../images/pic02.jpg"></image>
+				<view class="music-recommend-name">生死如寄 《剑侠世界2》主题曲</view>
+			</view>
+			<view class="music-recommend-li">
+				<image src="../../images/pic03.jpg"></image>
+				<view class="music-recommend-name">爱情的苦</view>
+			</view>
+			<view class="music-recommend-li">
+				<image src="../../images/pic04.jpg"></image>
+				<view class="music-recommend-name">想见你想见你想见你</view>
+			</view>
+			<view class="music-recommend-li">
+				<image src="../../images/pic05.jpg"></image>
+				<view class="music-recommend-name">以风为马 《清平乐》电视剧插曲</view>
+			</view>
+			<view class="music-recommend-li">
+				<image src="../../images/pic06.jpg"></image>
+				<view class="music-recommend-name">Sway</view>
+			</view>
+		</view>
+	</view>
+</view>
