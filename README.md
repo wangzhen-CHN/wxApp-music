@@ -14,4 +14,4 @@
 
 体验
 
-![app](https://mp.weixin.qq.com/wxopen/qrcode?action=show&type=2&fakeid=3851166714&token=1447976055)
+![app](./code.jpg)
