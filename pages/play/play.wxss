@@ -1,0 +1,135 @@
+.play-container {
+  padding: 40rpx 30rpx;
+  overflow: hidden;
+}
+
+.play-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.play-top image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.play-player-name {
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  padding-top: 10rpx;
+  font-size: 22rpx;
+}
+
+.play-effect {
+  padding: 40rpx 0;
+  width: 100%;
+  display: flex;
+  justify-content: center
+}
+
+.play-effect-item {
+  width: 80rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  margin: 0 10rpx;
+  border-radius: 40rpx;
+  font-size: 22rpx;
+  color: #ccc;
+  border: 1px solid #ccc;
+}
+
+.player {
+  width: 100%;
+  margin-top: 60rpx;
+}
+
+.player-song-pic {
+  position: relative;
+  width: 600rpx;
+  height: 600rpx;
+  margin: 0 auto;
+  border: 15rpx solid #fff;
+  box-shadow: 0 0 30rpx 20rpx #3341d532;
+  border-radius: 600rpx;
+  overflow: hidden;
+  animation: turn 20s linear infinite;
+}
+
+@keyframes turn {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(90deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(270deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.player-song-pic-min {
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  left: calc(50% - 50rpx);
+  top: calc(50% - 50rpx);
+  background-color: #e2e2e2;
+  border: 10rpx solid #fff;
+  border-radius: 80rpx;
+}
+
+.player-song-pic image {
+  width: 100%;
+  height: 100%;
+}
+
+.player-song-lyrics {
+  position:relative;
+  width: 100%;
+  margin-top: 40rpx;
+}
+
+.player-song-lyrics p {
+  display: block;
+  margin-top: 10rpx;
+  letter-spacing: 3rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+.player-song-lyrics .shadow-top {
+  position: absolute;
+  height: 60rpx;
+  width: 100%;
+  top: 0;
+  background-image: linear-gradient(0,rgba(255,255,255,0) 0%,#fff 100%);
+}
+.player-song-lyrics .shadow-bottom {
+  position: absolute;
+  height: 60rpx;
+  width: 100%;
+  bottom: 0;
+  background-image: linear-gradient(-180deg,rgba(255,255,255,0) 0%,#fff 100%);
+}
+
+.play-song-option{
+  padding: 40rpx 0;
+  width: 100%;
+  display: flex;
+  justify-content:space-around
+}
+.play-song-option image{
+  width: 60rpx;
+  height: 60rpx;
+}

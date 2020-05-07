@@ -1,5 +1,6 @@
 /**app.wxss**/
-.container {
+/* .container {
+  filter: grayscale(1);
   height: 100%;
   box-sizing: border-box;
-} 
+}  */
