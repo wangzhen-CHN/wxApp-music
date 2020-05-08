@@ -2,11 +2,12 @@
   "pages": [
     "pages/index/index",
     "pages/play/play",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/video/video",
+    "pages/me/me"
   ],
   "tabBar": {
     "custom": true,
-    "selected": 0,
     "color": "#888d93",
     "selectedColor": "#3341d5",
     "list": [
@@ -18,7 +19,7 @@
       }, {
         "selectedIconPath": "./images/nav-active/video.png",
         "iconPath": "./images/nav/video.png",
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/video/video",
         "text": "视频"
       }, {
         "selectedIconPath": "./images/nav-active/play.png",
@@ -29,12 +30,12 @@
         "selectedIconPath": "./images/nav-active/v.png",
         "iconPath": "./images/nav/v.png",
         "pagePath": "pages/logs/logs",
-        "text": "我的"
+        "text": "日志"
       }, {
         "selectedIconPath": "./images/nav-active/me.png",
         "iconPath": "./images/nav/me.png",
-        "pagePath": "pages/logs/logs",
-        "text": "账号"
+        "pagePath": "pages/me/me",
+        "text": "我的"
       }
     ]
   },

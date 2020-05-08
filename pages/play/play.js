@@ -19,4 +19,7 @@ Page({
   onLoad: function () {
     wx.setNavigationBarColor ({frontColor:'#000000',backgroundColor:'#ffffff'})
   },
+  onShow: function () {
+    console.log(this.getTabBar())
+  },
 })

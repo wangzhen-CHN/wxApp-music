@@ -1,6 +1,5 @@
 <!--index.wxml-->
 <view class="container index-container">
-	<!-- nav -->
 	<view class="page-nav">
 		<view class="nav">
 			<view class="nav-input">
@@ -14,7 +13,6 @@
 			</view>
 		</view>
 	</view>
-	<!-- swiper -->
 	<view class="page-swiper swiper-view">
 		<swiper bindchange="swiperChange" autoplay="true" circular="true">
 			<block wx:for="{{banners}}" wx:key="key">
@@ -29,7 +27,6 @@
 			</block>
 		</view>
 	</view>
-	<!-- list -->
 	<view class="page-list">
 		<view class="day-push">
 			<image src="{{daySong.picUrl}}"></image>
