@@ -20,9 +20,15 @@
 		<view class="player-song-lyrics">
 			<view class="shadow-top"></view>
 			<view class="shadow-bottom"></view>
-			<p>一颗两颗三颗四颗连成线看星</p>
-			<p>乘着风游荡在蓝天边</p>
-			<p>一片云掉落在我面前</p>
+			<view class="player-song-lyrics-content">
+				<p>一颗两颗三颗四颗连成线看星</p>
+				<p>一颗两颗三颗四颗连成线看星</p>
+				<p>乘着风游荡在蓝天边</p>
+				<p>一片云掉落在我面前</p>
+				<p>乘着风游荡在蓝天边</p>
+				<p>乘着风游荡在蓝天边</p>
+				<p>乘着风游荡在蓝天边</p>
+			</view>
 		</view>
 	</view>
 <view class="play-song-option">

@@ -42,7 +42,7 @@
 
 .player {
   width: 100%;
-  margin-top: 60rpx;
+  margin-top: 20rpx;
 }
 
 .player-song-pic {
@@ -100,7 +100,10 @@
   width: 100%;
   margin-top: 40rpx;
 }
-
+.player-song-lyrics-content {
+  height: 150rpx;
+overflow: scroll;
+}
 .player-song-lyrics p {
   display: block;
   margin-top: 10rpx;
