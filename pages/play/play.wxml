@@ -3,8 +3,9 @@
 	<!-- nav -->
 	<view class="play-top">
 		<image src="../../images/icon/down.png" bindtap="back"></image>
-		<view class="close">星晴</view>
-		<image src="../../images/icon/share.png"></image>
+		<view class="song-name">刀马旦</view>
+		<view class="right"></view>
+		<!-- <image src="../../images/icon/share.png"></image> -->
 	</view>
 	<view class="play-player-name">- 周杰伦 -</view>
 	<view class="play-effect">
@@ -21,23 +22,32 @@
 			<view class="shadow-top"></view>
 			<view class="shadow-bottom"></view>
 			<view class="player-song-lyrics-content">
-				<p>一颗两颗三颗四颗连成线看星</p>
-				<p>一颗两颗三颗四颗连成线看星</p>
-				<p>乘着风游荡在蓝天边</p>
-				<p>一片云掉落在我面前</p>
-				<p>乘着风游荡在蓝天边</p>
-				<p>乘着风游荡在蓝天边</p>
-				<p>乘着风游荡在蓝天边</p>
+				<scroll-view scroll-y="true" scroll-with-animation='true' scroll-top='{{marginTop}}'>
+					<view class='contentText'>
+						<block wx:for='{{storyContent}}' wx:key='key'>
+							<text class="{{currentIndex222 == index ? 'currentTime' : ''}}">{{item[1]}}</text>
+						</block>
+					</view>
+				</scroll-view>
 			</view>
 		</view>
 	</view>
-<view class="play-song-option">
+	<view class="song-option">
 		<image src="../../images/icon/heart.png"></image>
-		<image src="../../images/icon/zan.png"></image>
+		<image class="share" src="../../images/icon/share.png"></image>
 		<image src="../../images/icon/k.png"></image>
 		<image src="../../images/icon/discuss.png"></image>
-		<image src="../../images/icon/dian.png"></image>
-</view>
-	<!-- swiper -->
-	<!-- list -->
+		<image src="../../images/icon/list.png"></image>
+	</view>
+	<view class="progress-box">
+		<progress percent="100" color="#10AEFF" active duration="2000" stroke-width="3" />
+	</view>
+
+	<view class="player-option">
+		<image src="../../images/icon/way.png"></image>
+		<image class="player-back" src="../../images/icon/player-back.png"></image>
+		<image class="player-play" bindtap="play" src="../../images/icon/play.png"></image>
+		<image class="player-go" src="../../images/icon/player-go.png"></image>
+		<image src="../../images/icon/list.png"></image>
+	</view>
 </view>

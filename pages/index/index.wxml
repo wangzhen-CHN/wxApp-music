@@ -6,10 +6,10 @@
 				<input class="search-input" placeholder-class="search-input-placeholder" placeholder="大家都在搜 麻雀 " />
 			</view>
 			<view class="nav-btn">
-				<image src="../../images/icon/music.png"></image>
+				<image src="../../images/icon/music-a.png" />
 			</view>
 			<view class="nav-btn">
-				<image src="../../images/icon/columns.png" />
+				<image src="../../images/icon/more.png"></image>
 			</view>
 		</view>
 	</view>
@@ -69,6 +69,21 @@
 			<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key">
 				<image src="{{item.coverImgUrl}}"></image>
 				<view class="music-recommend-name">{{item.name}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="music-list">
+		<view class="music-list-title">
+			<view class="music-title-name">热门单曲</view>
+			<view class="music-title-more">更多 ></view>
+		</view>
+		<view class="music-car" wx:for="{{playlists}}" wx:key="key">
+			<view class="music-car-img">
+				<image src="{{item.coverImgUrl}}"></image>
+			</view>
+			<view class="music-car-word">
+				<view class="music-car-name">歌曲名称</view>
+				<view class="music-car-desc">{{item.name}}</view>
 			</view>
 		</view>
 	</view>

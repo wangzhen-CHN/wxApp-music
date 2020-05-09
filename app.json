@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/play/play",
+    "pages/pageturn/pageturn",
     "pages/logs/logs",
     "pages/video/video",
     "pages/me/me"
@@ -24,7 +25,7 @@
       }, {
         "selectedIconPath": "./images/nav-active/play.png",
         "iconPath": "./images/nav/play.png",
-        "pagePath": "pages/play/play",
+        "pagePath": "pages/pageturn/pageturn",
         "text": ""
       }, {
         "selectedIconPath": "./images/nav-active/v.png",
@@ -45,6 +46,10 @@
     "navigationBarTitleText": "轻享音乐",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "requiredBackgroundModes":["audio"],
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-card": "@vant/weapp/card/index"
+  }
 }

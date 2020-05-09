@@ -1,5 +1,5 @@
 .play-container {
-  padding: 40rpx 30rpx;
+  padding: 20rpx 30rpx 200rpx 30rpx;
   overflow: hidden;
 }
 
@@ -12,7 +12,10 @@
   width: 40rpx;
   height: 40rpx;
 }
-
+.play-top .right {
+  width: 40rpx;
+  height: 40rpx;
+}
 .play-player-name {
   width: 100%;
   text-align: center;
@@ -126,13 +129,51 @@ overflow: scroll;
   background-image: linear-gradient(-180deg,rgba(255,255,255,0) 0%,#fff 100%);
 }
 
-.play-song-option{
-  padding: 40rpx 0;
+.song-option{
+  padding: 30rpx 0;
   width: 100%;
   display: flex;
   justify-content:space-around
 }
-.play-song-option image{
+.song-option image{
   width: 60rpx;
   height: 60rpx;
+}
+.song-option .share{
+  width: 40rpx;
+  height: 40rpx;
+  padding-top: 10rpx;
+}
+.player-option{
+  padding: 30rpx 0;
+  width: 100%;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
+.player-option image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.player-option .player-play{
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.contentText{
+  width: 500rpx;
+  margin: 0 auto;
+  text-align: center;
+  color: #ccc;
+}
+.contentText text{
+  display: block;
+  
+}
+.currentTime{
+  color:#222222;
+}
+.player-song-lyrics-content scroll-view{
+  height: 690rpx;
 }

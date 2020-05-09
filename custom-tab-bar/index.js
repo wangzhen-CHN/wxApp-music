@@ -2,7 +2,7 @@ Component({
   data: {
     selected: 0,
     color: "#888d93",
-    selectedColor: "#3341d5",
+    selectedColor: "#19a6ff",
     borderStyle: "white",
     list: [
       {
@@ -18,7 +18,7 @@ Component({
       }, {
         "selectedIconPath": "../images/nav-active/play.png",
         "iconPath": "../images/nav/play.png",
-        "pagePath": "/pages/play/play",
+        "pagePath": "/pages/pageturn/pageturn",
         "text": ""
       }, {
         "selectedIconPath": "../images/nav-active/me.png",
@@ -33,7 +33,7 @@ Component({
       }
     ]
   },
-  // ready() {wx.switchTab({url:"/pages/play/play"})},
+  // ready() {wx.switchTab({url:"/pages/pageturn/pageturn"})},
   methods: {
     switch(e) {
       const data = e.currentTarget.dataset

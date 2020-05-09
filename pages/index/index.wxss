@@ -10,7 +10,7 @@
 .page-nav {
   padding: 20rpx;
   height: 200rpx;
-  background-color: #3341d5;
+  /* background-color: #3341d5; */
 }
 
 .nav {
@@ -196,4 +196,50 @@
   color: #555;
   letter-spacing: 2rpx;
   word-wrap: normal;
+}
+
+.music-list {
+  padding: 20rpx 20rpx;
+}
+
+.music-list-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+
+}
+
+.music-list-title .music-title-name {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.music-list-title .music-title-more {
+  font-size: 28rpx;
+  color: #444;
+}
+.music-car {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0;
+}
+.music-car-img {
+  margin-right: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.music-list image{
+  border-radius: 20rpx;
+  height: 120rpx;
+  width: 120rpx;
+}
+.music-car-word{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #444;
+  padding: 0 10rpx;
 }

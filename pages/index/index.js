@@ -9,16 +9,9 @@ Page({
     playlists: [],
     daySong: {},
     currentSwiper: 0,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  // bindViewTap: function () {
-  //   wx.navigateTo({
-  //     url: '../logs/logs'
-  //   })
-  // },
   onLoad: function () {
-    wx.setNavigationBarColor ({frontColor:'#ffffff',backgroundColor:'#3341d5'})
+    wx.setNavigationBarColor ({frontColor:'#000000',backgroundColor:'#f4f5f7'})
     Promise.all([
       api.get('/banner?type=2'),
       api.get('/personalized/newsong'),
