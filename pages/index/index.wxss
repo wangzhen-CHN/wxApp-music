@@ -5,6 +5,7 @@
   overflow: hidden;
   padding-bottom: 100rpx;
   background-color: #f4f5f7;
+  color: #2e3340;
 }
 
 .page-nav {
@@ -14,7 +15,7 @@
 }
 
 .nav {
-  color: #888d93;
+  color: #abb0bf;
   display: flex;
   flex-direction: row;
 }
@@ -157,23 +158,33 @@
 .music-recommend {
   padding: 20rpx 20rpx;
 }
-
-.music-recommend-top {
+.music-recommend-img{
+  position: relative;
+}
+.music-recommend-play{
+  position: absolute;
+  bottom: 15rpx;
+  left: 10rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.music-index-title {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   padding-bottom: 30rpx;
 
 }
 
-.music-recommend-title {
+.index-title-name {
   font-size: 40rpx;
   font-weight: 600;
 }
 
-.music-recommend-more {
-  font-size: 28rpx;
-  color: #444;
+.index-title-more {
+  font-size: 24rpx;
+  color: #abb0bf;
 }
 .music-recommend-ul{
   display: flex;
@@ -187,15 +198,15 @@
   margin-right: 10rpx;
 }
 .music-recommend-li image{
-  border-radius: 20rpx;
+  border-radius: 25rpx;
   height: 200rpx;
   width: 100%;
 }
 .music-recommend-name{
+  margin: 8rpx 0;
   font-size: 24rpx;
-  color: #555;
-  letter-spacing: 2rpx;
-  word-wrap: normal;
+  color: #2e3340;
+  line-height: 30rpx;
 }
 
 .music-list {
@@ -222,10 +233,11 @@
 .music-car {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   margin: 20rpx 0;
 }
 .music-car-img {
-  margin-right: 10rpx;
+  width: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -236,10 +248,32 @@
   width: 120rpx;
 }
 .music-car-word{
+  width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  letter-spacing: 1rpx;
   font-size: 28rpx;
   color: #444;
-  padding: 0 10rpx;
+  padding: 10rpx;
+}
+.music-car-option{
+  width: 20%;
+  color: #abb0bf;
+  display: flex;
+  margin-right: 10rpx;
+  justify-content: space-around;
+}
+.music-car-word .music-desc{
+  color: #abb0bf;
+  font-size: 24rpx;
+}
+.music-tag{
+  display: inline;
+  font-size: 18rpx;
+  border: 1px solid #19a6ff;
+  padding: 2rpx 4rpx;
+  border-radius: 6rpx;
+  color: #19a6ff;
+
 }

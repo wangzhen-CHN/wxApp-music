@@ -1,4 +1,3 @@
-
 .tab-bar {
   position: fixed;
   bottom: 0;
@@ -27,15 +26,51 @@
   height: 50rpx;
 }
 
-.tab-bar-item:nth-child(3) .cover-image {
-  width: 100rpx;
-  height: 100rpx;
+.tab-bar-item .cover-min {
+  position: relative;
+  margin-top: -30rpx;
+}
+
+.tab-bar-item .cover-min van-circle {
+  position: absolute;
+  left: 16rpx;
+  top: 16rpx;
+}
+
+.tab-bar-item .cover-min .cover-image {
+  width: 120rpx;
+  height: 120rpx;
   border-radius: 100%;
-  margin-top: -80rpx;
-  border: 10rpx solid #eee;
-  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.3)
+  border: 16rpx solid #fff;
+
 }
 
 .tab-bar-item .cover-view {
   font-size: 12px;
+}
+
+.play-animation {
+  animation: turn 20s linear infinite;
+}
+
+@keyframes turn {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(90deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(270deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }

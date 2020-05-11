@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<wxs module="filter" src="./filter.wxs"></wxs>
 <view class="container index-container">
 	<view class="page-nav">
 		<view class="nav">
@@ -6,10 +7,10 @@
 				<input class="search-input" placeholder-class="search-input-placeholder" placeholder="大家都在搜 麻雀 " />
 			</view>
 			<view class="nav-btn">
-				<image src="../../images/icon/music-a.png" />
+				<image src="../../images/icon/blue/music-a.png" />
 			</view>
 			<view class="nav-btn">
-				<image src="../../images/icon/more.png"></image>
+				<image src="../../images/icon/blue/more.png"></image>
 			</view>
 		</view>
 	</view>
@@ -35,55 +36,66 @@
 		</view>
 		<view class="option-list">
 			<view class="list-item">
-				<image src="../../images/icon/music-list.png"></image>
+				<image src="../../images/icon/blue/music-list.png"></image>
 				歌单
 			</view>
 			<view class="list-item">
-				<image src="../../images/icon/songer.png"></image>
+				<image src="../../images/icon/blue/songer.png"></image>
 				歌手
 			</view>
 			<view class="list-item">
-				<image src="../../images/icon/lisent.png"></image>
+				<image src="../../images/icon/blue/lisent.png"></image>
 				电台
 			</view>
 			<view class="list-item">
-				<image src="../../images/icon/love.png"></image>
+				<image src="../../images/icon/blue/love.png"></image>
 				猜你喜欢
 			</view>
 			<view class="list-item">
-				<image src="../../images/icon/sort.png"></image>
+				<image src="../../images/icon/blue/sort.png"></image>
 				排行
 			</view>
 			<view class="list-item">
-				<image src="../../images/icon/more.png"></image>
+				<image src="../../images/icon/blue/sort.png"></image>
 				更多
 			</view>
 		</view>
 	</view>
 	<view class="music-recommend">
-		<view class="music-recommend-top">
-			<view class="music-recommend-title">歌单推荐</view>
-			<view class="music-recommend-more">更多 ></view>
+		<view class="music-index-title">
+			<view class="index-title-name">歌单推荐</view>
+			<view class="index-title-more">查看全部 <van-icon name="arrow" color="#abb0bf"/></view>
 		</view>
 		<view class="music-recommend-ul">
 			<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key">
-				<image src="{{item.coverImgUrl}}"></image>
+				<view class="music-recommend-img">
+					<image src="{{item.coverImgUrl}}"></image>
+					<view class="music-recommend-play"><van-icon name="play" color="#fff"/>{{filter.toFixed(item.playCount/10000,1)}}万</view>
+				</view>
 				<view class="music-recommend-name">{{item.name}}</view>
 			</view>
 		</view>
 	</view>
 	<view class="music-list">
-		<view class="music-list-title">
-			<view class="music-title-name">热门单曲</view>
-			<view class="music-title-more">更多 ></view>
+		<view class="music-index-title">
+			<view class="index-title-name">热门单曲</view>
+			<view class="index-title-more">更多 <van-icon name="arrow" color="#abb0bf"/></view>
 		</view>
-		<view class="music-car" wx:for="{{playlists}}" wx:key="key">
+		<view class="music-car" wx:for="{{hotList}}" wx:key="key" data-music="{{item}}" bindtap="play">
 			<view class="music-car-img">
-				<image src="{{item.coverImgUrl}}"></image>
+				<image src="{{item.al.picUrl}}"></image>
 			</view>
 			<view class="music-car-word">
-				<view class="music-car-name">歌曲名称</view>
-				<view class="music-car-desc">{{item.name}}</view>
+				<view class="music-name">{{item.name}}</view>
+				<view class="music-desc">
+					<view wx:if="{{item.copyright === 0}}" class="music-tag">独家</view>
+					<!-- 0代表独家 1为否 -->
+					{{item.ar[0].name}} - {{item.al.name}}
+				</view>
+			</view>
+			<view class="music-car-option">
+				<van-icon name="like-o" />
+				<van-icon name="ellipsis" />
 			</view>
 		</view>
 	</view>

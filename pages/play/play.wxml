@@ -37,16 +37,16 @@
 		<image class="share" src="../../images/icon/share.png"></image>
 		<image src="../../images/icon/k.png"></image>
 		<image src="../../images/icon/discuss.png"></image>
-		<image src="../../images/icon/list.png"></image>
+		<image src="../../images/icon/more.png"></image>
 	</view>
 	<view class="progress-box">
-		<progress percent="100" color="#10AEFF" active duration="2000" stroke-width="3" />
+		<van-progress percentage="50" color="#19a6ff" pivot-text="●"/>
 	</view>
 
 	<view class="player-option">
 		<image src="../../images/icon/way.png"></image>
 		<image class="player-back" src="../../images/icon/player-back.png"></image>
-		<image class="player-play" bindtap="play" src="../../images/icon/play.png"></image>
+		<image class="player-play" bindtap="play" src="{{playBtn}}"></image>
 		<image class="player-go" src="../../images/icon/player-go.png"></image>
 		<image src="../../images/icon/list.png"></image>
 	</view>

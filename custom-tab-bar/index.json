@@ -1,3 +1,6 @@
 {
-  "component": true
+  "component": true,
+  "usingComponents": {
+    "van-circle": "@vant/weapp/circle/index"
+  }
 }

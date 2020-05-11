@@ -3,6 +3,10 @@ Component({
     selected: 0,
     color: "#888d93",
     selectedColor: "#19a6ff",
+    gradientColor: {
+      '0%': '#5bc2fe',
+      '100%': '#388ef5',
+    },
     borderStyle: "white",
     list: [
       {
@@ -19,6 +23,7 @@ Component({
         "selectedIconPath": "../images/nav-active/play.png",
         "iconPath": "../images/nav/play.png",
         "pagePath": "/pages/pageturn/pageturn",
+        "play":false,
         "text": ""
       }, {
         "selectedIconPath": "../images/nav-active/me.png",

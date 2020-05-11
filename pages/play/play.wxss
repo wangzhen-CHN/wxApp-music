@@ -128,7 +128,9 @@ overflow: scroll;
   bottom: 0;
   background-image: linear-gradient(-180deg,rgba(255,255,255,0) 0%,#fff 100%);
 }
-
+.progress-box{
+  margin: 20rpx;
+}
 .song-option{
   padding: 30rpx 0;
   width: 100%;
@@ -157,8 +159,8 @@ overflow: scroll;
 }
 
 .player-option .player-play{
-  width: 160rpx;
-  height: 160rpx;
+  width: 140rpx;
+  height: 140rpx;
 }
 
 .contentText{
@@ -175,5 +177,5 @@ overflow: scroll;
   color:#222222;
 }
 .player-song-lyrics-content scroll-view{
-  height: 690rpx;
+  height: 80rpx;
 }
