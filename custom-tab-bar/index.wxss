@@ -31,15 +31,15 @@
   margin-top: -30rpx;
 }
 
-.tab-bar-item .cover-min van-circle {
+/* .tab-bar-item .cover-min van-circle {
   position: absolute;
   left: 16rpx;
   top: 16rpx;
-}
+} */
 
 .tab-bar-item .cover-min .cover-image {
-  width: 120rpx;
-  height: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 100%;
   border: 16rpx solid #fff;
 

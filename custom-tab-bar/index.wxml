@@ -3,8 +3,8 @@
 	<view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switch">
 		<view wx:if="{{index===2}}" class="cover-min">
 			<image class="cover-image {{item.play?'play-animation':''}}" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
-			<van-circle value="10" color="{{ gradientColor }}" layer-color="rgba(238, 238, 238, 0.7)" class="van-circle" size="67" stroke-width="5" />
 		</view>
+
 		<view wx:else>
 			<image class="cover-image" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
 			<view class="cover-view" style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>

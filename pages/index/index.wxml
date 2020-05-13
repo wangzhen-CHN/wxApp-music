@@ -15,13 +15,15 @@
 		</view>
 	</view>
 	<view class="page-swiper swiper-view">
-		<swiper bindchange="swiperChange" autoplay="true" circular="true">
+		<view class="swiper-skeleton" wx:if="{{isloading}}"></view>
+		<swiper wx:else bindchange="swiperChange" autoplay="true" circular="true">
 			<block wx:for="{{banners}}" wx:key="key">
 				<swiper-item class="swiper-item">
 					<image src="{{item.pic}}"></image>
 				</swiper-item>
 			</block>
 		</swiper>
+
 		<view class="swiper-dots">
 			<block wx:for="{{banners}}" wx:key="key">
 				<view class="swiper-dot {{index == currentSwiper ? 'swiper-dot-active' : ''}}"></view>
@@ -56,7 +58,7 @@
 				排行
 			</view>
 			<view class="list-item">
-				<image src="../../images/icon/blue/sort.png"></image>
+				<image src="../../images/icon/blue/more.png"></image>
 				更多
 			</view>
 		</view>
@@ -64,22 +66,40 @@
 	<view class="music-recommend">
 		<view class="music-index-title">
 			<view class="index-title-name">歌单推荐</view>
-			<view class="index-title-more">查看全部 <van-icon name="arrow" color="#abb0bf"/></view>
-		</view>
-		<view class="music-recommend-ul">
-			<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key">
-				<view class="music-recommend-img">
-					<image src="{{item.coverImgUrl}}"></image>
-					<view class="music-recommend-play"><van-icon name="play" color="#fff"/>{{filter.toFixed(item.playCount/10000,1)}}万</view>
-				</view>
-				<view class="music-recommend-name">{{item.name}}</view>
+			<view class="index-title-more">查看全部
+				<van-icon name="arrow" color="#abb0bf" />
 			</view>
 		</view>
+		<van-skeleton row="10" loading="{{ isloading }}">
+			<view class="music-recommend-ul">
+				<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key">
+					<view class="music-recommend-img">
+						<image src="{{item.coverImgUrl}}"></image>
+						<view class="music-recommend-play">
+							<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/10000,1)}}万</view>
+					</view>
+					<view class="music-recommend-name">{{item.name}}</view>
+				</view>
+			</view>
+		</van-skeleton>
 	</view>
 	<view class="music-list">
 		<view class="music-index-title">
 			<view class="index-title-name">热门单曲</view>
-			<view class="index-title-more">更多 <van-icon name="arrow" color="#abb0bf"/></view>
+			<view class="index-title-more">更多
+				<van-icon name="arrow" color="#abb0bf" />
+			</view>
+		</view>
+		<view class="music-list-skeleton" wx:if="{{isloading}}">
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+		</view>
+		<!-- 小球 -->
+		<view class="good_box" hidden="{{hide_good_box}}" style="left: {{bus_x}}px; top: {{bus_y}}px;">
+			<image src="{{playMusicPicUrl}}"></image>
 		</view>
 		<view class="music-car" wx:for="{{hotList}}" wx:key="key" data-music="{{item}}" bindtap="play">
 			<view class="music-car-img">
