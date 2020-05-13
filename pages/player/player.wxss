@@ -57,7 +57,13 @@
   box-shadow: 0 0 30rpx 20rpx #3341d532;
   border-radius: 600rpx;
   overflow: hidden;
-  animation: turn 20s linear infinite;
+  animation: turn 25s linear infinite;
+}
+.player-song-animation-run{
+  animation-play-state:running;
+}
+.player-song-animation-pause{
+  animation-play-state:paused;
 }
 
 @keyframes turn {

@@ -1,7 +1,8 @@
 App({
   globalData: {
     ww: 0,
-    hh: 0
+    hh: 0,
+    PLAYER: {}
   },
   onLaunch: function () {
     //贝塞尔曲线

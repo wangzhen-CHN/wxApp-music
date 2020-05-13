@@ -301,7 +301,7 @@
 /* 小球 */
 
 /*抛物线动画*/
-.good_box {
+.fly_box {
   width: 40px;
   height: 40px;
   position: fixed;

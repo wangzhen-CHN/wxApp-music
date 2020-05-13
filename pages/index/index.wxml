@@ -98,14 +98,14 @@
 			<van-skeleton title avatar avatar-shape="square" row="1" />
 		</view>
 		<!-- 小球 -->
-		<view class="good_box" hidden="{{hide_good_box}}" style="left: {{bus_x}}px; top: {{bus_y}}px;">
+		<view class="fly_box" hidden="{{hide_fly_box}}" style="left: {{bus_x}}px; top: {{bus_y}}px;">
 			<image src="{{playMusicPicUrl}}"></image>
 		</view>
-		<view class="music-car" wx:for="{{hotList}}" wx:key="key" data-music="{{item}}" bindtap="play">
-			<view class="music-car-img">
+		<view class="music-car" wx:for="{{hotList}}" wx:key="key">
+			<view class="music-car-img"  data-music="{{item}}" bindtap="play">
 				<image src="{{item.al.picUrl}}"></image>
 			</view>
-			<view class="music-car-word">
+			<view class="music-car-word"  data-music="{{item}}" bindtap="play">
 				<view class="music-name">{{item.name}}</view>
 				<view class="music-desc">
 					<view wx:if="{{item.copyright === 0}}" class="music-tag">独家</view>

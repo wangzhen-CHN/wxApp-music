@@ -3,19 +3,19 @@
 	<!-- nav -->
 	<view class="play-top">
 		<image src="../../images/icon/down.png" bindtap="back"></image>
-		<view class="song-name">刀马旦</view>
+		<view class="song-name">{{music.name}}</view>
 		<view class="right"></view>
 		<!-- <image src="../../images/icon/share.png"></image> -->
 	</view>
-	<view class="play-player-name">- 周杰伦 -</view>
+	<view class="play-player-name">- {{music.ar[0].name}} -</view>
 	<view class="play-effect">
 		<view class="play-effect-item">音效</view>
 		<view class="play-effect-item">动感</view>
 		<view class="play-effect-item">MV</view>
 	</view>
 	<view class="player">
-		<view class="player-song-pic">
-			<image src="../../images/play.png"></image>
+		<view class="player-song-pic {{isplay?'player-song-animation-run':'player-song-animation-pause'}}">
+			<image src="{{music.al.picUrl||music.pic}}"></image>
 			<view class="player-song-pic-min"></view>
 		</view>
 		<view class="player-song-lyrics">
@@ -40,13 +40,13 @@
 		<image src="../../images/icon/more.png"></image>
 	</view>
 	<view class="progress-box">
-		<van-progress percentage="50" color="#19a6ff" pivot-text="●"/>
+		<van-progress percentage="50" color="#19a6ff" pivot-text="●" />
 	</view>
 
 	<view class="player-option">
 		<image src="../../images/icon/way.png"></image>
 		<image class="player-back" src="../../images/icon/player-back.png"></image>
-		<image class="player-play" bindtap="play" src="{{playBtn}}"></image>
+		<image class="player-play" bindtap="play" src="{{isplay?'../../images/icon/blue/pause.png':'../../images/icon/blue/play.png'}}"></image>
 		<image class="player-go" src="../../images/icon/player-go.png"></image>
 		<image src="../../images/icon/list.png"></image>
 	</view>

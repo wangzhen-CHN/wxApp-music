@@ -2,23 +2,23 @@
 //获取应用实例
 const api = require('../../utils/request.js')
 const app = getApp();
-
+// 初始化播放器
 const audioContext = wx.getBackgroundAudioManager();
 audioContext.title = "轻享云音"
 audioContext.obeyMuteSwitch = false;
-// audioContext.src = "https://music.163.com/song/media/outer/url?id=255020.mp3";
+app.globalData.PLAYER = audioContext;
 Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
     isloading: true,
-    playMusicPicUrl:'',
+    playMusicPicUrl: '',
     banners: [],
     playlists: [],
     daySong: {},
     currentSwiper: 0,
     // 小球
-    hide_good_box: true,
+    hide_fly_box: true,
   },
   onLoad: function () {
     wx.setNavigationBarColor({
@@ -59,17 +59,22 @@ Page({
   },
   play: function (e) {
     let music = e.currentTarget.dataset.music;
-    console.log("播放歌曲：",music)
+    console.log("播放歌曲：", music)
     audioContext.src = `https://music.163.com/song/media/outer/url?id=${music.id}.mp3`;
     audioContext.singer = music.ar[0].name;
-    audioContext.epname = music.al.name;
-    this.setData({"playMusicPicUrl":music.al.picUrl})
+    audioContext.title = music.name;
+    audioContext.epname = music.ar[0].name;
+    app.globalData.PLAYER.music = music;
+    app.globalData.PLAYER.isplay= true;
+    this.setData({
+      "playMusicPicUrl": music.al.picUrl
+    })
 
     setTimeout(() => {
       this.touchOnGoods(e)
     }, 50);
   },
-  animationEnd(e){
+  animationEnd(e) {
     let music = e.currentTarget.dataset.music;
     this.getTabBar().setData({
       'list[2]': {
@@ -82,8 +87,8 @@ Page({
     })
   },
   touchOnGoods: function (e) {
-    // 如果good_box正在运动
-    if (!this.data.hide_good_box) return;
+    // 如果fly_box正在运动
+    if (!this.data.hide_fly_box) return;
     this.finger = {};
     var topPoint = {};
     this.finger['x'] = e.touches["0"].clientX;
@@ -102,7 +107,7 @@ Page({
       that = this,
       bezier_points = that.linePos['bezier_points'];
     this.setData({
-      hide_good_box: false,
+      hide_fly_box: false,
       bus_x: that.finger['x'],
       bus_y: that.finger['y']
     })
@@ -116,7 +121,7 @@ Page({
         clearInterval(that.timer);
         that.animationEnd(e)
         that.setData({
-          hide_good_box: true,
+          hide_fly_box: true,
         })
       }
     }, 33);
