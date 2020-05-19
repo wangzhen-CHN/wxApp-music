@@ -79,7 +79,7 @@ Page({
     this.getTabBar().setData({
       'list[2]': {
         "iconPath": music.al.picUrl,
-        "pagePath": "/pages/pageturn/pageturn",
+        "pagePath": "/pages/player/player",
         "selectedIconPath": music.al.picUrl,
         "playTime": '200', //播放时长
         "play": true,

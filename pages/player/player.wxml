@@ -2,9 +2,9 @@
 <view class="container play-container">
 	<!-- nav -->
 	<view class="play-top">
-		<image src="../../images/icon/down.png" bindtap="back"></image>
+		<!-- <image src="../../images/icon/down.png" bindtap="back"></image> -->
 		<view class="song-name">{{music.name}}</view>
-		<view class="right"></view>
+		<!-- <view class="right"></view> -->
 		<!-- <image src="../../images/icon/share.png"></image> -->
 	</view>
 	<view class="play-player-name">- {{music.ar[0].name}} -</view>

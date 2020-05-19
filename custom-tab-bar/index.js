@@ -22,7 +22,7 @@ Component({
       }, {
         "selectedIconPath": "../images/nav-active/play.png",
         "iconPath": "../images/nav/play.png",
-        "pagePath": "/pages/pageturn/pageturn",
+        "pagePath": "/pages/player/player",
         "play":false,
         "text": ""
       }, {
@@ -38,12 +38,11 @@ Component({
       }
     ]
   },
-  // ready() {wx.switchTab({url:"/pages/pageturn/pageturn"})},
   methods: {
     switch(e) {
       const data = e.currentTarget.dataset
       const url = data.path
-      wx.switchTab({url})
+      wx.navigateTo({url})
       this.setData({
         selected: data.index
       })

@@ -20,11 +20,7 @@ Page({
     //当前正在第几行
     currentIndex222: 0
   },
-  back: function () {
-    wx.switchTab({
-      url: '/pages/index/index'
-    })
-  },
+
   // onReady:function(){
   //   audioContext.play();
   //   console.log(audioContext)
