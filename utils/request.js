@@ -1,5 +1,5 @@
-const baseUrl = 'http://106.14.46.131:4000';
-// const baseUrl = 'https://www.mo36.com';
+// const baseUrl = 'http://106.14.46.131:4000';
+const baseUrl = 'https://api.mo36.com';
 
  
 const http = ({ url = '', param = {}, ...other } = {}) => {
