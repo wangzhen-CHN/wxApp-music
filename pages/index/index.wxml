@@ -4,7 +4,7 @@
 	<view class="page-nav">
 		<view class="nav">
 			<view class="nav-input">
-				<input class="search-input" placeholder-class="search-input-placeholder" placeholder="大家都在搜 麻雀 " />
+				<input class="search-input" bindtap="goSearch" placeholder-class="search-input-placeholder" placeholder="{{searchDefaultWord}}" />
 			</view>
 			<view class="nav-btn">
 				<image src="../../images/icon/blue/music-a.png" />
@@ -75,8 +75,12 @@
 				<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key">
 					<view class="music-recommend-img">
 						<image src="{{item.coverImgUrl}}"></image>
-						<view class="music-recommend-play">
-							<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/10000,1)}}万</view>
+						<view class="music-recommend-play" wx:if="{{item.playCount>99999999}}">
+							<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/100000000,1)}}亿
+						</view>
+						<view class="music-recommend-play" wx:else>
+							<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/10000,1)}}万
+						</view>
 					</view>
 					<view class="music-recommend-name">{{item.name}}</view>
 				</view>
@@ -102,10 +106,10 @@
 			<image src="{{playMusicPicUrl}}"></image>
 		</view>
 		<view class="music-car" wx:for="{{hotList}}" wx:key="key">
-			<view class="music-car-img"  data-music="{{item}}" bindtap="play">
+			<view class="music-car-img" data-music="{{item}}" bindtap="play">
 				<image src="{{item.al.picUrl}}"></image>
 			</view>
-			<view class="music-car-word"  data-music="{{item}}" bindtap="play">
+			<view class="music-car-word" data-music="{{item}}" bindtap="play">
 				<view class="music-name">{{item.name}}</view>
 				<view class="music-desc">
 					<view wx:if="{{item.copyright === 0}}" class="music-tag">独家</view>
@@ -119,4 +123,8 @@
 			</view>
 		</view>
 	</view>
+	<van-popup show="{{ showSearch }}" position="left" custom-style="height: 100%;width:100%">
+		<van-search value="{{ searchWord }}" shape="round" placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" />
+		
+	</van-popup>
 </view>

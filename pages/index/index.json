@@ -1,4 +1,4 @@
 {
   "navigationBarTitleText": "轻享云音",
-  "usingComponents": {}
+  "usingComponents": {"van-popup": "@vant/weapp/popup/index","van-search": "@vant/weapp/search/index"}
 }

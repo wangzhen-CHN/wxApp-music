@@ -11,8 +11,11 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
+    showSearch:false,
     isloading: true,
     playMusicPicUrl: '',
+    searchWord:'',
+    searchDefaultWord:'',
     banners: [],
     playlists: [],
     daySong: {},
@@ -31,8 +34,9 @@ Page({
     Promise.all([
       api.get('/banner?type=2'), //banner
       api.get('/personalized/newsong'), // 新歌
-      api.get('/top/playlist?limit=7&cat=华语'), //歌单
+      api.get('/top/playlist?limit=7'), //歌单
       api.get('/top/list?idx=3'), //云音乐飙升榜
+      api.get('/search/default'), //推荐搜索
     ]).then(res => {
       res[2].playlists.shift()
       wx.hideLoading();
@@ -41,7 +45,8 @@ Page({
         banners: res[0].banners,
         daySong: res[1].result[0],
         playlists: res[2].playlists,
-        hotList: res[3].playlist.tracks
+        hotList: res[3].playlist.tracks,
+        searchDefaultWord:res[4].data.showKeyword
       })
 
     }).catch(e => {
@@ -125,6 +130,12 @@ Page({
         })
       }
     }, 33);
+  },
+  goSearch(){
+    this.setData({showSearch:true})
+  },
+  onCloseSearch() {
+    this.setData({ showSearch: false });
   },
 
 })

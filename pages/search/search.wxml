@@ -1,4 +1,7 @@
 <!--logs.wxml-->
-<view class="page-me">
-  search
+<view class="page-search">
+	<view class="search-box">
+		<input class="search-input" auto-focus="true" placeholder="{{searchWord}}" placeholder-class="search-input-placeholder" />
+    <view class="search-cancel">取消</view>
+	</view>
 </view>

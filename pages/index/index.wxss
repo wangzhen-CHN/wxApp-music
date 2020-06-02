@@ -169,8 +169,8 @@
 
 .music-recommend-play {
   position: absolute;
-  bottom: 15rpx;
-  left: 10rpx;
+  top: 0;
+  right: 15rpx;
   color: #fff;
   font-size: 24rpx;
 }

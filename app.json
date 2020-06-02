@@ -4,6 +4,7 @@
     "pages/player/player",
     "pages/logs/logs",
     "pages/video/video",
+    "pages/search/search",
     "pages/me/me"
   ],
   "tabBar": {
