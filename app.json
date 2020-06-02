@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/player/player",
-    "pages/pageturn/pageturn",
     "pages/logs/logs",
     "pages/video/video",
     "pages/me/me"
@@ -25,7 +24,7 @@
       }, {
         "selectedIconPath": "./images/nav-active/play.png",
         "iconPath": "./images/nav/play.png",
-        "pagePath": "pages/pageturn/pageturn",
+        "pagePath": "pages/index/index",
         "text": ""
       }, {
         "selectedIconPath": "./images/nav-active/v.png",
