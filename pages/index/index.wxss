@@ -298,6 +298,7 @@
   border-radius: 6rpx;
   color: #19a6ff;
 }
+
 /* 小球 */
 
 /*抛物线动画*/
@@ -309,4 +310,87 @@
   overflow: hidden;
   left: 50%;
   top: 50%;
+}
+
+.hot-search-item .van-grid-item__content {
+  padding: 0;
+}
+
+.hot-search-cell-label {
+  font-size: 10px !important;
+  font-size: var(--cell-label-font-size, 10px) !important;
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp:1;
+  -webkit-box-orient: vertical; 
+  letter-spacing: 1rpx;
+}
+
+.hot-grid {
+  counter-reset: index;
+}
+
+.van-grid-item {
+  position: relative;
+  padding-left: 10px;
+}
+
+.van-grid-item:before {
+  content: counter(index);
+  counter-increment: index;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  z-index: 99;
+  font-size: 16px;
+  text-align: center;
+  line-height: 20px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 10px);
+  color: #969799;
+}
+
+.van-grid .search-grid-item:nth-child(-n+3) .van-cell__title {
+  color: #000;
+  font-size: 15px;
+}
+
+.van-grid .search-grid-item:nth-child(-n+3) .van-grid-item:before {
+  color: #47a8ef;
+}
+
+.hot-tag,
+.new-tag {
+  font-size: 15px;
+  padding-left: 15rpx;
+  display: inline-block;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.hot-tag {
+  color: red;
+}
+
+.new-tag {
+  color: green;
+}
+
+.search-cell-title {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-cell-main {
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp:1;
+  -webkit-box-orient: vertical; 
 }

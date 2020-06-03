@@ -11,11 +11,13 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    showSearch:false,
+    showSearch: false,
     isloading: true,
     playMusicPicUrl: '',
-    searchWord:'',
-    searchDefaultWord:'',
+    searchWord: '',
+    searchDefaultWord: '',
+    hotSearchList: [],
+    searchMusicList: [],
     banners: [],
     playlists: [],
     daySong: {},
@@ -46,9 +48,14 @@ Page({
         daySong: res[1].result[0],
         playlists: res[2].playlists,
         hotList: res[3].playlist.tracks,
-        searchDefaultWord:res[4].data.showKeyword
+        searchDefaultWord: res[4].data.showKeyword
       })
-
+      // 获取热搜词
+      api.get('/search/hot/detail').then(res => {
+        this.setData({
+          'hotSearchList': res.data
+        })
+      })
     }).catch(e => {
       console.log(e)
     })
@@ -65,12 +72,13 @@ Page({
   play: function (e) {
     let music = e.currentTarget.dataset.music;
     console.log("播放歌曲：", music)
+    console.log("播放歌曲ID：", music.id)
     audioContext.src = `https://music.163.com/song/media/outer/url?id=${music.id}.mp3`;
     audioContext.singer = music.ar[0].name;
     audioContext.title = music.name;
     audioContext.epname = music.ar[0].name;
     app.globalData.PLAYER.music = music;
-    app.globalData.PLAYER.isplay= true;
+    app.globalData.PLAYER.isplay = true;
     this.setData({
       "playMusicPicUrl": music.al.picUrl
     })
@@ -81,6 +89,7 @@ Page({
   },
   animationEnd(e) {
     let music = e.currentTarget.dataset.music;
+    console.log('-----',music)
     this.getTabBar().setData({
       'list[2]': {
         "iconPath": music.al.picUrl,
@@ -131,11 +140,51 @@ Page({
       }
     }, 33);
   },
-  goSearch(){
-    this.setData({showSearch:true})
+  goSearchPage() {
+    this.setData({
+      showSearch: true
+    })
   },
   onCloseSearch() {
-    this.setData({ showSearch: false });
+    this.setData({
+      showSearch: false
+    });
   },
+  onSearch(val) {
+    // api.get('/search/suggest?type=mobile&keywords='+val.detail).then(res => {
+    // 获取热搜词
+    wx.showLoading({
+      title: '正在搜索..'
+    });
+    api.get('/search?limit=10&keywords='+val.detail).then(res => {
+      console.log(res.result.songs)
+      this.setData({
+        'searchMusicList': res.result.songs
+      })
+      wx.hideLoading();
+    })
+  },
+  playHot(e) {console.log(e.currentTarget.dataset.music)},
+  playSearch(e){
+    let music = e.currentTarget.dataset.music;
+    console.log("播放歌曲：", music)
+    console.log("播放歌曲ID：", music.id)
+    audioContext.src = `https://music.163.com/song/media/outer/url?id=${music.id}.mp3`;
+    audioContext.singer = music.artists[0].name;
+    audioContext.title = music.name;
+    audioContext.epname = music.artists[0].name;
+    app.globalData.PLAYER.music = music;
+    app.globalData.PLAYER.isplay = true;
+    this.setData({
+      "playMusicPicUrl": music.artists[0].img1v1Url
+    })
+
+    e.currentTarget.dataset.music.al={picUrl:''}
+    e.currentTarget.dataset.music.al.picUrl=music.artists[0].img1v1Url
+
+    setTimeout(() => {
+      this.touchOnGoods(e)
+    }, 50);
+  }
 
 })

@@ -4,7 +4,7 @@
 	<view class="page-nav">
 		<view class="nav">
 			<view class="nav-input">
-				<input class="search-input" bindtap="goSearch" placeholder-class="search-input-placeholder" placeholder="{{searchDefaultWord}}" />
+				<input class="search-input" bindtap="goSearchPage" disabled placeholder-class="search-input-placeholder" placeholder="{{searchDefaultWord}}" />
 			</view>
 			<view class="nav-btn">
 				<image src="../../images/icon/blue/music-a.png" />
@@ -123,8 +123,33 @@
 			</view>
 		</view>
 	</view>
-	<van-popup show="{{ showSearch }}" position="left" custom-style="height: 100%;width:100%">
-		<van-search value="{{ searchWord }}" shape="round" placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" />
-		
+	<van-popup show="{{ showSearch }}" position="left" custom-style="height: 100%;width:100%;padding:0 20rpx">
+		<van-search shape="round" focus placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" />
+		<view wx:if="{{searchMusicList.length===0}}">
+			<view>热搜榜</view>
+			<van-grid column-num="2" border="{{ false }}" class="hot-grid">
+				<van-grid-item use-slot wx:for="{{hotSearchList}}" wx:key="key" class="search-grid-item" custom-class="hot-search-item">
+					<van-cell center label="{{item.content}}" data-music="{{item}}" bindtap="playHot" label-class="hot-search-cell-label" style="width:100%" border="{{ false }}" center="{{ false }}">
+						<view slot="title" class="search-cell-title">
+							<view class="search-cell-main">{{item.searchWord}}</view>
+							<view class="hot-tag" wx:if="{{item.iconType===1}}">HOT</view>
+							<view class="new-tag" wx:if="{{item.iconType===2}}">NEW</view>
+						</view>
+					</van-cell>
+				</van-grid-item>
+			</van-grid>
+		</view>
+		<view wx:else class="music-list">
+			<van-cell-group>
+			单曲
+			<van-divider />
+				<van-cell title="{{item.name}}"  use-label-slot wx:for="{{searchMusicList}}" wx:key="key" data-music="{{item}}" bindtap="playSearch">
+					<view slot="label">
+						<view wx:if="{{item.copyrightId === 0}}" class="music-tag">独家</view>{{item.artist.name}} - {{item.name}}
+					</view>
+					<van-icon slot="right-icon" name="ellipsis" class="custom-icon" />
+				</van-cell>
+			</van-cell-group>
+		</view>
 	</van-popup>
 </view>
