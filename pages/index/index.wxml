@@ -145,7 +145,7 @@
 			<van-divider />
 				<van-cell title="{{item.name}}"  use-label-slot wx:for="{{searchMusicList}}" wx:key="key" data-music="{{item}}" bindtap="playSearch">
 					<view slot="label">
-						<view wx:if="{{item.copyrightId === 0}}" class="music-tag">独家</view>{{item.artist.name}} - {{item.name}}
+						<view wx:if="{{item.copyrightId === 0}}" class="music-tag">独家</view>{{item.artists[0].name}} - {{item.name}}
 					</view>
 					<van-icon slot="right-icon" name="ellipsis" class="custom-icon" />
 				</van-cell>
