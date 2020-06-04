@@ -6,6 +6,15 @@ const app = getApp();
 const audioContext = wx.getBackgroundAudioManager();
 audioContext.title = "轻享云音"
 audioContext.obeyMuteSwitch = false;
+audioContext.onEnded(end => {
+  console.log('播放结束')
+  const list = [1452439191, 1442508316,  1430850573, 1433984099,  1452484607, 1426649237,  1436936781, 1297750680, 1420075778, 1422932470 ]
+  list[parseInt(10 * Math.random())]
+  audioContext.src = `https://music.163.com/song/media/outer/url?id=${list[parseInt(10 * Math.random())]}.mp3`;
+})
+audioContext.onPause(onPause => {
+  console.log('播放暂停')
+})
 app.globalData.PLAYER = audioContext;
 Page({
   data: {
@@ -45,7 +54,10 @@ Page({
       this.setData({
         isloading: false,
         banners: res[0].banners,
-        daySong: res[1].result[0],
+        daySong: {
+          ...res[1].result[0],
+          picUrl: res[1].result[0].picUrl + '?param=120y120'
+        },
         playlists: res[2].playlists,
         hotList: res[3].playlist.tracks,
         searchDefaultWord: res[4].data.showKeyword
@@ -89,7 +101,7 @@ Page({
   },
   animationEnd(e) {
     let music = e.currentTarget.dataset.music;
-    console.log('-----',music)
+    console.log('播放歌曲', music)
     this.getTabBar().setData({
       'list[2]': {
         "iconPath": music.al.picUrl,
@@ -156,7 +168,7 @@ Page({
     wx.showLoading({
       title: '正在搜索..'
     });
-    api.get('/search?limit=10&keywords='+val.detail).then(res => {
+    api.get('/search?limit=10&keywords=' + val.detail).then(res => {
       console.log(res.result.songs)
       this.setData({
         'searchMusicList': res.result.songs
@@ -164,11 +176,13 @@ Page({
       wx.hideLoading();
     })
   },
-  playHot(e) {console.log(e.currentTarget.dataset.music)},
-  playSearch(e){
+  searchHot(e) {
+    this.onSearch({
+      detail: e.currentTarget.dataset.word
+    })
+  },
+  playSearch(e) {
     let music = e.currentTarget.dataset.music;
-    console.log("播放歌曲：", music)
-    console.log("播放歌曲ID：", music.id)
     audioContext.src = `https://music.163.com/song/media/outer/url?id=${music.id}.mp3`;
     audioContext.singer = music.artists[0].name;
     audioContext.title = music.name;
@@ -176,11 +190,11 @@ Page({
     app.globalData.PLAYER.music = music;
     app.globalData.PLAYER.isplay = true;
     this.setData({
-      "playMusicPicUrl": music.artists[0].img1v1Url
+      "playMusicPicUrl": ''
     })
-
-    e.currentTarget.dataset.music.al={picUrl:''}
-    e.currentTarget.dataset.music.al.picUrl=music.artists[0].img1v1Url
+    e.currentTarget.dataset.music.al = {
+      picUrl: 'https://mo36.com/play.png'
+    }
 
     setTimeout(() => {
       this.touchOnGoods(e)

@@ -220,6 +220,7 @@
 
 .music-list {
   padding: 20rpx 20rpx;
+  margin-bottom: 100px;
 }
 
 .music-list-title {
@@ -324,8 +325,8 @@
   white-space: normal;
   text-overflow: ellipsis;
   word-wrap: break-word;
-  -webkit-line-clamp:1;
-  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   letter-spacing: 1rpx;
 }
 
@@ -391,6 +392,24 @@
   white-space: normal;
   text-overflow: ellipsis;
   word-wrap: break-word;
-  -webkit-line-clamp:1;
-  -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.music-list .item-label {
+  display: flex;
+  align-items: center;
+}
+
+.music-list .music-tag {
+  margin-right: 10rpx;
+  padding: 0 4rpx;
+  height: 14px;
+  width: 18px;
+  line-height: 14px;
+  text-align: center;
+}
+
+.music-list .custom-icon {
+  font-size: 24rpx;
 }
