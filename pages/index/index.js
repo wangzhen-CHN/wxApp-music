@@ -60,7 +60,8 @@ Page({
         },
         playlists: res[2].playlists,
         hotList: res[3].playlist.tracks,
-        searchDefaultWord: res[4].data.showKeyword
+        searchDefaultWord: res[4].data.showKeyword,
+        searchWord: res[4].data.showKeyword
       })
       // 获取热搜词
       api.get('/search/hot/detail').then(res => {
@@ -159,7 +160,14 @@ Page({
   },
   onCloseSearch() {
     this.setData({
-      showSearch: false
+      showSearch: false,
+      searchWord:this.data.searchDefaultWord,
+      searchMusicList:[]
+    });
+  },
+  onClearSearch() {
+    this.setData({
+      searchMusicList:[]
     });
   },
   onSearch(val) {
@@ -168,7 +176,10 @@ Page({
     wx.showLoading({
       title: '正在搜索..'
     });
-    api.get('/search?limit=10&keywords=' + val.detail).then(res => {
+    this.setData({
+      'searchWord':val.detail?val.detail:this.data.searchDefaultWord
+    })
+    api.get('/search?limit=10&keywords=' + this.data.searchWord).then(res => {
       console.log(res.result.songs)
       this.setData({
         'searchMusicList': res.result.songs

@@ -404,6 +404,7 @@
 .music-list .music-tag {
   margin-right: 10rpx;
   padding: 0 4rpx;
+  font-size: 16rpx;
   height: 14px;
   width: 18px;
   line-height: 14px;

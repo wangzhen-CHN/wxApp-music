@@ -124,7 +124,7 @@
 		</view>
 	</view>
 	<van-popup show="{{ showSearch }}" position="left" custom-style="height: 100%;width:100%;padding:0 20rpx">
-			<van-search shape="round" focus value="天下" placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" />
+			<van-search shape="round" focus placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" bind:clear="onClearSearch" />
 		<view wx:if="{{searchMusicList.length===0}}">
 			<view>热搜榜</view>
 			<van-grid column-num="2" border="{{ false }}" class="hot-grid">
