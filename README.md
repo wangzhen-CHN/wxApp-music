@@ -14,10 +14,7 @@
 
 体验
 
-![index](https://mo36.com/music/images/index.jpg)
-
-![hotList](https://mo36.com/music/images/hotList.jpg)
-
-![searchList](https://mo36.com/music/images/searchList.jpg)
-
-![player](https://mo36.com/music/images/player.jpg)
+index![index](https://mo36.com/music/images/index.jpg)
+hotList![hotList](https://mo36.com/music/images/hotList.jpg)
+searchList![searchList](https://mo36.com/music/images/searchList.jpg)
+player![player](https://mo36.com/music/images/player.jpg)
