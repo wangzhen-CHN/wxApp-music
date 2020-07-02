@@ -194,15 +194,19 @@
   color: #abb0bf;
 }
 
+.music-recommend-box {
+  width: 100%;
+  overflow-x: scroll;
+}
+
 .music-recommend-ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  white-space: nowrap
 }
 
 .music-recommend-li {
   width: 30%;
+  padding-right: 3%;
+  display: inline-block;
 }
 
 .music-recommend-li image {
@@ -216,6 +220,13 @@
   font-size: 24rpx;
   color: #2e3340;
   line-height: 30rpx;
+  height: 60rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .music-list {

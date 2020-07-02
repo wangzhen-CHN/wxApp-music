@@ -45,11 +45,10 @@ Page({
     Promise.all([
       api.get('/banner?type=2'), //banner
       api.get('/personalized/newsong'), // 新歌
-      api.get('/top/playlist?limit=7'), //歌单
+      api.get('/top/playlist?limit=13'), //歌单
       api.get('/top/list?idx=3'), //云音乐飙升榜
       api.get('/search/default'), //推荐搜索
     ]).then(res => {
-      res[2].playlists.shift()
       wx.hideLoading();
       this.setData({
         isloading: false,

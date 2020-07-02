@@ -70,19 +70,21 @@
 				<van-icon name="arrow" color="#abb0bf" />
 			</view>
 		</view>
-		<van-skeleton row="10" loading="{{ isloading }}">
-			<view class="music-recommend-ul">
-				<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key">
-					<view class="music-recommend-img">
-						<image src="{{item.coverImgUrl}}?param=150y150"></image>
-						<view class="music-recommend-play" wx:if="{{item.playCount>99999999}}">
-							<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/100000000,1)}}亿
+		<van-skeleton row="6" loading="{{ isloading }}">
+			<view class="music-recommend-box">
+				<view class="music-recommend-ul">
+					<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key">
+						<view class="music-recommend-img">
+							<image src="{{item.coverImgUrl}}?param=150y150"></image>
+							<view class="music-recommend-play" wx:if="{{item.playCount>99999999}}">
+								<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/100000000,1)}}亿
+							</view>
+							<view class="music-recommend-play" wx:else>
+								<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/10000,1)}}万
+							</view>
 						</view>
-						<view class="music-recommend-play" wx:else>
-							<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/10000,1)}}万
-						</view>
+						<view class="music-recommend-name">{{item.name}}</view>
 					</view>
-					<view class="music-recommend-name">{{item.name}}</view>
 				</view>
 			</view>
 		</van-skeleton>
@@ -124,7 +126,7 @@
 		</view>
 	</view>
 	<van-popup show="{{ showSearch }}" position="left" custom-style="height: 100%;width:100%;padding:0 20rpx">
-			<van-search shape="round" focus placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" bind:clear="onClearSearch" />
+		<van-search shape="round" focus placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" bind:clear="onClearSearch" />
 		<view wx:if="{{searchMusicList.length===0}}">
 			<view>热搜榜</view>
 			<van-grid column-num="2" border="{{ false }}" class="hot-grid">
@@ -146,12 +148,12 @@
 				<van-cell title="{{item.name}}" use-label-slot wx:for="{{searchMusicList}}" wx:key="key" data-music="{{item}}" bindtap="playSearch">
 					<view slot="label" class="item-label">
 						<!-- <view wx:if="{{item.album.copyrightId>0}}" class="music-tag">原唱</view> -->
-						<view wx:if="{{item.fee === 8}}" class="music-tag">独家</view>
+						<view wx:if="{{item.fee === 1}}" class="music-tag">VIP</view>
 						<!-- <view wx:if="{{item.copyrightId !== 0}}" class="music-tag" style="letter-spacing: 3rpx;">SQ</view> -->
 						<view wx:for="{{item.artists}}" wx:key="key" style="margin-right:4px">{{item.name}}</view>
 						<view style="padding-left:4px">- {{item.album.name}}</view>
 					</view>
-					<van-icon wx:if="{{item.mvid !== 0}}" slot="right-icon" name="video-o" size="24px" color="#aaa" style="margin-right:26px"/>
+					<van-icon wx:if="{{item.mvid !== 0}}" slot="right-icon" name="video-o" size="24px" color="#aaa" style="margin-right:26px" />
 					<van-icon slot="right-icon" name="music-o" size="24px" color="#aaa" class="custom-icon" />
 				</van-cell>
 			</van-cell-group>
