@@ -1,20 +1,34 @@
-# MiniProgram-music
+<p align="center">
+  <a href="https://ant.design">
+    <img width="200" src="https://mo36.com/music/images/logo.png">
+  </a>
+</p>
 
-微信小程序-轻享云音
+<h3 align="center">在线播放音乐的微信小程序</h3>
 
-> 小程序：微信小程序原生
+## ✨   说明
 
-> api: nodejs 
+- 技术： 微信小程序
 
-[QQ音乐API koa2实现版本](https://rain120.github.io/qq-music-api/#/ "QQ音乐API koa2实现版本") 
 
-[网易云音乐 NodeJS 版 API](https://binaryify.github.io/NeteaseCloudMusicApi/#/ "网易云音乐 NodeJS 版 API") 
+-  API： [网易云音乐 NodeJS 版 API](https://binaryify.github.io/NeteaseCloudMusicApi/#/ "网易云音乐 NodeJS 版 API") 
 
-> UI: [酷狗音乐重设与思考](https://www.zcool.com.cn/work/ZNDQyMzgyNDg=.html "酷狗音乐重设与思考")
 
-体验
+-  UI参考：  [酷狗音乐重设与思考](https://www.zcool.com.cn/work/ZNDQyMzgyNDg=.html "酷狗音乐重设与思考")
 
-![app](https://mo36.com/music/images/index.jpg)
-![app](https://mo36.com/music/images/hotList.jpg)
-![app](https://mo36.com/music/images/searchList.jpg)
-![app](https://mo36.com/music/images/player.jpg)
+## ❤️ 关于上线
+
+- 目前微信暂不允许个人上架音乐类APP
+
+
+- 可用过微信扫描二维码申请体验版，我看到后会通过的
+
+ ![code](https://mo36.com/music/images/code.png)
+
+## 🌈 预览
+
+首页![index](https://mo36.com/music/images/index.jpg)
+热搜![hotList](https://mo36.com/music/images/hotList.jpg)
+
+搜索![searchList](https://mo36.com/music/images/searchList.jpg)
+播放![player](https://mo36.com/music/images/player.jpg)
