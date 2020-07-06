@@ -49,9 +49,5 @@
   "requiredBackgroundModes":["audio"],
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "van-icon": "@vant/weapp/icon/index",
-    "van-card": "@vant/weapp/card/index",
-    "van-circle": "@vant/weapp/circle/index",
-    "van-skeleton": "@vant/weapp/skeleton/index"
   }
 }

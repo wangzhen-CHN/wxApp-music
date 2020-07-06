@@ -42,7 +42,9 @@ Component({
     switch(e) {
       const data = e.currentTarget.dataset
       const url = data.path
-      wx.navigateTo({url})
+      console.log(data.index)
+      console.log(url)
+      wx.switchTab({url})
       this.setData({
         selected: data.index
       })

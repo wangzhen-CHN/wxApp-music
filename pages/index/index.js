@@ -95,9 +95,9 @@ Page({
       "playMusicPicUrl": music.al.picUrl
     })
 
-    setTimeout(() => {
-      this.touchOnGoods(e)
-    }, 50);
+    // setTimeout(() => {
+    //   this.touchOnGoods(e)
+    // }, 50);
   },
   animationEnd(e) {
     let music = e.currentTarget.dataset.music;

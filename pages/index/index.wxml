@@ -103,10 +103,6 @@
 			<van-skeleton title avatar avatar-shape="square" row="1" />
 			<van-skeleton title avatar avatar-shape="square" row="1" />
 		</view>
-		<!-- 小球 -->
-		<view class="fly_box" hidden="{{hide_fly_box}}" style="left: {{bus_x}}px; top: {{bus_y}}px;">
-			<image src="{{playMusicPicUrl}}"></image>
-		</view>
 		<view class="music-car" wx:for="{{hotList}}" wx:key="key">
 			<view class="music-car-img" data-music="{{item}}" bindtap="play">
 				<image src="{{item.al.picUrl}}?param=100y100"></image>
@@ -126,7 +122,7 @@
 		</view>
 	</view>
 	<van-popup show="{{ showSearch }}" position="left" custom-style="height: 100%;width:100%;padding:0 20rpx">
-		<van-search shape="round" focus placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" bind:clear="onClearSearch" />
+		<van-search shape="round" clearable placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" bind:clear="onClearSearch" />
 		<view wx:if="{{searchMusicList.length===0}}">
 			<view>热搜榜</view>
 			<van-grid column-num="2" border="{{ false }}" class="hot-grid">

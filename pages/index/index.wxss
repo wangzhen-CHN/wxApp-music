@@ -198,9 +198,9 @@
   width: 100%;
   overflow-x: scroll;
 }
-
+.music-recommend-box::-webkit-scrollbar {display:none}
 .music-recommend-ul {
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 .music-recommend-li {
