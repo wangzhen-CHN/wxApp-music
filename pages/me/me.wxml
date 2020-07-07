@@ -1,4 +1,26 @@
 <!--logs.wxml-->
 <view class="page-me">
-  me
+	<view class="logo">
+		<image src="../../images/logo.png"></image>
+	</view>
+	<view class="login-word">
+		手机号登陆
+	</view>
+	<view>
+		<form catchsubmit="formSubmit" class="login-form">
+			<view class="page-section">
+					<input class="login-input" placeholder-class="login-input-placeholder" name="input" placeholder="请输入手机号" />
+          <input class="login-input" placeholder-class="login-input-placeholder" name="password" type="password"  placeholder="请输入密码" />
+			</view>
+			<view class="btn-area">
+				<van-button round type="info" formType="submit" block color="linear-gradient(to right, #82d6fe, #1ca7ff)">登录</van-button>
+			</view>
+      <view class="login-way">
+				  <view class="login-way-img"><image src="../../images/icon/login-wx.png"></image></view>
+          <view class="login-way-img"><image src="../../images/icon/login-qq.png"></image></view>
+          <view class="login-way-img"><image src="../../images/icon/login-tel.png"></image></view>
+          <view class="login-way-img"><image src="../../images/icon/login-email.png"></image></view>
+			</view>
+		</form>
+	</view>
 </view>

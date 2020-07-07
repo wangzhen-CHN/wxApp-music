@@ -44,10 +44,10 @@ Component({
       const url = data.path
       console.log(data.index)
       console.log(url)
-      wx.switchTab({url})
-      this.setData({
-        selected: data.index
-      })
+      url==='/pages/player/player'?wx.navigateTo({url}):wx.switchTab({url})
+      // this.setData({
+      //   selected: data.index
+      // })
     }
   }
 })

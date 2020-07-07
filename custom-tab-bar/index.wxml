@@ -7,7 +7,6 @@
 
 		<view wx:else>
 			<image class="cover-image" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
-			{{selected}}
 			<view class="cover-view" style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
 		</view>
 	</view>

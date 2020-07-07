@@ -1,15 +1,5 @@
 {
   "navigationBarTitleText": "轻享云音",
   "usingComponents": {
-    "van-popup": "@vant/weapp/popup/index",
-    "van-search": "@vant/weapp/search/index",
-    "van-grid": "@vant/weapp/grid/index",
-    "van-cell": "@vant/weapp/cell/index",
-    "van-divider": "@vant/weapp/divider/index",
-    "van-grid-item": "@vant/weapp/grid-item/index",
-    "van-icon": "@vant/weapp/icon/index",
-    "van-card": "@vant/weapp/card/index",
-    "van-circle": "@vant/weapp/circle/index",
-    "van-skeleton": "@vant/weapp/skeleton/index"
   }
 }

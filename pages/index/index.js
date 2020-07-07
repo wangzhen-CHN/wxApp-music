@@ -34,6 +34,13 @@ Page({
     // 小球
     hide_fly_box: true,
   },
+  onShow: function () {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
+  },
   onLoad: function () {
     wx.setNavigationBarColor({
       frontColor: '#000000',

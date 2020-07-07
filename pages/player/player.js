@@ -7,10 +7,10 @@ const app = getApp();
 Page({
   data: {
     isplay: false,
-    audioContext:{},
+    audioContext: {},
     music: {
-      name:"暂无歌曲",
-      pic:'../../images/nav/play.png'
+      name: "暂无歌曲",
+      pic: '../../images/nav/play.png'
     },
     lrcDir: "",
     //文稿数组，转化完成用来在wxml中使用
@@ -20,7 +20,13 @@ Page({
     //当前正在第几行
     currentIndex222: 0
   },
-
+  onShow: function () {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 2
+      })
+    }
+  },
   // onReady:function(){
   //   audioContext.play();
   //   console.log(audioContext)
@@ -29,7 +35,7 @@ Page({
     this.setData({
       music: app.globalData.PLAYER.music,
       isplay: app.globalData.PLAYER.isplay,
-      audioContext : app.globalData.PLAYER
+      audioContext: app.globalData.PLAYER
     })
     //歌词
     // var that = this
@@ -73,13 +79,13 @@ Page({
       this.setData({
         isplay: false,
       })
-      app.globalData.PLAYER.isplay=false
+      app.globalData.PLAYER.isplay = false
       app.globalData.PLAYER.pause();
     } else {
       this.setData({
         isplay: true,
       })
-      app.globalData.PLAYER.isplay=true
+      app.globalData.PLAYER.isplay = true
       app.globalData.PLAYER.play();
 
     }
