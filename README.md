@@ -27,8 +27,8 @@
 
 ## 🌈 预览
 
-首页![index](https://mo36.com/music/images/index.jpg)
-热搜![hotList](https://mo36.com/music/images/hotList.jpg)
+首页![index](http://img.mo36.com/index.jpg)
+热搜![hotList](http://img.mo36.com/hotList.jpg)
 
-搜索![searchList](https://mo36.com/music/images/searchList.jpg)
-播放![player](https://mo36.com/music/images/player.jpg)
+搜索![searchList](http://img.mo36.com/searchList.jpg)
+播放![player](http://img.mo36.com/images/player.jpg)
