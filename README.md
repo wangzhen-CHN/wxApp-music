@@ -29,4 +29,4 @@
 热搜![hotList](http://img.mo36.com/hotList.jpg)
 
 搜索![searchList](http://img.mo36.com/searchList.jpg)
-播放![player](http://img.mo36.com/images/player.jpg)
+播放![player](http://img.mo36.com/player.jpg)
