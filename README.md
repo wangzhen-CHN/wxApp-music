@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://ant.design">
-    <img width="200" src="https://mo36.com/music/images/logo.png">
+    <img width="200" src="http://img.mo36.com/logo.png">
   </a>
 </p>
 
