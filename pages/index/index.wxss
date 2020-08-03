@@ -201,12 +201,15 @@
 .music-recommend-box::-webkit-scrollbar {display:none}
 .music-recommend-ul {
   white-space: nowrap;
+  display: flex;
+
 }
 
 .music-recommend-li {
   width: 30%;
   padding-right: 3%;
   display: inline-block;
+  min-width: 28vw;
 }
 
 .music-recommend-li image {
@@ -323,22 +326,15 @@
   left: 50%;
   top: 50%;
 }
-
 .hot-search-item .van-grid-item__content {
   padding: 0;
 }
 
 .hot-search-cell-label {
   font-size: 10px !important;
-  font-size: var(--cell-label-font-size, 10px) !important;
-  display: -webkit-box;
   overflow: hidden;
-  white-space: normal;
   text-overflow: ellipsis;
-  word-wrap: break-word;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  letter-spacing: 1rpx;
+  white-space: nowrap;
 }
 
 .hot-grid {
