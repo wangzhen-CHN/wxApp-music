@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="https://ant.design">
-    <img width="200" src="https://mo36.com/music/images/logo.png">
-  </a>
+   <img width="200" src="http://img.mo36.com/logo.png">
 </p>
 
 <h3 align="center">在线播放音乐的微信小程序</h3>
@@ -23,12 +21,12 @@
 
 - 可用过微信扫描二维码申请体验版，我看到后会通过的
 
- ![code](https://mo36.com/music/images/code.png)
+ ![code](http://img.mo36.com/code.png)
 
 ## 🌈 预览
 
-首页![index](https://mo36.com/music/images/index.jpg)
-热搜![hotList](https://mo36.com/music/images/hotList.jpg)
+首页![index](http://img.mo36.com/index.jpg)
+热搜![hotList](http://img.mo36.com/hotList.jpg)
 
-搜索![searchList](https://mo36.com/music/images/searchList.jpg)
-播放![player](https://mo36.com/music/images/player.jpg)
+搜索![searchList](http://img.mo36.com/searchList.jpg)
+播放![player](http://img.mo36.com/player.jpg)
