@@ -9,8 +9,8 @@
 	<van-skeleton row="6" loading="{{ isloading }}">
 		<view class="music-recommend-box">
 			<view class="music-recommend-ul">
-				<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key">
-					<view class="music-recommend-img">
+				<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key" >
+					<view class="music-recommend-img" bindtap="goSangList" data-id="{{item.id}}">
 						<image src="{{item.coverImgUrl}}?param=200y200"></image>
 						<view class="music-recommend-play" wx:if="{{item.playCount>99999999}}">
 							<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/100000000,1)}}亿

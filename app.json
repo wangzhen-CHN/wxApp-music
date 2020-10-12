@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/songList/songList",
     "pages/index/index",
     "pages/player/player",
     "pages/logs/logs",
