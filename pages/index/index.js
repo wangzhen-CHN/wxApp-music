@@ -8,7 +8,7 @@ audioContext.title = "轻享云音"
 audioContext.obeyMuteSwitch = false;
 audioContext.onEnded(end => {
   console.log('播放结束')
-  const list = [1452439191, 1442508316,  1430850573, 1433984099,  1452484607, 1426649237,  1436936781, 1297750680, 1420075778, 1422932470 ]
+  const list = [1452439191, 1442508316, 1430850573, 1433984099, 1452484607, 1426649237, 1436936781, 1297750680, 1420075778, 1422932470]
   list[parseInt(10 * Math.random())]
   audioContext.src = `https://music.163.com/song/media/outer/url?id=${list[parseInt(10 * Math.random())]}.mp3`;
 })
@@ -46,28 +46,19 @@ Page({
       frontColor: '#000000',
       backgroundColor: '#fff'
     })
-    wx.showLoading({
-      title: '请求中，请耐心等待..'
-    });
+    // wx.showLoading({
+    //   title: '请求中，请耐心等待..'
+    // });
     Promise.all([
-      api.get('/banner?type=2'), //banner
-      api.get('/personalized/newsong'), // 新歌
-      api.get('/top/playlist?limit=13'), //歌单
-      api.get('/top/list?idx=3'), //云音乐飙升榜
       api.get('/search/default'), //推荐搜索
+      api.get('/playlist/detail?id=19723756')
     ]).then(res => {
-      wx.hideLoading();
+      // wx.hideLoading();
       this.setData({
         isloading: false,
-        banners: res[0].banners,
-        daySong: {
-          ...res[1].result[0],
-          picUrl: res[1].result[0].picUrl + '?param=120y120'
-        },
-        playlists: res[2].playlists,
-        hotList: res[3].playlist.tracks,
-        searchDefaultWord: res[4].data.showKeyword,
-        searchWord: res[4].data.showKeyword
+        searchDefaultWord: res[0].data.showKeyword,
+        searchWord: res[0].data.showKeyword,
+        hotList: res[1].playlist.tracks,
       })
       // 获取热搜词
       api.get('/search/hot/detail').then(res => {
@@ -78,16 +69,14 @@ Page({
     }).catch(e => {
       console.log(e)
     })
-    // 小球
-    this.busPos = {};
-    this.busPos['x'] = app.globalData.ww * 0.5;
-    this.busPos['y'] = app.globalData.hh * 0.95;
+
   },
   swiperChange: function (e) {
     this.setData({
       currentSwiper: e.detail.current
     })
   },
+
   play: function (e) {
     let music = e.currentTarget.dataset.music;
     console.log("播放歌曲：", music)
@@ -106,58 +95,40 @@ Page({
     //   this.touchOnGoods(e)
     // }, 50);
   },
-  animationEnd(e) {
-    let music = e.currentTarget.dataset.music;
-    console.log('播放歌曲', music)
-    this.getTabBar().setData({
-      'list[2]': {
-        "iconPath": music.al.picUrl,
-        "pagePath": "/pages/player/player",
-        "selectedIconPath": music.al.picUrl,
-        "playTime": '200', //播放时长
-        "play": true,
-      }
-    })
-  },
-  touchOnGoods: function (e) {
-    // 如果fly_box正在运动
-    if (!this.data.hide_fly_box) return;
-    this.finger = {};
-    var topPoint = {};
-    this.finger['x'] = e.touches["0"].clientX;
-    this.finger['y'] = e.touches["0"].clientY;
-    if (this.finger['y'] < this.busPos['y']) {
-      topPoint['y'] = this.finger['y'] - 150;
-    } else {
-      topPoint['y'] = this.busPos['y'] - 150;
-    }
-    topPoint['x'] = Math.abs(this.finger['x'] - this.busPos['x']) / 2 + this.finger['x'];
-    this.linePos = app.bezier([this.finger, topPoint, this.busPos], 30);
-    this.startAnimation(e);
-  },
-  startAnimation: function (e) {
-    var index = 0,
-      that = this,
-      bezier_points = that.linePos['bezier_points'];
-    this.setData({
-      hide_fly_box: false,
-      bus_x: that.finger['x'],
-      bus_y: that.finger['y']
-    })
-    this.timer = setInterval(function () {
-      index++;
-      that.setData({
-        bus_x: bezier_points[index]['x'],
-        bus_y: bezier_points[index]['y']
+  touchOnItem: function (e) {
+    const id = e.currentTarget.dataset['id']
+    const music = e.currentTarget.dataset.music;
+    console.log(music)
+    const query = wx.createSelectorQuery();
+    query.select('.img-num-' + id).boundingClientRect()
+    query.exec(res => {
+      this.setData({
+        "isAnimation": e.currentTarget.dataset['id'],
+        animationLeft: res[0].left + 'px',
+        animationTop: res[0].top + 'px',
+        animationOpacity: 1,
+        animationTransition: 'left 0s, top 0s',
       })
-      if (index >= 28) {
-        clearInterval(that.timer);
-        that.animationEnd(e)
-        that.setData({
-          hide_fly_box: true,
+      setTimeout(() => {
+        this.setData({
+          animationLeft: app.globalData.ww / 2 - 30 + 'px',
+          animationTop: app.globalData.hh - 56 + 'px',
+          animationOpacity: 0.5,
+          animationTransition: 'left 0.8s linear, top 0.8s ease-in,opacity 0.8s',
         })
-      }
-    }, 33);
+      }, 1);
+    })
+    setTimeout(() => {
+      this.getTabBar().setData({
+        'list[2]': {
+          "iconPath": music.al.picUrl+'?param=200y200',
+          "pagePath": "/pages/pageturn/pageturn",
+          "selectedIconPath": music.al.picUrl+'?param=200y200',
+          "playTime": '200', //播放时长
+          "play": true,
+        }
+      })
+    }, 800);
   },
   goSearchPage() {
     this.setData({
@@ -167,13 +138,13 @@ Page({
   onCloseSearch() {
     this.setData({
       showSearch: false,
-      searchWord:this.data.searchDefaultWord,
-      searchMusicList:[]
+      searchWord: this.data.searchDefaultWord,
+      searchMusicList: []
     });
   },
   onClearSearch() {
     this.setData({
-      searchMusicList:[]
+      searchMusicList: []
     });
   },
   onSearch(val) {
@@ -183,7 +154,7 @@ Page({
       title: '正在搜索..'
     });
     this.setData({
-      'searchWord':val.detail?val.detail:this.data.searchDefaultWord
+      'searchWord': val.detail ? val.detail : this.data.searchDefaultWord
     })
     api.get('/search?limit=10&keywords=' + this.data.searchWord).then(res => {
       console.log(res.result.songs)

@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/me/me",
     "pages/index/index",
     "pages/player/player",
     "pages/logs/logs",
     "pages/video/video",
+    "pages/me/me",
     "pages/search/search"
   ],
   "tabBar": {

@@ -1,0 +1,117 @@
+.music-list {
+  padding: 20rpx 20rpx;
+  margin-bottom: 100px;
+}
+
+.music-list-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+
+}
+
+.music-list-title .music-title-name {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.music-list-title .music-title-more {
+  font-size: 28rpx;
+  color: #444;
+}
+
+.music-car {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 20rpx 0;
+}
+
+.music-list .van-skeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-car-img {
+  position: relative;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-list image {
+  border-radius: 20rpx;
+  height: 120rpx;
+  width: 120rpx;
+}
+
+.music-car-word {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  letter-spacing: 1rpx;
+  font-size: 28rpx;
+  color: #444;
+  padding: 10rpx;
+}
+
+.music-car-option {
+  width: 20%;
+  color: #abb0bf;
+  display: flex;
+  margin-right: 10rpx;
+  justify-content: space-around;
+}
+.music-name{
+  font-weight: 600;
+}
+.music-car-word .music-desc {
+  color: #abb0bf;
+  font-size: 24rpx;
+}
+.music-artists{
+  color: #abb0bf;
+  font-weight: 500;
+}
+
+.music-tag {
+  display: inline;
+  font-size: 18rpx;
+  margin-right: 8rpx;
+  border: 1px solid #19a6ff;
+  padding: 2rpx 4rpx;
+  border-radius: 6rpx;
+  color: #19a6ff;
+}
+.music-index-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+
+}
+
+.index-title-name {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.index-title-more {
+  font-size: 24rpx;
+  color: #abb0bf;
+}
+.img-noAnimation{
+display: none;
+position: fixed;
+z-index: 999;
+}
+.img-animation{
+  display: block;
+  border-radius: 50%;
+  
+}

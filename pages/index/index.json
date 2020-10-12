@@ -1,5 +1,9 @@
 {
   "navigationBarTitleText": "轻享云音",
   "usingComponents": {
+    "banner":"/components/index-banner/index",
+    "index-option-item":"/components/index-option-item/index",
+    "index-song-item":"/components/index-song-item/index",
+    "index-songlist":"/components/index-songlist/index"
   }
 }

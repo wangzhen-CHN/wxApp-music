@@ -1,0 +1,54 @@
+
+.swiper-skeleton {
+  height: 150px;
+  width: 100%;
+  border-radius: 20rpx;
+  background: #f4f5f7;
+}
+
+.swiper-view {
+  position: relative;
+  padding: 20rpx;
+  transform: translateY(0);
+}
+
+.swiper-view swiper {
+  border-radius: 10px;
+  overflow: hidden;
+  transform: translateY(0);
+}
+
+.swiper-item {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-dots {
+  width: 100%;
+  height: 36rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  bottom: 16rpx;
+}
+
+.swiper-dot {
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 50%;
+  margin-right: 26rpx;
+  background-color: #ffffff50;
+}
+
+.swiper-dot-active {
+  width: 54rpx;
+  height: 18rpx;
+  border-radius: 9rpx;
+  background-color: #ffffffdd;
+}

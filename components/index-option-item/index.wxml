@@ -1,0 +1,34 @@
+<!--index.wxml-->
+	<view class="page-list">
+		<view class="day-push">
+			<image src="{{daySong.picUrl}}"></image>
+			<view class="day-push-title">每日新歌</view>
+			<view class="day-push-content">{{daySong.song.artists[0].name}}-{{daySong.name}}</view>
+		</view>
+		<view class="option-list">
+			<view class="list-item">
+				<image src="../../images/icon/blue/music-list.png"></image>
+				歌单
+			</view>
+			<view class="list-item">
+				<image src="../../images/icon/blue/songer.png"></image>
+				歌手
+			</view>
+			<view class="list-item">
+				<image src="../../images/icon/blue/lisent.png"></image>
+				电台
+			</view>
+			<view class="list-item">
+				<image src="../../images/icon/blue/love.png"></image>
+				猜你喜欢
+			</view>
+			<view class="list-item">
+				<image src="../../images/icon/blue/sort.png"></image>
+				排行
+			</view>
+			<view class="list-item">
+				<image src="../../images/icon/blue/more.png"></image>
+				更多
+			</view>
+		</view>
+	</view>

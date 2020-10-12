@@ -9,6 +9,7 @@
   overflow: visible;
   background: white;
   display: flex;
+  z-index: 99;
   box-shadow: 0 40rpx 60rpx rgba(0, 0, 0, 0.9);
 }
 
@@ -28,7 +29,7 @@
 
 .tab-bar-item .cover-min {
   position: relative;
-  margin-top: -30rpx;
+  margin-top: -35rpx;
 }
 
 /* .tab-bar-item .cover-min van-circle {
@@ -41,7 +42,7 @@
   width: 100rpx;
   height: 100rpx;
   border-radius: 100%;
-  border: 16rpx solid #fff;
+  border: 12rpx solid #fff;
 
 }
 

@@ -1,5 +1,4 @@
 <!--index.wxml-->
-<wxs module="filter" src="./filter.wxs"></wxs>
 <view class="container index-container">
 	<view class="page-nav">
 		<view class="nav">
@@ -14,82 +13,11 @@
 			</view>
 		</view>
 	</view>
-	<view class="page-swiper swiper-view">
-		<view class="swiper-skeleton" wx:if="{{isloading}}"></view>
-		<swiper wx:else bindchange="swiperChange" autoplay="true" circular="true">
-			<block wx:for="{{banners}}" wx:key="key">
-				<swiper-item class="swiper-item">
-					<image src="{{item.pic}}?param=540y210"></image>
-				</swiper-item>
-			</block>
-		</swiper>
-
-		<view class="swiper-dots">
-			<block wx:for="{{banners}}" wx:key="key">
-				<view class="swiper-dot {{index == currentSwiper ? 'swiper-dot-active' : ''}}"></view>
-			</block>
-		</view>
-	</view>
-	<view class="page-list">
-		<view class="day-push">
-			<image src="{{daySong.picUrl}}"></image>
-			<view class="day-push-title">每日新歌</view>
-			<view class="day-push-content">{{daySong.song.artists[0].name}}-{{daySong.name}}</view>
-		</view>
-		<view class="option-list">
-			<view class="list-item">
-				<image src="../../images/icon/blue/music-list.png"></image>
-				歌单
-			</view>
-			<view class="list-item">
-				<image src="../../images/icon/blue/songer.png"></image>
-				歌手
-			</view>
-			<view class="list-item">
-				<image src="../../images/icon/blue/lisent.png"></image>
-				电台
-			</view>
-			<view class="list-item">
-				<image src="../../images/icon/blue/love.png"></image>
-				猜你喜欢
-			</view>
-			<view class="list-item">
-				<image src="../../images/icon/blue/sort.png"></image>
-				排行
-			</view>
-			<view class="list-item">
-				<image src="../../images/icon/blue/more.png"></image>
-				更多
-			</view>
-		</view>
-	</view>
-	<view class="music-recommend">
-		<view class="music-index-title">
-			<view class="index-title-name">歌单推荐</view>
-			<view class="index-title-more">查看全部
-				<van-icon name="arrow" color="#abb0bf" />
-			</view>
-		</view>
-		<van-skeleton row="6" loading="{{ isloading }}">
-			<view class="music-recommend-box">
-				<view class="music-recommend-ul">
-					<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key">
-						<view class="music-recommend-img">
-							<image src="{{item.coverImgUrl}}?param=150y150"></image>
-							<view class="music-recommend-play" wx:if="{{item.playCount>99999999}}">
-								<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/100000000,1)}}亿
-							</view>
-							<view class="music-recommend-play" wx:else>
-								<van-icon name="play" color="#fff" />{{filter.toFixed(item.playCount/10000,1)}}万
-							</view>
-						</view>
-						<view class="music-recommend-name">{{item.name}}</view>
-					</view>
-				</view>
-			</view>
-		</van-skeleton>
-	</view>
-	<view class="music-list">
+	<banner></banner>
+	<index-option-item></index-option-item>
+	<index-songlist></index-songlist>
+	<!-- <index-song-item></index-song-item> -->
+		<view class="music-list">
 		<view class="music-index-title">
 			<view class="index-title-name">热门单曲</view>
 			<view class="index-title-more">更多
@@ -103,14 +31,19 @@
 			<van-skeleton title avatar avatar-shape="square" row="1" />
 			<van-skeleton title avatar avatar-shape="square" row="1" />
 		</view>
-		<view class="music-car" wx:for="{{hotList}}" wx:key="key">
-			<view class="music-car-img" data-music="{{item}}" bindtap="play">
-				<image src="{{item.al.picUrl}}?param=100y100"></image>
+		<view class="music-car" wx:for="{{hotList}}" wx:for-item="item" wx:key="key" bindtap="touchOnItem" data-id="{{item.id}}"  data-music="{{item}}">
+			<view class="music-car-img">
+				<image src="{{item.al.picUrl}}?param=200y200" class="img-num-{{item.id}}"></image>
+				<image src="{{item.al.picUrl}}?param=60y60" class="{{isAnimation===item.id?'img-animation':''}} img-noAnimation" style="left:{{animationLeft}};top:{{animationTop}};transition:{{animationTransition}};opacity:{{animationOpacity}}"></image>
+				<!-- <view class="{{isAnimation===item.id?'img-animationX':''}} img-noAnimation">
+				</view> -->
 			</view>
-			<view class="music-car-word" data-music="{{item}}" bindtap="play">
+			<view class="music-car-word">
 				<view class="music-name">{{item.name}}</view>
 				<view class="music-desc">
 					<view wx:if="{{item.copyright === 0}}" class="music-tag">独家</view>
+
+					<view wx:if="{{item.no === 1}}" class="music-tag">SQ</view>
 					<!-- 0代表独家 1为否 -->
 					{{item.ar[0].name}} - {{item.al.name}}
 				</view>
