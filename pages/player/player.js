@@ -27,15 +27,12 @@ Page({
       })
     }
   },
-  // onReady:function(){
-  //   audioContext.play();
-  //   console.log(audioContext)
-  // },
+
   onLoad: function () {
     this.setData({
-      music: app.globalData.PLAYER.music,
-      isplay: app.globalData.PLAYER.isplay,
-      audioContext: app.globalData.PLAYER
+      music: app.globalData.currentPlaySong,
+      // isplay:this.getTabBar().PLAYER.isplay,
+      backgroundAudioManager: app.globalData.backgroundAudioManager
     })
     //歌词
     // var that = this

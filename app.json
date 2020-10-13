@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/songList/songList",
     "pages/index/index",
     "pages/player/player",
     "pages/logs/logs",
     "pages/video/video",
+    "pages/songList/songList",
     "pages/me/me",
     "pages/search/search"
   ],
@@ -15,14 +15,18 @@
     "list": [
       {
         "pagePath": "pages/index/index"
-      }, {
+      },
+       {
         "pagePath": "pages/video/video"
-      },{
-        "pagePath": "pages/video/video"
-        },{
+      },
+       {
         "pagePath": "pages/logs/logs"
-      }, {
+      }, 
+      {
         "pagePath": "pages/me/me"
+      },
+      {
+        "pagePath": "pages/songList/songList"
       }
     ]
   },
@@ -32,7 +36,7 @@
     "navigationBarTitleText": "轻享音乐",
     "navigationBarTextStyle": "black"
   },
-  "requiredBackgroundModes":["audio"],
+  "requiredBackgroundModes": ["audio"],
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "van-popup": "@vant/weapp/popup/index",

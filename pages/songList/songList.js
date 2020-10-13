@@ -50,71 +50,15 @@ Page({
   //播放音乐
   playMusic(e) {
     console.log(e)
-    // 获取音乐id
-    let musicId = e.currentTarget.dataset.in.id
-    // 跳转到播放页面
-    wx.navigateTo({
-      url: `/play/play?musicId=${musicId}`,
-    })
+    let musicId = e.currentTarget.dataset.id
+    app.play(musicId) //调用全局播放方法
   },
   playAll() {
     let playlist = this.data.playlist.tracks
     console.log(playlist);
-    let musicId = playlist[0].id
-    for (let i = 1; i < playlist.length; i++) {
-      app.globalData.waitForPlaying.push(playlist[i].id)
-    }
-    // 跳转到播放页面
-    wx.navigateTo({
-      url: `../play/play?musicId=${musicId}`,
-    })
+    let musicId = playlist.shift()
+    app.play(musicId) //调用全局播放方法
+    const playlistId=playlist.map(item=>item.id)
+    app.globalData.playList.unshift(...playlistId)
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

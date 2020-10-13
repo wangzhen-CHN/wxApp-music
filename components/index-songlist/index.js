@@ -17,7 +17,7 @@ Component({
   methods: {
     goSangList(e){
       const listId= e.currentTarget.dataset.id;
-      wx.navigateTo({
+      wx.switchTab({
         url: `../../pages/songList/songList?listId=${listId}`,
       })
     }

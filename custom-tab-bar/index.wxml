@@ -1,8 +1,8 @@
 <!--miniprogram/custom-tab-bar/index.wxml-->
 <view class="tab-bar">
-	<view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switch">
+	<view wx:for="{{routerList}}" wx:key="index" class="tab-bar-item" data-router="{{item}}" data-index="{{index}}" bindtap="switch">
 		<view wx:if="{{index===2}}" class="cover-min">
-			<image class="cover-image {{item.play?'play-animation':''}}" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+			<image class="cover-image {{isPlay?'play-animation':''}}" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
 		</view>
 
 		<view wx:else>
