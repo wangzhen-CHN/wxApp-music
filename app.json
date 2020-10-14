@@ -24,9 +24,6 @@
       }, 
       {
         "pagePath": "pages/me/me"
-      },
-      {
-        "pagePath": "pages/songList/songList"
       }
     ]
   },

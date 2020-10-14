@@ -6,7 +6,7 @@ const app = getApp();
 
 Page({
   data: {
-    isplay: false,
+    isPlay: false,
     audioContext: {},
     music: {
       name: "暂无歌曲",
@@ -31,7 +31,7 @@ Page({
   onLoad: function () {
     this.setData({
       music: app.globalData.currentPlaySong,
-      // isplay:this.getTabBar().PLAYER.isplay,
+      isPlay: app.globalData.isPlay,
       backgroundAudioManager: app.globalData.backgroundAudioManager
     })
     //歌词
@@ -71,20 +71,15 @@ Page({
     // console.log(this.getTabBar())
   },
   play: function (e) {
-    if (this.data.isplay) {
-      console.log(e.currentTarget.dataset)
-      this.setData({
-        isplay: false,
-      })
-      app.globalData.PLAYER.isplay = false
-      app.globalData.PLAYER.pause();
+    console.log(app.globalData.isPlay)
+    if (app.globalData.isPlay) {
+      app.globalData.isPlay = false
+      this.setData({'isPlay':false})
+      app.globalData.backgroundAudioManager.pause();
     } else {
-      this.setData({
-        isplay: true,
-      })
-      app.globalData.PLAYER.isplay = true
-      app.globalData.PLAYER.play();
-
+      app.globalData.isPlay = true
+      this.setData({'isPlay':true})
+      app.globalData.backgroundAudioManager.play();
     }
     // this.setData({
     //   storyContent: this.sliceNull(this.parseLyric(this.data.lrcDir))

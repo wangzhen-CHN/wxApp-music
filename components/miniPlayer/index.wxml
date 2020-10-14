@@ -1,0 +1,3 @@
+		<view class="mini-player" bindtap="goPlayer">
+			<image class="player-image player-animation" src="{{music.al.picUrl||'/images/nav/play.png'}}"></image>
+		</view>

@@ -14,8 +14,8 @@
 		<view class="play-effect-item">MV</view>
 	</view>
 	<view class="player">
-		<view class="player-song-pic {{isplay?'player-song-animation-run':'player-song-animation-pause'}}">
-			<image src="{{music.al.picUrl||music.pic}}"></image>
+		<view class="player-song-pic {{isPlay?'player-song-animation-run':'player-song-animation-pause'}}">
+			<image src="{{music.al.picUrl||music.pic}}?param=300y300"></image>
 			<view class="player-song-pic-min"></view>
 		</view>
 		<view class="player-song-lyrics">
@@ -46,7 +46,7 @@
 	<view class="player-option">
 		<image src="../../images/icon/way.png"></image>
 		<image class="player-back" src="../../images/icon/player-back.png"></image>
-		<image class="player-play" bindtap="play" src="{{isplay?'../../images/icon/blue/pause.png':'../../images/icon/blue/play.png'}}"></image>
+		<image class="player-play" bindtap="play" src="{{isPlay?'../../images/icon/blue/pause.png':'../../images/icon/blue/play.png'}}"></image>
 		<image class="player-go" src="../../images/icon/player-go.png"></image>
 		<image src="../../images/icon/list.png"></image>
 	</view>

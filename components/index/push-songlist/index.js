@@ -1,5 +1,5 @@
 //index.js
-const api = require('../../utils/request.js')
+const api = require('../../../utils/request.js')
 Component({
   data: {
     // 这里是一些组件内部数据
@@ -17,8 +17,8 @@ Component({
   methods: {
     goSangList(e){
       const listId= e.currentTarget.dataset.id;
-      wx.switchTab({
-        url: `../../pages/songList/songList?listId=${listId}`,
+      wx.navigateTo({
+        url: `/pages/songList/songList?listId=${listId}`,
       })
     }
   }

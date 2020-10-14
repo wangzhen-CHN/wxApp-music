@@ -13,10 +13,10 @@
 			</view>
 		</view>
 	</view>
-	<banner></banner>
-	<index-option-item></index-option-item>
-	<index-songlist></index-songlist>
-	<!-- <index-song-item></index-song-item> -->
+	<components-banner></components-banner>
+	<components-option></components-option>
+	<components-songlist></components-songlist>
+	<components-miniPlayer></components-miniPlayer>
 		<view class="music-list">
 		<view class="music-index-title">
 			<view class="index-title-name">热门单曲</view>

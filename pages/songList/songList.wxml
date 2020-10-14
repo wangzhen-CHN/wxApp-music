@@ -25,30 +25,28 @@
 				</view>
 			</view>
 		</view>
-
-		<view class="list">
-			<view class="listbox" wx:for="{{detail}}" wx:key="index">
-				<image class="list-img" src="{{item.img}}" />
-				<view class="list-name">{{item.name}}</view>
-			</view>
-		</view>
 	</view>
 	<scroll-view class="down" scroll-y>
 		<view class="">
-			<view class="buttonBox">
-				<image class="broadcast" bindtap="playAll" src="../../images/control_play.png" />
+			<view class="buttonBox" bindtap="playAll" >
+				<view class="play-icon">
+					<image class="broadcast" src="/images/icon/play.png" />
+				</view>
 				<view class="broadcast-desc">
-					<text class="broadcast-name">播放全部</text>
-					<text class="broadcast-num">（共100首）</text>
+					<text class="broadcast-name">播放全部 </text>
+					<text class="broadcast-num">（共{{playlist.tracks.length}}首）</text>
 				</view>
 				<view class="collectBox">
-					<text class="collect-add">+ 收藏（322.8万）</text>
+					<image src="/images/icon/heart.png"></image>
 				</view>
 			</view>
 
 			<view class="songlistbox">
-				<view class="song-list" wx:for="{{playlist.tracks}}" wx:key="index" bindtap="playMusic" data-id="{{item.id}}">
-					<view class="song-index">{{index+1}}</view>
+				<view class="song-list" wx:for="{{playlist.tracks}}" wx:key="index" bindtap="playMusic" data-id="{{item.id}}" data-music="{{item}}">
+					<view class="song-img">
+						<image src="{{item.al.picUrl}}?param=100y100" class="img-num-{{item.id}}"></image>
+						<image src="{{item.al.picUrl}}?param=60y60" class="{{isAnimation===item.id?'img-animation':''}} img-noAnimation" style="left:{{animationLeft}};top:{{animationTop}};transition:{{animationTransition}};opacity:{{animationOpacity}}"></image>
+					</view>
 					<view class="song">
 						<view class="song-name">{{item.name}}</view>
 						<view class="song-author">{{item.ar[0].name}} - {{item.al.name}}</view>
@@ -60,4 +58,5 @@
 
 		</view>
 	</scroll-view>
+	<components-miniPlayer wx:if="{{isPlay}}" music="{{music}}" isPlay="{{isPlay}}"></components-miniPlayer>
 </view>
