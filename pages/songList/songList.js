@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hidden: false, //加载是否隐藏
+    isloading: true, //加载是否隐藏
     userInfo: {},
     login_token: '',
     music: {},
@@ -33,8 +33,13 @@ Page({
     api.get('/playlist/detail?id=' + listId).then(res => {
       this.setData({
         playlist: res.playlist,
-        hidden: true
+        isloading: false
       })
+      setTimeout(() => {
+        this.setData({
+          isloading: false
+        })
+      }, 100);
     })
   },
   //播放音乐

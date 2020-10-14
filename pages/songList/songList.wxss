@@ -206,4 +206,15 @@
     border-radius: 50%!important;
   
   }
-  
+  .music-list-top{
+      height: 280rpx;
+      padding:50rpx 30rpx;
+  }
+  .music-list-skeleton{
+      padding-top: 20rpx;
+  }
+  .music-list-top .van-skeleton__avatar--round{
+      width: 250rpx!important;
+      height: 250rpx!important;
+      border-radius: 20rpx;
+  }

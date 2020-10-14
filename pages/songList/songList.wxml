@@ -1,13 +1,11 @@
-<!-- pages/songlist/songlist.wxml -->
-<view class="body-view">
-	<loading hidden="{{hidden}}">
-		拼命加载中...
-	</loading>
-</view>
 <!-- 音乐播放背景图片 -->
 <image class="background_img" src="{{playlist.coverImgUrl}}"></image>
+
 <view class="wrapper">
-	<view class="top">
+	<view class="music-list-top" wx:if="{{isloading}}">
+		<van-skeleton title avatar row="4" />
+	</view>
+	<view class="top" wx:else>
 		<view class="top-desc">
 			<image class="desc-img" src="{{playlist.coverImgUrl}}"></image>
 			<view class="desc-right">
@@ -27,8 +25,30 @@
 		</view>
 	</view>
 	<scroll-view class="down" scroll-y>
-		<view class="">
-			<view class="buttonBox" bindtap="playAll" >
+		<view class="music-list-skeleton" wx:if="{{isloading}}">
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+			<van-skeleton title avatar avatar-shape="square" row="1" />
+		</view>
+		<view wx:else>
+			<view class="buttonBox" bindtap="playAll">
 				<view class="play-icon">
 					<image class="broadcast" src="/images/icon/play.png" />
 				</view>
