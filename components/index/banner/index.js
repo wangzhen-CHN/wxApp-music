@@ -1,5 +1,7 @@
 //index.js
 const api = require('../../../utils/request.js')
+const app = getApp();
+
 Component({
   data: {
     // 这里是一些组件内部数据
@@ -21,5 +23,33 @@ Component({
         currentSwiper: e.detail.current
       })
     },
+    playBannerSong(e) {
+      const banner = e.currentTarget.dataset.banner
+      console.log('banner', banner)
+      if (banner.song) {
+        const music = banner.song
+        app.play(music.id)
+        console.log('music', music)
+        app.globalData.getTabBar.setData({
+          "isPlay": true,
+          'routerList[2]': {
+            "iconPath": music.al.picUrl + '?param=200y200',
+            "selectedIconPath": music.al.picUrl + '?param=200y200',
+            "pagePath": "/pages/player/player",
+            "text": ""
+          }
+        })
+        setTimeout(() => {
+          wx.navigateTo({
+            url: '/pages/player/player',
+          })
+        }, 300);
+      } else {
+        wx.navigateTo({
+          url: `/pages/songList/songList?listId=${banner.targetId}&type=album`,
+        })
+      }
+
+    }
   }
 })

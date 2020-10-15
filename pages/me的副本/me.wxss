@@ -1,84 +1,67 @@
-.page-me {
-  padding: 0 40rpx;
+
+.my{
+  padding: 10rpx 40rpx 40rpx 40rpx;
 }
-page{
-  height: 100%;
-}
-.me-content{
-  height: 100%;
-  background-color: #fafafa;
-}
-.page-me .logo {
+.page-me .logo{
   width: 100%;
   height: 400rpx;
   text-align: center;
   margin: 50rpx 0;
 }
-
-.page-me .logo image {
+.page-me .logo image{
   width: 400rpx;
   height: 400rpx;
 }
-
-.page-me .login-word {
+.page-me .login-word{
   font-size: 35rpx;
   padding-left: 20rpx;
   /* font-weight: 600; */
 }
-
-.login-form .page-section {
+.login-form .page-section{
   margin: 40rpx 20rpx;
 }
-
-.login-form .login-input {
+.login-form .login-input{
   height: 70rpx;
   margin-bottom: 20rpx;
   padding: 10rpx 35rpx;
   border-radius: 70rpx;
   background-color: #f2f2f2;
 }
-
-.login-form .login-input-placeholder {
+.login-form .login-input-placeholder{
   color: #ccc;
   font-size: 28rpx;
   font-weight: 400;
-
+  
 }
-
-.login-form .btn-area {
+.login-form .btn-area{
   margin: 80rpx 20rpx;
 }
-
-.login-form .login-way {
-  padding: 40rpx;
+.login-form .login-way{
+  padding:40rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  filter: grayscale(100%);
 }
-
-.login-form .login-way image {
+.login-form .login-way image{
   width: 80rpx;
   height: 80rpx;
 }
-
-.my {
+.my{
   display: flex;
-  padding: 30rpx;
+  margin-top: 30rpx;
 }
-
-.my-info {
+.my-info{
   height: 100rpx;
   padding: 10rpx 0;
 }
-
-.my-name {
+.my-name{
   font-size: 36rpx;
   line-height: 60rpx;
   display: flex;
 
 }
-
-.my-lv {
+.my-lv{
   display: inline-block;
   line-height: 33rpx;
   height: 33rpx;
@@ -87,78 +70,51 @@ page{
   border-radius: 30rpx;
   background-color: #eee;
 }
-
-.my-num {
+.my-num{
   color: #ccc;
   font-size: 24rpx;
   line-height: 40rpx;
 }
-
-.my-pic {
-  width: 120rpx;
-  height: 100rpx;
-  padding: 10rpx;
-  text-align: center;
+.my-pic{
+  width: 140rpx;
+  height: 120rpx;
 }
-
-.my-pic image {
-  width: 100rpx;
-  height: 100rpx;
+.my-pic image{
+  width: 120rpx;
+  height: 120rpx;
   border-radius: 100rpx;
 }
-.me-info-top{
-  border-radius: 20rpx;
-  background-color: #fff;
-  overflow: hidden;
-}
-.vip {
+.vip{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin:0 30rpx;
   padding: 15rpx 20rpx;
   background-color: #3e3f45;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
   color: #f0e0b2;
 }
-
-.vip .vip-left,
-.vip-right {
+.vip .vip-left,.vip-right{
   display: flex;
   align-items: center;
 }
-
-.vip .vip-left .van-icon {
+.vip .vip-left .van-icon{
   font-size: 42rpx;
   padding-right: 5rpx;
 }
-
-.vip .vip-right {
+.vip .vip-right{
   font-size: 24rpx;
 }
-
-.me-content .list {
+.list{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 40rpx 0;
-  width: 100%;
+  padding: 15rpx 20rpx;
+  margin:0 30rpx;
 }
-
-.me-content .list .item {
-  width: 25%;
+.list .item{
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.me-content .list .item image {
-  width: 60rpx;
-  height: 60rpx;
-}
-.item-class{
-  padding: 5rpx;
-}
-.item-class-num{
-  color: #aaa;
-  font-size: 24rpx;
 }

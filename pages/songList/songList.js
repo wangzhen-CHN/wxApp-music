@@ -22,17 +22,47 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) { //接受其他页面传来的数据
-    let listId = options.listId
-    // let listId = 4895239160
     console.log(options)
-    if (Object.keys(this.data.playlist).length == 0)
+    const listId = options.listId
+    const type = options.type||''
+    console.log(type)
+    if (type==='album') {
+      this.getAlbumDetail(listId)
+    }else{
       this.getPlaylistDetail(listId)
+    }
+    // if (Object.keys(this.data.playlist).length == 0)
+    //   this.getPlaylistDetail(listId)
   },
   //获取歌单详情
   getPlaylistDetail(listId) {
     api.get('/playlist/detail?id=' + listId).then(res => {
+      console.log(res.playlist)
       this.setData({
         playlist: res.playlist,
+        isloading: false
+      })
+      setTimeout(() => {
+        this.setData({
+          isloading: false
+        })
+      }, 100);
+    })
+  },
+  //获取专辑详情
+  getAlbumDetail(listId) {
+    api.get('/album?id=' + listId).then(res => {
+      console.log(res)
+      this.setData({
+        playlist: {
+          'coverImgUrl':res.album.blurPicUrl,
+          'name':res.album.name,
+          'description':res.album.description,
+          'creator':{
+            'nickname':"青梅竹马的志田黑羽酱"
+          },
+          'tracks':res.songs
+        },
         isloading: false
       })
       setTimeout(() => {

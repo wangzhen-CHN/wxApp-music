@@ -1,6 +1,9 @@
+const api=require('../../utils/request')
 Page({
   data: {
-    logs: []
+    tel:'',
+    password:'',
+    loginPopup:false
   },
   onShow: function () {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
@@ -8,5 +11,18 @@ Page({
         selected: 4
       })
     }
+  },
+  formSubmit(){
+    const {
+      tel,
+      password,
+    } = this.data
+    console.log(tel,password)
+    api.get(`/login/cellphone?phone=${tel}&password=${password}`).then(res => {
+      console.log('登录：',res)
+      // this.setData({
+      //   'searchMusicList': res.result.songs
+      // })
+    })
   }
 })

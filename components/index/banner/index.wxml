@@ -5,7 +5,7 @@
 		<swiper wx:else bindchange="swiperChange" autoplay="true" circular="true">
 			<block wx:for="{{banners}}" wx:key="key">
 				<swiper-item class="swiper-item">
-					<image src="{{item.pic}}?param=540y210"></image>
+					<image src="{{item.pic}}?param=540y210" bindtap="playBannerSong" data-banner="{{item}}"></image>
 				</swiper-item>
 			</block>
 		</swiper>
