@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<view class="container play-container">
+	<!-- nav -->
+	<view class="play-top">
+		<!-- <image src="../../images/icon/down.png" bindtap="back"></image> -->
+		<view class="song-name">{{music.name}}</view>
+		<!-- <view class="right"></view> -->
+		<!-- <image src="../../images/icon/share.png"></image> -->
+	</view>
+	<view class="play-player-name">- {{music.ar[0].name}} -</view>
+	<view class="play-effect">
+		<view class="play-effect-item">音效</view>
+		<view class="play-effect-item">动感</view>
+		<view class="play-effect-item">MV</view>
+	</view>
+	<view class="player">
+		<view class="player-song-pic {{isPlay?'player-song-animation-run':'player-song-animation-pause'}}">
+			<image src="{{music.al.picUrl||music.pic}}?param=300y300"></image>
+			<view class="player-song-pic-min"></view>
+		</view>
+		<view class="player-song-lyrics">
+			<view class="shadow-top"></view>
+			<view class="shadow-bottom"></view>
+			<view class="player-song-lyrics-content">
+				<scroll-view scroll-y="true" scroll-with-animation='true' scroll-top='{{marginTop}}'>
+					<view class='contentText'>
+						<block wx:for='{{storyContent}}' wx:key='key'>
+							<text class="{{currentIndex222 == index ? 'currentTime' : ''}}">{{item[1]}}</text>
+						</block>
+					</view>
+				</scroll-view>
+			</view>
+		</view>
+	</view>
+	<view class="song-option">
+		<image src="../../images/icon/heart.png"></image>
+		<image class="share" src="../../images/icon/share.png"></image>
+		<image src="../../images/icon/k.png"></image>
+		<image src="../../images/icon/discuss.png"></image>
+		<image src="../../images/icon/more.png"></image>
+	</view>
+	<view class="progress-box">
+		<van-progress percentage="50" color="#19a6ff" pivot-text="●" />
+	</view>
+
+	<view class="player-option">
+		<image src="../../images/icon/way.png"></image>
+		<image class="player-back" src="../../images/icon/player-back.png"></image>
+		<image class="player-play" bindtap="play" src="{{isPlay?'../../images/icon/blue/pause.png':'../../images/icon/blue/play.png'}}"></image>
+		<image class="player-go" src="../../images/icon/player-go.png"></image>
+		<image src="../../images/icon/list.png"></image>
+	</view>
+</view>

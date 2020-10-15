@@ -1,53 +1,116 @@
-<!--index.wxml-->
-<view class="container play-container">
-	<!-- nav -->
-	<view class="play-top">
-		<!-- <image src="../../images/icon/down.png" bindtap="back"></image> -->
-		<view class="song-name">{{music.name}}</view>
-		<!-- <view class="right"></view> -->
-		<!-- <image src="../../images/icon/share.png"></image> -->
-	</view>
-	<view class="play-player-name">- {{music.ar[0].name}} -</view>
-	<view class="play-effect">
-		<view class="play-effect-item">音效</view>
-		<view class="play-effect-item">动感</view>
-		<view class="play-effect-item">MV</view>
-	</view>
-	<view class="player">
-		<view class="player-song-pic {{isPlay?'player-song-animation-run':'player-song-animation-pause'}}">
-			<image src="{{music.al.picUrl||music.pic}}?param=300y300"></image>
-			<view class="player-song-pic-min"></view>
-		</view>
-		<view class="player-song-lyrics">
-			<view class="shadow-top"></view>
-			<view class="shadow-bottom"></view>
-			<view class="player-song-lyrics-content">
-				<scroll-view scroll-y="true" scroll-with-animation='true' scroll-top='{{marginTop}}'>
-					<view class='contentText'>
-						<block wx:for='{{storyContent}}' wx:key='key'>
-							<text class="{{currentIndex222 == index ? 'currentTime' : ''}}">{{item[1]}}</text>
-						</block>
-					</view>
-				</scroll-view>
+<!-- 音乐播放背景图片 -->
+<image class="background_img" src="{{song.al.picUrl}}?param=20y20"></image>
+<view class="play-wrapper">
+	<view class="play-title">
+		<view class="singer-info">
+			<view class="title-songName">{{song.name}}</view>
+			<view class="title-singer">
+				<text wx:for="{{song.ar}}" wx:key="index" class="singer-name-text">{{item.name}}</text>
 			</view>
 		</view>
 	</view>
-	<view class="song-option">
-		<image src="../../images/icon/heart.png"></image>
-		<image class="share" src="../../images/icon/share.png"></image>
-		<image src="../../images/icon/k.png"></image>
-		<image src="../../images/icon/discuss.png"></image>
-		<image src="../../images/icon/more.png"></image>
+	<view class="play-body" bindtap="showLyric">
+		<!-- 歌词 -->
+		<!-- 需要设置高度，否则scroll-top可能失效 -->
+
+		<scroll-view
+		 hidden="{{hiddenLyric}}"
+		 scroll-y="true"
+		 scroll-with-animation='true'
+		 scroll-top='{{marginTop}}'
+		 class="body-scroll"
+		>
+			<view class='contentText'>
+				<view class="contentText-noLyric" wx:if="{{noLyric==true}}">纯音乐，无歌词 </view>
+				<block wx:for='{{storyContent}}' wx:key="index">
+					<view class="lyric">
+						<view class="lyric-text {{currentIndex == index ? 'currentTime' : ''}}">{{item[1]}}</view>
+					</view>
+				</block>
+			</view>
+		</scroll-view>
+		<!-- 添加转动动画 -->
+		<view hidden="{{!hiddenLyric}}">
+			<image
+			 class="body-record"
+			 style="{{isPlay?'':'transform:rotate(-40deg)'}}"
+			 mode="aspectFit"
+			 src="../../images/play_stick.png"
+			></image>
+			<view class="body-round  run" style="{{isPlay?'animation-play-state:running;':'animation-play-state:paused;'}}">
+
+				<view class="round-container">
+					<image class="round-img" src="https://s3.music.126.net/mobile-new/img/disc-ip6.png?69796123ad7cfe95781ea38aac8f2d48="></image>
+					<image class="singer-img" src="{{song.al.picUrl}}"></image>
+				</view>
+			</view>
+		</view>
 	</view>
-	<view class="progress-box">
-		<van-progress percentage="50" color="#19a6ff" pivot-text="●" />
+	<view>
 	</view>
 
-	<view class="player-option">
-		<image src="../../images/icon/way.png"></image>
-		<image class="player-back" src="../../images/icon/player-back.png"></image>
-		<image class="player-play" bindtap="play" src="{{isPlay?'../../images/icon/blue/pause.png':'../../images/icon/blue/play.png'}}"></image>
-		<image class="player-go" src="../../images/icon/player-go.png"></image>
-		<image src="../../images/icon/list.png"></image>
+	<!-- 一开始onload时,hiddenLyric=true, 显示为转动的图标，点击图标，切换为歌词-->
+	<view class="sing-show">
+		<view class="moveCircle {{isPlay ? 'play' : ''}}" hidden="{{!hiddenLyric}}">
+		</view>
+
+	</view>
+	<!-- 底部播放暂停图标 -->
+	<view class="play-foot">
+		<view class="page-slider">
+			<view>
+				{{currentTime}}
+			</view>
+			<slider
+			 class="slider_middle"
+			 bindchange="end"
+			 bindtouchstart="start"
+			 max="{{totalProcessNum}}"
+			 min="0"
+			 backgroundColor="rgba(255,255,255,.3)"
+			 activeColor="#19a6ff"
+			 block-color="#19a6ff"
+			 value="{{currentProcessNum}}"
+			 block-size="12"
+			></slider>
+			<view>
+				{{duration}}
+			</view>
+		</view>
+		<!-- 上一首歌 -->
+		<view class="play_suspend">
+			<view class="icon_playing ">
+				<image
+				 src="../../images/play_lastSong.png"
+				 class=" icon_play"
+				 bindtap="beforeSong"
+				/>
+			</view>
+			<!-- 暂停图标-->
+			<view class="icon_playing">
+				<image
+				 bindtap="handleToggleBGAudio"
+				 src="../../images/play_suspend.png"
+				 hidden="{{!isPlay}}"
+				 class="img_play"
+				/>
+				<!--播放图标-->
+				<image
+				 bindtap="handleToggleBGAudio"
+				 src="../../images/play_play.png"
+				 hidden="{{isPlay}}"
+				 class="img_play"
+				/>
+			</view>
+			<!-- 下一首歌 -->
+			<view class="icon_playing ">
+				<image
+				 src="../../images/play_nextSong.png"
+				 class="icon_play"
+				 bindtap="nextSong"
+				/>
+			</view>
+		</view>
 	</view>
 </view>
+

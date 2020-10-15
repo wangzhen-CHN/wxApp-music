@@ -1,0 +1,4 @@
+{
+  "navigationBarTitleText": "轻享云音",
+  "usingComponents": { "van-progress": "@vant/weapp/progress/index"}
+}
