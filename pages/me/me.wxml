@@ -1,5 +1,5 @@
 <!--logs.wxml-->
-<view class="me-content">
+<view class="my-content">
 	<view class="my">
 		<view class="my-pic">
 			<image src="../../images/nav/play.png"> </image>
@@ -10,40 +10,71 @@
 			<view class="my-num">粉丝 100 | 关注 20</view>
 		</view>
 	</view>
-	<view class="me-info-top">
-	<view class="vip">
-		<view class="vip-left">
-			<van-icon name="vip-card-o" />VIP会员</view>
-		<view class="vip-right">首月6元，畅听百万好音乐
-			<van-icon name="arrow" color="#abb0bf" />
+	<view class="my-info-top">
+		<view class="vip">
+			<view class="vip-left">
+				<van-icon name="vip-card-o" />VIP会员</view>
+			<view class="vip-right">首月6元，畅听百万好音乐
+				<van-icon name="arrow" color="#abb0bf" />
+			</view>
+		</view>
+		<view class="list">
+			<view class="item">
+				<image src="/images/icon/blue/love.png"></image>
+				<text class="item-class">喜欢</text>
+				<text class="item-class-num">122</text>
+			</view>
+			<view class="item">
+				<image src="/images/icon/blue/music-list.png"></image>
+				<text class="item-class">最近</text>
+				<text class="item-class-num">211</text>
+			</view>
+			<view class="item">
+				<image src="/images/icon/blue/lisent.png"></image>
+				<text class="item-class">电台</text>
+				<text class="item-class-num">3</text>
+			</view>
+			<view class="item">
+				<image src="/images/icon/blue/music-a.png"></image>
+				<text class="item-class">本地</text>
+				<text class="item-class-num">0</text>
+			</view>
 		</view>
 	</view>
-	<view class="list">
-		<view class="item">
-			<image src="/images/icon/blue/love.png"></image>
-			<text class="item-class">喜欢</text>
-			<text class="item-class-num">122</text>
-		</view>
-		<view class="item">
-			<image src="/images/icon/blue/music-list.png"></image>
-			<text class="item-class">最近</text>
-			<text class="item-class-num">211</text>
-		</view>
-		<view class="item">
-			<image src="/images/icon/blue/lisent.png"></image>
-			<text class="item-class">电台</text>
-			<text class="item-class-num">3</text>
-		</view>
-		<view class="item">
-			<image src="/images/icon/blue/music-a.png"></image>
-			<text class="item-class">本地</text>
-			<text class="item-class-num">0</text>
-		</view>
+	<view class="my-song-list">
+		<van-tabs animated color="#000" line-width="15" nav-class="tabs-nav-class" custom-class="tabs-custom-class">
+			<van-tab title="自建歌单" title-style="font-size:16px">
+				<view class="music-list-content">
+					<view class="music-list-skeleton">
+						<van-skeleton title avatar avatar-shape="square" row="1" />
+						<van-skeleton title avatar avatar-shape="square" row="1" />
+					</view>
+				</view>
+			</van-tab>
+			<van-tab title="收藏歌单" title-style="font-size:16px">
+				<view class="music-list-content">
+					<view class="music-list-skeleton">
+						<van-skeleton title avatar avatar-shape="square" row="1" />
+						<van-skeleton title avatar avatar-shape="square" row="1" />
+						<van-skeleton title avatar avatar-shape="square" row="1" />
+					</view>
+				</view>
+			</van-tab>
+		</van-tabs>
 	</view>
+	<view class="my-song-list">
+		<text>推荐歌单</text>
+		<view class="music-list-content">
+					<view class="music-list-skeleton">
+						<van-skeleton title avatar avatar-shape="square" row="1" />
+						<van-skeleton title avatar avatar-shape="square" row="1" />
+						<van-skeleton title avatar avatar-shape="square" row="1" />
+					</view>
+				</view>
 	</view>
 </view>
 <van-popup show="{{ loginPopup }}" position="top" custom-style="height: 100%;width:100%;padding:0 20rpx">
-	<view class="page-me">
+	<view class="my-page">
 
 		<view class="logo">
 			<image src="../../images/logo.png"></image>
@@ -54,11 +85,14 @@
 		<view>
 			<form class="login-form">
 				<view class="page-section">
-					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ tel }}" placeholder="请输入手机号" />
-					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ password }}" type="password" placeholder="请输入密码" />
+					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ tel }}"
+						placeholder="请输入手机号" />
+					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ password }}"
+						type="password" placeholder="请输入密码" />
 				</view>
 				<view class="btn-area">
-					<van-button round type="info" bindtap="formSubmit" block color="linear-gradient(to right, #82d6fe, #1ca7ff)">登录</van-button>
+					<van-button round type="info" bindtap="formSubmit" block color="linear-gradient(to right, #82d6fe, #1ca7ff)">
+						登录</van-button>
 				</view>
 				<!-- <view class="login-way">
 				  <view class="login-way-img"><image src="../../images/icon/login-wx.png"></image></view>

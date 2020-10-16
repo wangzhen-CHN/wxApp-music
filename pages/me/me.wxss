@@ -1,26 +1,27 @@
-.page-me {
+.my-page {
   padding: 0 40rpx;
 }
 page{
   height: 100%;
 }
-.me-content{
+.my-content{
   height: 100%;
+  padding: 0 20rpx ;
   background-color: #fafafa;
 }
-.page-me .logo {
+.my-page .logo {
   width: 100%;
   height: 400rpx;
   text-align: center;
   margin: 50rpx 0;
 }
 
-.page-me .logo image {
+.my-page .logo image {
   width: 400rpx;
   height: 400rpx;
 }
 
-.page-me .login-word {
+.my-page .login-word {
   font-size: 35rpx;
   padding-left: 20rpx;
   /* font-weight: 600; */
@@ -63,7 +64,7 @@ page{
 
 .my {
   display: flex;
-  padding: 30rpx;
+  padding-bottom: 20rpx ;
 }
 
 .my-info {
@@ -97,7 +98,7 @@ page{
 .my-pic {
   width: 120rpx;
   height: 100rpx;
-  padding: 10rpx;
+  padding: 10rpx 0;
   text-align: center;
 }
 
@@ -106,18 +107,19 @@ page{
   height: 100rpx;
   border-radius: 100rpx;
 }
-.me-info-top{
+.my-info-top{
   border-radius: 20rpx;
   background-color: #fff;
   overflow: hidden;
 }
+
 .vip {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15rpx 20rpx;
   background-color: #3e3f45;
-  color: #f0e0b2;
+  color: #efd9b2;
 }
 
 .vip .vip-left,
@@ -135,7 +137,7 @@ page{
   font-size: 24rpx;
 }
 
-.me-content .list {
+.my-content .list {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -143,7 +145,7 @@ page{
   width: 100%;
 }
 
-.me-content .list .item {
+.my-content .list .item {
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -151,7 +153,7 @@ page{
   align-items: center;
 }
 
-.me-content .list .item image {
+.my-content .list .item image {
   width: 60rpx;
   height: 60rpx;
 }
@@ -161,4 +163,22 @@ page{
 .item-class-num{
   color: #aaa;
   font-size: 24rpx;
+}
+.my-song-list{
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  background-color: #fff;
+  overflow: hidden;
+}
+.tabs-custom-class .van-hairline--top-bottom:after {
+  border:none;
+}
+.tabs-nav-class{
+  width: 60%;
+}
+.tabs-nav-class .van-tabs__line {
+     border-radius: var(--tabs-bottom-bar-height,40%)!important;
+}
+.music-list-content{
+  padding: 20rpx 0;
 }
