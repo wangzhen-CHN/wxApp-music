@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/me/me",
     "pages/index/index",
     "pages/player/player",
     "pages/logs/logs",
     "pages/video/video",
     "pages/songList/songList",
+    "pages/me/me",
     "pages/search/search"
   ],
   "tabBar": {
@@ -47,6 +47,7 @@
     "van-circle": "@vant/weapp/circle/index",
     "van-button": "@vant/weapp/button/index",
     "van-tab": "@vant/weapp/tab/index",
+    "van-field": "@vant/weapp/field/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-skeleton": "@vant/weapp/skeleton/index"
   }

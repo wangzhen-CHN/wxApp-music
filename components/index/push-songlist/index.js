@@ -7,10 +7,11 @@ Component({
     isloading: true,
   },
   ready: function () {
-    api.get('/top/playlist?limit=13').then(res => {
+    const cookie = wx.getStorageSync('login_token')
+    api.get(`/recommend/resource?cookie=${cookie}`).then(res => {
       this.setData({
         isloading: false,
-        playlists: res.playlists,
+        playlists: res.recommend,
       })
     })
   },

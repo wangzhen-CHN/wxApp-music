@@ -1,4 +1,4 @@
-<!-- 音乐播放背景图片 -->
+<!-- 背景图片 -->
 <image class="background_img" src="{{playlist.coverImgUrl}}"></image>
 
 <view class="wrapper">

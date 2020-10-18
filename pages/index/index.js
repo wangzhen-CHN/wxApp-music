@@ -31,16 +31,18 @@ Page({
     // wx.showLoading({
     //   title: '请求中，请耐心等待..'
     // });
+    const cookie = wx.getStorageSync('login_token')
+
     Promise.all([
       api.get('/search/default'), //推荐搜索
-      api.get('/playlist/detail?id=19723756')
+      api.get(`/recommend/songs?cookie=${cookie}`)
     ]).then(res => {
       // wx.hideLoading();
       this.setData({
         isloading: false,
         searchDefaultWord: res[0].data.showKeyword,
         searchWord: res[0].data.showKeyword,
-        hotList: res[1].playlist.tracks,
+        hotList: res[1].data.dailySongs,
       })
       // 获取热搜词
       api.get('/search/hot/detail').then(res => {

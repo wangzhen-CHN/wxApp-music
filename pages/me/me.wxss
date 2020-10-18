@@ -35,8 +35,9 @@ page{
   height: 70rpx;
   margin-bottom: 20rpx;
   padding: 10rpx 35rpx;
-  border-radius: 70rpx;
-  background-color: #f2f2f2;
+  /* border-radius: 70rpx;
+  background-color: #f2f2f2; */
+  border-bottom: 1px solid #eee;
 }
 
 .login-form .login-input-placeholder {
@@ -77,6 +78,15 @@ page{
   line-height: 60rpx;
   display: flex;
 
+}
+.my-info-no{
+  height: 100rpx;
+  padding: 10rpx 0;
+}
+.my-name-no{
+  padding-left: 15rpx;
+  color: #666;
+  line-height: 100rpx;
 }
 
 .my-lv {
@@ -179,6 +189,65 @@ page{
 .tabs-nav-class .van-tabs__line {
      border-radius: var(--tabs-bottom-bar-height,40%)!important;
 }
-.music-list-content{
+.music-list-box{
   padding: 20rpx 0;
+}
+.music-list-content{
+  max-height: 430rpx;
+}
+.music-car {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 20rpx 0;
+}
+
+.music-list .van-skeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-car-img {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-car-img image {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 20rpx;
+}
+
+.music-car-word {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  letter-spacing: 1rpx;
+  font-size: 28rpx;
+  color: #444;
+  padding: 10rpx;
+}
+
+.music-car-option {
+  width: 10%;
+  color: #abb0bf;
+  display: flex;
+  margin-right: 10rpx;
+  justify-content: space-around;
+}
+
+.music-car-word .music-desc {
+  color: #abb0bf;
+  font-size: 24rpx;
+}
+.btn-cancel button{
+  margin-top: 40rpx;
+}
+.btn-login-out{
+  padding: 20px 0 40rpx 0;
+  margin-bottom: 100px;
 }

@@ -1,13 +1,18 @@
 <!--logs.wxml-->
 <view class="my-content">
-	<view class="my">
+	<view class="my" bindtap="showLogin">
 		<view class="my-pic">
-			<image src="../../images/nav/play.png"> </image>
+			<image src="{{userInfo.profile.avatarUrl||defaultAvatarUrl}}"> </image>
 		</view>
-		<view class="my-info">
-			<view class="my-name">忘川秋水<view class="my-lv">Lv.6</view>
+
+		<view class="my-info" wx:if="{{isLogin}}">
+			<view class="my-name">{{userInfo.profile.nickname}}
+				<view class="my-lv">Lv.{{userDetail.level}}</view>
 			</view>
-			<view class="my-num">粉丝 100 | 关注 20</view>
+			<view class="my-num">粉丝 {{userDetail.profile.followeds}} | 关注 {{userDetail.profile.follows}}</view>
+		</view>
+		<view class="my-info-no" wx:else>
+			<view class="my-name-no">点击登录</view>
 		</view>
 	</view>
 	<view class="my-info-top">
@@ -22,17 +27,17 @@
 			<view class="item">
 				<image src="/images/icon/blue/love.png"></image>
 				<text class="item-class">喜欢</text>
-				<text class="item-class-num">122</text>
+				<text class="item-class-num">{{likeList.ids.length||0}}</text>
 			</view>
 			<view class="item">
 				<image src="/images/icon/blue/music-list.png"></image>
 				<text class="item-class">最近</text>
-				<text class="item-class-num">211</text>
+				<text class="item-class-num">{{userDetail.listenSongs||0}}</text>
 			</view>
 			<view class="item">
 				<image src="/images/icon/blue/lisent.png"></image>
 				<text class="item-class">电台</text>
-				<text class="item-class-num">3</text>
+				<text class="item-class-num">0</text>
 			</view>
 			<view class="item">
 				<image src="/images/icon/blue/music-a.png"></image>
@@ -43,17 +48,49 @@
 	</view>
 	<view class="my-song-list">
 		<van-tabs animated color="#000" line-width="15" nav-class="tabs-nav-class" custom-class="tabs-custom-class">
-			<van-tab title="自建歌单" title-style="font-size:16px">
-				<view class="music-list-content">
-					<view class="music-list-skeleton">
+			<van-tab title="自建歌单({{userList.length}})" title-style="font-size:16px">
+				<view class="music-list-box">
+					<scroll-view class="music-list-content" scroll-y wx:if="{{isLogin}}">
+						<view class="music-car" wx:for="{{userList}}" wx:for-item="item" wx:key="key" bindtap="goSangList" data-id="{{item.id}}">
+							<view class="music-car-img">
+								<image src="{{item.coverImgUrl}}?param=200y200" class="img-num-{{item.id}}"></image>
+							</view>
+							<view class="music-car-word">
+								<view class="music-name">{{item.name}}</view>
+								<view class="music-desc">
+									<text>{{item.trackCount}}</text>首歌
+								</view>
+							</view>
+							<view class="music-car-option">
+								<van-icon name="arrow" />
+							</view>
+						</view>
+					</scroll-view>
+					<view class="music-list-skeleton" wx:else>
 						<van-skeleton title avatar avatar-shape="square" row="1" />
 						<van-skeleton title avatar avatar-shape="square" row="1" />
 					</view>
 				</view>
 			</van-tab>
-			<van-tab title="收藏歌单" title-style="font-size:16px">
-				<view class="music-list-content">
-					<view class="music-list-skeleton">
+			<van-tab title="收藏歌单({{addList.length}})" title-style="font-size:16px">
+				<view class="music-list-box">
+					<scroll-view class="music-list-content" scroll-y wx:if="{{isLogin}}">
+						<view class="music-car" wx:for="{{addList}}" wx:for-item="item" wx:key="key" bindtap="goSangList" data-id="{{item.id}}">
+							<view class="music-car-img">
+								<image src="{{item.coverImgUrl}}?param=200y200" class="img-num-{{item.id}}"></image>
+							</view>
+							<view class="music-car-word">
+								<view class="music-name">{{item.name}}</view>
+								<view class="music-desc">
+									<text>{{item.trackCount}}</text>首歌
+								</view>
+							</view>
+							<view class="music-car-option">
+								<van-icon name="arrow" />
+							</view>
+						</view>
+					</scroll-view>
+					<view class="music-list-skeleton" wx:else>
 						<van-skeleton title avatar avatar-shape="square" row="1" />
 						<van-skeleton title avatar avatar-shape="square" row="1" />
 						<van-skeleton title avatar avatar-shape="square" row="1" />
@@ -62,18 +99,23 @@
 			</van-tab>
 		</van-tabs>
 	</view>
-	<view class="my-song-list">
+	<!-- <view class="my-song-list">
 		<text>推荐歌单</text>
-		<view class="music-list-content">
-					<view class="music-list-skeleton">
-						<van-skeleton title avatar avatar-shape="square" row="1" />
-						<van-skeleton title avatar avatar-shape="square" row="1" />
-						<van-skeleton title avatar avatar-shape="square" row="1" />
-					</view>
-				</view>
-	</view>
+		<view class="music-list-box">
+			<view class="music-list-skeleton">
+				<van-skeleton title avatar avatar-shape="square" row="1" />
+				<van-skeleton title avatar avatar-shape="square" row="1" />
+				<van-skeleton title avatar avatar-shape="square" row="1" />
+			</view>
+		</view>
+	</view> -->
+<view class="btn-login-out">
+	<van-button round type="default" class="btn-cancel" bindtap="handleLoginOut" block>
+						退出登录</van-button>
 </view>
-<van-popup show="{{ loginPopup }}" position="top" custom-style="height: 100%;width:100%;padding:0 20rpx">
+
+</view>
+<van-popup show="{{ showLogin }}" position="bottom" custom-style="height: 100%;width:100%;padding:0 20rpx">
 	<view class="my-page">
 
 		<view class="logo">
@@ -85,14 +127,14 @@
 		<view>
 			<form class="login-form">
 				<view class="page-section">
-					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ tel }}"
-						placeholder="请输入手机号" />
-					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ password }}"
-						type="password" placeholder="请输入密码" />
+					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ tel }}" placeholder="请输入手机号" />
+					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ password }}" type="password" placeholder="请输入密码" />
 				</view>
 				<view class="btn-area">
-					<van-button round type="info" bindtap="formSubmit" block color="linear-gradient(to right, #82d6fe, #1ca7ff)">
+					<van-button round type="info" bindtap="handleLogin" block color="linear-gradient(to right, #82d6fe, #1ca7ff)">
 						登录</van-button>
+					<van-button round type="default" class="btn-cancel" bindtap="handleCancel" block>
+						取消</van-button>
 				</view>
 				<!-- <view class="login-way">
 				  <view class="login-way-img"><image src="../../images/icon/login-wx.png"></image></view>
