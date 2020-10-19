@@ -102,63 +102,6 @@
   background-color: #ffffffdd;
 }
 
-/*  */
-.page-list {
-  display: flex;
-  flex-direction: row;
-  padding: 20rpx;
-}
-
-.day-push {
-  width: 30%;
-  height: 315rpx;
-  background-color: #f4f5f7;
-  margin-right: 10rpx;
-  border-radius: 20rpx;
-  overflow: hidden;
-  text-align: center;
-}
-
-.day-push image {
-  height: 200rpx;
-  width: 100%;
-}
-
-.day-push .day-push-title {
-  margin-top: 10rpx;
-  font-size: 28rpx;
-}
-
-.day-push .day-push-content {
-  color: #aaa;
-  font-size: 24rpx;
-}
-
-.option-list {
-  width: 70%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.list-item {
-  width: 150rpx;
-  height: 150rpx;
-  background-color: #f4f5f7;
-  margin-bottom: 15rpx;
-  border-radius: 20rpx;
-  text-align: center;
-  font-size: 28rpx;
-}
-
-.list-item image {
-  width: 60rpx;
-  height: 60rpx;
-  display: block;
-  margin: 30rpx auto 0 auto;
-}
-
 .music-list {
   padding: 20rpx 20rpx;
   margin-bottom: 100px;

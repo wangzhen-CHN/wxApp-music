@@ -11,11 +11,14 @@ Page({
     playMusicPicUrl: '',
     searchWord: '',
     searchDefaultWord: '',
+    pushSongs: [],
+    pushSongList: [],
     hotSearchList: [],
     searchMusicList: [],
     currentSwiper: 0,
   },
   onShow: function () {
+    // console.log('xxxxxxxxxxx',this.getTabBar())
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       app.globalData.getTabBar = this.getTabBar()
       this.getTabBar().setData({
@@ -24,43 +27,88 @@ Page({
     }
   },
   onLoad: function () {
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      app.globalData.getTabBar = this.getTabBar()
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
     wx.setNavigationBarColor({
       frontColor: '#000000',
       backgroundColor: '#fff'
     })
-    // wx.showLoading({
-    //   title: '请求中，请耐心等待..'
-    // });
     const cookie = wx.getStorageSync('login_token')
-
     Promise.all([
       api.get('/search/default'), //推荐搜索
-      api.get(`/recommend/songs?cookie=${cookie}`)
+      api.get('/search/hot/detail') // 获取热搜词
     ]).then(res => {
       // wx.hideLoading();
       this.setData({
         isloading: false,
         searchDefaultWord: res[0].data.showKeyword,
         searchWord: res[0].data.showKeyword,
-        hotList: res[1].data.dailySongs,
-      })
-      // 获取热搜词
-      api.get('/search/hot/detail').then(res => {
-        this.setData({
-          'hotSearchList': res.data
-        })
+        hotSearchList: res[1].data
       })
     }).catch(e => {
       console.log(e)
     })
 
   },
+  onShow() {
+    const pushSongListUrl = app.globalData.isLogin ? '/recommend/resource' : '/top/playlist/highquality?limit=13&cat=华语' //个人推荐歌单||精品华语歌单
+    const pushSongUrl = app.globalData.isLogin ? '/recommend/songs' : '/playlist/detail?id=2478853012'//个人推荐音乐||精品音乐
+    Promise.all([
+      api.get(pushSongListUrl), //推荐歌单
+      api.get(pushSongUrl) // 推荐音乐
+    ]).then(res => {
+      if (!app.globalData.isLogin) {
+        const pushSongList=[]
+        const pushSongs=[]
+        res[0].playlists.map(item=>{
+          pushSongList.push({
+            id:item.id,
+            name:item.name,
+            picUrl:item.coverImgUrl,
+            playcount:item.playCount,
+          })
+        })
+        // res[1].playlist.tracks.map(item=>{
+        //   pushSongs.push({
+        //     id:item.id,
+        //     name:item.name,
+        //     picUrl:item.coverImgUrl,
+        //     playcount:item.playCount,
+        //   })
+        // })
+        this.setData({
+          pushSongList,
+          pushSongs:res[1].playlist.tracks
+        })
+      }else{
+        this.setData({
+          pushSongList: res[0].recommend,
+          pushSongs:res[1].data.dailySongs,
+        })
+      }
+    })
+    // // 推荐歌曲
+    // api.get('/recommend/songs').then(res => {
+    //   this.setData({
+    //     pushSongs: res.data.dailySongs,
+    //   })
+    // })
+    // //推荐歌单
+    // api.get(pushSongListUrl).then(res => {
+
+    //   console.log(this.data.pushSongList)
+    // })
+  },
   swiperChange: function (e) {
     this.setData({
       currentSwiper: e.detail.current
     })
   },
-  touchOnItem: function (e) {
+  playMusic: function (e) {
     const id = e.currentTarget.dataset['id']
     app.play(id) //调用全局播放方法
     const music = e.currentTarget.dataset.music;

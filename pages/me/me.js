@@ -10,7 +10,7 @@ Page({
     userDetail: {},
     defaultAvatarUrl: '../../images/nav/play.png',
     loginPopup: false,
-    showLogin: false,
+    isLogin: false,
     userList: [],
     addList: []
   },
@@ -43,7 +43,7 @@ Page({
       this.setData({
         'userInfo': res,
         'isLogin': true,
-        'showLogin': false
+        'loginPopup': false
       })
       app.globalData.isLogin = true
       app.globalData.userInfo = res;
@@ -80,7 +80,7 @@ Page({
   },
   handleCancel() {
     this.setData({
-      "showLogin": false
+      "loginPopup": false
     })
   },
   handleLoginOut() {
@@ -91,6 +91,12 @@ Page({
     wx.setStorageSync("userInfo", {});
     wx.setStorageSync("login_token", '');
     wx.setStorageSync("uid", '');
+    this.setData({
+      likeList: [],
+      userDetail: {},
+      userList:[],
+      addList:[]
+    })
   },
   goSangList(e){
     const listId= e.currentTarget.dataset.id;
@@ -100,7 +106,7 @@ Page({
   },
   showLogin() {
     this.setData({
-      "showLogin": true
+      "loginPopup": true
     })
   }
 })

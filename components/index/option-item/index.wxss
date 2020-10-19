@@ -6,7 +6,7 @@
 
 .day-push {
   width: 30%;
-  height: 315rpx;
+  height: 310rpx;
   background-color: #f4f5f7;
   margin-right: 10rpx;
   border-radius: 20rpx;
@@ -27,6 +27,7 @@
 .day-push .day-push-content {
   color: #aaa;
   font-size: 24rpx;
+  padding: 5rpx;
 }
 
 .option-list {

@@ -6,21 +6,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    musicId: -1,//音乐id
-    hidden: false,  //加载动画是否隐藏
-    isPlay: true,   //歌曲是否播放
-    song: [],    //歌曲信息
-    hiddenLyric: true,    //是否隐藏歌词
-    backgroundAudioManager: {},  //背景音频对象
-    duration: '',             //总音乐时间（00:00格式）
-    currentTime: '00:00',      //当前音乐时间（00:00格式）
-    totalProcessNum: 0,         //总音乐时间 （秒）
-    currentProcessNum: 0,       //当前音乐时间（秒）
-    storyContent: [],   //歌词文稿数组，转化完成用来在页面中使用
-    marginTop: 0,    //文稿滚动距离
-    currentIndex: 0,    //当前正在第几行
-    noLyric: false,  //是否有歌词
-    slide: false   //进度条是否在滑动
+    musicId: -1, //音乐id
+    hidden: false, //加载动画是否隐藏
+    isPlay: true, //歌曲是否播放
+    currentPlaySong: {}, //歌曲信息
+    hiddenLyric: true, //是否隐藏歌词
+    backgroundAudioManager: {}, //背景音频对象
+    duration: '', //总音乐时间（00:00格式）
+    currentTime: '00:00', //当前音乐时间（00:00格式）
+    totalProcessNum: 0, //总音乐时间 （秒）
+    currentProcessNum: 0, //当前音乐时间（秒）
+    storyContent: [], //歌词文稿数组，转化完成用来在页面中使用
+    marginTop: 0, //文稿滚动距离
+    currentIndex: 0, //当前正在第几行
+    noLyric: false, //是否有歌词
+    slide: false //进度条是否在滑动
   },
   //返回上一页
   backPage: function () {
@@ -34,35 +34,39 @@ Page({
   onLoad: function (options) {
     const musicId = app.globalData.musicId
     const backgroundAudioManager = app.globalData.backgroundAudioManager
-    const song = app.globalData.currentPlaySong
+    const currentPlaySong = app.globalData.currentPlaySong
     // wx.setNavigationBarTitle({
     //   title: song.name
     // })
-    this.setData({musicId,backgroundAudioManager,song})
-    this.play(musicId)    //调用play方法
+    this.setData({
+      musicId,
+      backgroundAudioManager,
+      currentPlaySong
+    })
+    this.listenBackgroundAudioManager()
   },
   //播放音乐方法
-  play(musicId) {
-    // this.setData({song})
-    // api.get('/lyric?id='+musicId).then(res => {
-    //   if (res.data.nolyric || res.data.uncollected) { //该歌无歌词,或者歌词未收集
-    //     // console.log("无歌词")
-    //     this.setData({
-    //       noLyric: true
-    //     })
-    //   }
-    //   else {  //有歌词
-    //     this.setData({
-    //       storyContent: this.sliceNull(this.parseLyric(res.lrc.lyric))
-    //     })
-    //   }
-    // })
-    this.createBackgroundAudioManager()
-  },
-    ////////////////////////// 
+  // play(musicId) {
+  //   // this.setData({song})
+  //   // api.get('/lyric?id='+musicId).then(res => {
+  //   //   if (res.data.nolyric || res.data.uncollected) { //该歌无歌词,或者歌词未收集
+  //   //     // console.log("无歌词")
+  //   //     this.setData({
+  //   //       noLyric: true
+  //   //     })
+  //   //   }
+  //   //   else {  //有歌词
+  //   //     this.setData({
+  //   //       storyContent: this.sliceNull(this.parseLyric(res.lrc.lyric))
+  //   //     })
+  //   //   }
+  //   // })
+  //   this.createBackgroundAudioManager()
+  // },
+  ////////////////////////// 
   // 背景音频播放方法
-  createBackgroundAudioManager() {
-    const backgroundAudioManager= this.data.backgroundAudioManager
+  listenBackgroundAudioManager() {
+    const backgroundAudioManager = this.data.backgroundAudioManager
     //监听背景音乐进度更新事件
     backgroundAudioManager.onTimeUpdate(() => {
       this.setData({
@@ -70,12 +74,12 @@ Page({
         currentTime: this.formatSecond(backgroundAudioManager.currentTime),
         duration: this.formatSecond(backgroundAudioManager.duration)
       })
-      if (!this.data.slide) {    //如果进度条在滑动，就暂停更新进度条进度，否则会出现进度条进度来回闪动
+      if (!this.data.slide) { //如果进度条在滑动，就暂停更新进度条进度，否则会出现进度条进度来回闪动
         this.setData({
           currentProcessNum: backgroundAudioManager.currentTime,
         })
       }
-      if (!this.data.noLyric) {   //如果没有歌词，就不需要调整歌词位置
+      if (!this.data.noLyric) { //如果没有歌词，就不需要调整歌词位置
         this.lyricsRolling(backgroundAudioManager)
       }
     })
@@ -84,14 +88,14 @@ Page({
 
   // 历史歌单去重
   unique(arr, musicId) {
-    let index = arr.indexOf(musicId)  //使用indexOf方法，判断当前musicId是否已经存在，如果存在，得到其下标
-    if (index != -1) {          //如果已经存在在历史播放中，则删除老记录，存入新记录
+    let index = arr.indexOf(musicId) //使用indexOf方法，判断当前musicId是否已经存在，如果存在，得到其下标
+    if (index != -1) { //如果已经存在在历史播放中，则删除老记录，存入新记录
       arr.splice(index, 1)
       arr.push(musicId)
     } else {
-      arr.push(musicId)       //如果不存在，则直接存入历史歌单
+      arr.push(musicId) //如果不存在，则直接存入历史歌单
     }
-    return arr  //返回新的数组
+    return arr //返回新的数组
   },
 
   // 歌词滚动方法
@@ -101,11 +105,11 @@ Page({
       marginTop: (this.data.currentIndex - 3) * 39
     })
     // 当前歌词对应行颜色改变
-    if (this.data.currentIndex != this.data.storyContent.length - 1) {//不是最后一行
+    if (this.data.currentIndex != this.data.storyContent.length - 1) { //不是最后一行
       // var j = 0;
       for (let j = this.data.currentIndex; j < this.data.storyContent.length; j++) {
         // 当前时间与前一行，后一行时间作比较， j:代表当前行数
-        if (this.data.currentIndex == this.data.storyContent.length - 2) {  //倒数第二行
+        if (this.data.currentIndex == this.data.storyContent.length - 2) { //倒数第二行
           //最后一行只能与前一行时间比较
           if (parseFloat(backgroundAudioManager.currentTime) > parseFloat(this.data.storyContent[this.data.storyContent.length - 1][0])) {
             this.setData({
@@ -139,29 +143,36 @@ Page({
   },
   // 播放上一首歌曲
   beforeSong() {
-    if (app.globalData.history_songId.length > 1) {
-      app.globalData.waitForPlaying.unshift(app.globalData.history_songId.pop())//将当前播放歌曲从前插入待放列表
-      this.play(app.globalData.history_songId[app.globalData.history_songId.length - 1])  //播放历史歌单歌曲
-    } else {
-      this.tips('前面没有歌曲了哦', '去选歌', true)
-    }
+    // if (app.globalData.history_songId.length > 1) {
+    //   app.globalData.playList.unshift(app.globalData.history_songId.pop())//将当前播放歌曲从前插入待放列表
+    //   this.play(app.globalData.history_songId[app.globalData.history_songId.length - 1])  //播放历史歌单歌曲
+    // } else {
+    //   this.tips('前面没有歌曲了哦', '去选歌', true)
+    // }
   },
   // 下一首歌曲
   nextSong() {
-    if (app.globalData.waitForPlaying.length > 0) {
-      this.play(app.globalData.waitForPlaying.shift())//删除待放列表第一个元素并返回播放
-    } else {
-      this.tips('后面没有歌曲了哦', '去选歌', true)
-    }
+    app.nextSong()
+    setTimeout(() => {
+      console.log('音乐信息', app.globalData.currentPlaySong)
+      this.setData({
+        currentPlaySong: app.globalData.currentPlaySong
+      })
+    }, 500);
+    // if (app.globalData.playList.length > 0) {
+    //   this.play(app.globalData.playList.shift())//删除待放列表第一个元素并返回播放
+    // } else {
+    //   this.tips('后面没有歌曲了哦', '去选歌', true)
+    // }
   },
   // 播放和暂停
   handleToggleBGAudio() {
     const backgroundAudioManager = this.data.backgroundAudioManager
     //如果当前在播放的话
     if (this.data.isPlay) {
-      backgroundAudioManager.pause();//暂停
-    } else {      //如果当前处于暂停状态
-      backgroundAudioManager.play();//播放
+      backgroundAudioManager.pause(); //暂停
+    } else { //如果当前处于暂停状态
+      backgroundAudioManager.play(); //播放
     }
     this.setData({
       isPlay: !this.data.isPlay
@@ -173,21 +184,21 @@ Page({
       hiddenLyric: !this.data.hiddenLyric
     })
   },
-    //去除空白行
-    sliceNull: function (lrc) {
-      var result = []
-      for (var i = 0; i < lrc.length; i++) {
-        if (lrc[i][1] !== "") {
-          result.push(lrc[i]);
-        }
+  //去除空白行
+  sliceNull: function (lrc) {
+    var result = []
+    for (var i = 0; i < lrc.length; i++) {
+      if (lrc[i][1] !== "") {
+        result.push(lrc[i]);
       }
-      return result
-    },
+    }
+    return result
+  },
   //格式化歌词
   parseLyric: function (text) {
     let result = [];
     let lines = text.split('\n'), //切割每一行
-      pattern = /\[\d{2}:\d{2}.\d+\]/g;//用于匹配时间的正则表达式，匹配的结果类似[xx:xx.xx]
+      pattern = /\[\d{2}:\d{2}.\d+\]/g; //用于匹配时间的正则表达式，匹配的结果类似[xx:xx.xx]
     // console.log(lines);
     //去掉不含时间的行
     while (!pattern.test(lines[0])) {
@@ -195,7 +206,7 @@ Page({
     };
     //上面用'\n'生成数组时，结果中最后一个为空元素，这里将去掉
     lines[lines.length - 1].length === 0 && lines.pop();
-    lines.forEach(function (v /*数组元素值*/, i /*元素索引*/, a /*数组本身*/) {
+    lines.forEach(function (v /*数组元素值*/ , i /*元素索引*/ , a /*数组本身*/ ) {
       //提取出时间[xx:xx.xx]
       var time = v.match(pattern),
         //提取歌词
@@ -226,7 +237,7 @@ Page({
   //结束滑动触发
   end: function (e) {
     const position = e.detail.value
-    let backgroundAudioManager = this.data.backgroundAudioManager  //获取背景音频实例
+    let backgroundAudioManager = this.data.backgroundAudioManager //获取背景音频实例
     // console.log(position)
     backgroundAudioManager.seek(position) //改变歌曲进度
     console.log("结束")

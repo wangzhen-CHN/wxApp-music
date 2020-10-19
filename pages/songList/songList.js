@@ -24,11 +24,11 @@ Page({
   onLoad: function (options) { //接受其他页面传来的数据
     console.log(options)
     const listId = options.listId
-    const type = options.type||''
+    const type = options.type || ''
     console.log(type)
-    if (type==='album') {
+    if (type === 'album') {
       this.getAlbumDetail(listId)
-    }else{
+    } else {
       this.getPlaylistDetail(listId)
     }
     // if (Object.keys(this.data.playlist).length == 0)
@@ -55,13 +55,13 @@ Page({
       console.log(res)
       this.setData({
         playlist: {
-          'coverImgUrl':res.album.blurPicUrl,
-          'name':res.album.name,
-          'description':res.album.description,
-          'creator':{
-            'nickname':"青梅竹马的志田黑羽酱"
+          'coverImgUrl': res.album.blurPicUrl,
+          'name': res.album.name,
+          'description': res.album.description,
+          'creator': {
+            'nickname': "青梅竹马的志田黑羽酱"
           },
-          'tracks':res.songs
+          'tracks': res.songs
         },
         isloading: false
       })
@@ -81,12 +81,11 @@ Page({
   },
   playAll() {
     let playlist = this.data.playlist.tracks
-    console.log(playlist);
-    let music = playlist.shift()
-    app.play(music.id) //调用全局播放方法
-    this.animation(music.id, music)
     const playlistId = playlist.map(item => item.id)
-    app.globalData.playList.unshift(...playlistId)
+    app.play(playlistId[0]) //调用全局播放方法
+    this.animation(playlistId[0], playlist[0])
+    app.globalData.playList = playlistId
+    console.log('存入全局idList',app.globalData.playList)
   },
   //miniPlayer动画
   animation: function (id, music) {

@@ -109,13 +109,13 @@
 			</view>
 		</view>
 	</view> -->
-<view class="btn-login-out">
+<view class="btn-login-out" wx:if="{{isLogin}}">
 	<van-button round type="default" class="btn-cancel" bindtap="handleLoginOut" block>
 						退出登录</van-button>
 </view>
 
 </view>
-<van-popup show="{{ showLogin }}" position="bottom" custom-style="height: 100%;width:100%;padding:0 20rpx">
+<van-popup show="{{ loginPopup }}" position="bottom" custom-style="height: 100%;width:100%;padding:0 20rpx">
 	<view class="my-page">
 
 		<view class="logo">

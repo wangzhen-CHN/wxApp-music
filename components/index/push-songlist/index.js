@@ -1,19 +1,11 @@
-//index.js
-const api = require('../../../utils/request.js')
 Component({
+  properties: {
+    pushSongList: Object,
+  },
   data: {
-    // 这里是一些组件内部数据
-    playlists: [],
     isloading: true,
   },
   ready: function () {
-    const cookie = wx.getStorageSync('login_token')
-    api.get(`/recommend/resource?cookie=${cookie}`).then(res => {
-      this.setData({
-        isloading: false,
-        playlists: res.recommend,
-      })
-    })
   },
   methods: {
     goSangList(e){

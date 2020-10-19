@@ -1,11 +1,11 @@
 <!-- 音乐播放背景图片 -->
-<image class="background_img" src="{{song.al.picUrl}}?param=20y20"></image>
+<image class="background_img" src="{{currentPlaySong.al.picUrl}}?param=20y20"></image>
 <view class="play-wrapper">
 	<view class="play-title">
 		<view class="singer-info">
-			<view class="title-songName">{{song.name}}</view>
+			<view class="title-songName">{{currentPlaySong.name}}</view>
 			<view class="title-singer">
-				<text wx:for="{{song.ar}}" wx:key="index" class="singer-name-text">{{item.name}}</text>
+				<text wx:for="{{currentPlaySong.ar}}" wx:key="index" class="singer-name-text">{{item.name}}</text>
 			</view>
 		</view>
 	</view>
@@ -41,7 +41,7 @@
 
 				<view class="round-container">
 					<image class="round-img" src="https://s3.music.126.net/mobile-new/img/disc-ip6.png?69796123ad7cfe95781ea38aac8f2d48="></image>
-					<image class="singer-img" src="{{song.al.picUrl}}"></image>
+					<image class="singer-img" src="{{currentPlaySong.al.picUrl}}?param=300y300"></image>
 				</view>
 			</view>
 		</view>

@@ -6,10 +6,10 @@
 			<van-icon name="arrow" color="#abb0bf" />
 		</view>
 	</view>
-	<van-skeleton row="6" loading="{{ isloading }}">
+	<van-skeleton row="6" loading="{{ !pushSongList.length>0 }}">
 		<view class="music-recommend-box">
 			<view class="music-recommend-ul">
-				<view class="music-recommend-li" wx:for="{{playlists}}" wx:key="key" >
+				<view class="music-recommend-li" wx:for="{{pushSongList}}" wx:key="key" >
 					<view class="music-recommend-img" bindtap="goSangList" data-id="{{item.id}}">
 						<image src="{{item.picUrl}}?param=200y200"></image>
 						<view class="music-recommend-play" wx:if="{{item.playcount>99999999}}">

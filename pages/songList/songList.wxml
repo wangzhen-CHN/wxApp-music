@@ -54,7 +54,7 @@
 				</view>
 				<view class="broadcast-desc">
 					<text class="broadcast-name">播放全部 </text>
-					<text class="broadcast-num">（共{{playlist.tracks.length}}首）</text>
+					<text class="broadcast-num">（共{{playlist.trackCount}}首）</text>
 				</view>
 				<view class="collectBox">
 					<image src="/images/icon/heart.png"></image>

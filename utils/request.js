@@ -2,12 +2,14 @@
 const baseUrl = 'https://api.mo36.com';
 const http = ({ url = '', param = {}, ...other } = {}) => {
     let timeStart = Date.now();
+    const cookie = wx.getStorageSync('login_token')
     return new Promise((resolve, reject) => {
         wx.request({
             url: getUrl(url),
             data: param,
             header: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                cookie,
             },
             ...other,
             complete: (res) => {
