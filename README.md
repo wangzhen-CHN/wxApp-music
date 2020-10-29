@@ -1,5 +1,5 @@
 <p align="center">
-   <img width="200" src="http://img.mo36.com/logo.png">
+   <img width="200" src="http://img.coder.wang/logo.png">
 </p>
 
 <h3 align="center">在线播放音乐的微信小程序</h3>
@@ -21,12 +21,12 @@
 
 - 可用过微信扫描二维码申请体验版，我看到后会通过的
 
- ![code](http://img.mo36.com/code.png)
+ ![code](http://img.coder.wang/code.png)
 
 ## 🌈 预览
 
-首页![index](http://img.mo36.com/index.jpg)
-热搜![hotList](http://img.mo36.com/hotList.jpg)
+首页![index](http://img.coder.wang/index.jpg)
+热搜![hotList](http://img.coder.wang/hotList.jpg)
 
-搜索![searchList](http://img.mo36.com/searchList.jpg)
-播放![player](http://img.mo36.com/player.jpg)
+搜索![searchList](http://img.coder.wang/searchList.jpg)
+播放![player](http://img.coder.wang/player.jpg)
