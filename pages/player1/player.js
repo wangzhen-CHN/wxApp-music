@@ -1,10 +1,10 @@
-//index.js
-//获取应用实例
 const api = require('../../utils/request.js')
 const app = getApp();
-// 初始化播放器
 
 Page({
+  /**
+   * 页面的初始数据
+   */
   data: {
     musicId: -1, //音乐id
     hidden: false, //加载动画是否隐藏
@@ -20,18 +20,7 @@ Page({
     marginTop: 0, //文稿滚动距离
     currentIndex: 0, //当前正在第几行
     noLyric: false, //是否有歌词
-    slide: false, //进度条是否在滑动
-    currentPlaySong: {
-      name: "暂无歌曲",
-      pic: '../../images/nav/play.png'
-    },
-    lrcDir: "",
-    //文稿数组，转化完成用来在wxml中使用
-    storyContent: [],
-    //文稿滚动距离
-    marginTop: 0,
-    //当前正在第几行
-    currentIndex222: 0
+    slide: false //进度条是否在滑动
   },
   //返回上一页
   backPage: function () {
@@ -56,6 +45,25 @@ Page({
     })
     this.listenBackgroundAudioManager()
   },
+  //播放音乐方法
+  // play(musicId) {
+  //   // this.setData({song})
+  //   // api.get('/lyric?id='+musicId).then(res => {
+  //   //   if (res.data.nolyric || res.data.uncollected) { //该歌无歌词,或者歌词未收集
+  //   //     // console.log("无歌词")
+  //   //     this.setData({
+  //   //       noLyric: true
+  //   //     })
+  //   //   }
+  //   //   else {  //有歌词
+  //   //     this.setData({
+  //   //       storyContent: this.sliceNull(this.parseLyric(res.lrc.lyric))
+  //   //     })
+  //   //   }
+  //   // })
+  //   this.createBackgroundAudioManager()
+  // },
+  ////////////////////////// 
   // 背景音频播放方法
   listenBackgroundAudioManager() {
     const backgroundAudioManager = this.data.backgroundAudioManager
@@ -252,46 +260,5 @@ Page({
         return;
       }
     }
-  },
-  //---------------------------------------------------------
-  parseLyric: function (text) {
-    var result = [];
-    var lines = text.split('\n') //切割每一行
-    var pattern = /\[\d{2}:\d{2}.\d{2}\]/g //用于匹配时间的正则表达式，匹配的结果类似[xx:xx.xx]
-    //去掉不含时间的行
-    console.log(lines)
-    while (!pattern.test(lines[0])) {
-      lines = lines.slice(1);
-    };
-    //上面用'\n'生成数组时，结果中最后一个为空元素，这里将去掉
-    lines[lines.length - 1].length === 0 && lines.pop();
-    lines.forEach(function (v /*数组元素值*/ , i /*元素索引*/ , a /*数组本身*/ ) {
-      //提取出时间[xx:xx.xx]
-      var time = v.match(pattern),
-        //提取歌词
-        value = v.replace(pattern, '');
-      // 因为一行里面可能有多个时间，所以time有可能是[xx:xx.xx][xx:xx.xx][xx:xx.xx]的形式，需要进一步分隔
-      time.forEach(function (v1, i1, a1) {
-        //去掉时间里的中括号得到xx:xx.xx
-        var t = v1.slice(1, -1).split(':');
-        //将结果压入最终数组
-        result.push([parseInt(t[0], 10) * 60 + parseFloat(t[1]), value]);
-      });
-    });
-    //最后将结果数组中的元素按时间大小排序，以便保存之后正常显示歌词
-    result.sort(function (a, b) {
-      return a[0] - b[0];
-    });
-    return result;
-  },
-  //去除空白
-  sliceNull: function (lrc) {
-    var result = []
-    for (var i = 0; i < lrc.length; i++) {
-      if (lrc[i][1] == "") {} else {
-        result.push(lrc[i]);
-      }
-    }
-    return result
-  },
+  }
 })

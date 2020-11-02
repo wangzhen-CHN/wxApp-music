@@ -93,12 +93,7 @@ App({
     backgroundAudioManager.onPause(() => { //暂停
       this.globalData.getTabBar.setData({
         "isPlay": false,
-        'routerList[2]': {
-          "selectedIconPath": "../images/nav-active/play.png",
-          "iconPath": "../images/nav/play.png",
-          "pagePath": "/pages/player/player",
-
-        }
+        "isPause": true,
       })
     })
   },

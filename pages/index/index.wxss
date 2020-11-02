@@ -139,9 +139,9 @@
 }
 
 .music-car-img {
-  width: 30%;
+  width: 160rpx;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
 
@@ -159,7 +159,6 @@
   letter-spacing: 1rpx;
   font-size: 28rpx;
   color: #444;
-  padding: 10rpx;
 }
 
 .music-car-option {
@@ -203,6 +202,8 @@
 }
 
 .img-noAnimation {
+  height: 80rpx;
+  width: 80rpx;
   display: none;
   position: fixed;
   z-index: 999;

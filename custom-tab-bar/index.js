@@ -43,7 +43,7 @@ Component({
       console.log(data)
       const url = data.router.pagePath
       if (url === '/pages/player/player') {
-        if (this.data.isPlay) {
+        if (this.data.isPlay||this.data.isPause) {
           wx.navigateTo({
             url
           })
