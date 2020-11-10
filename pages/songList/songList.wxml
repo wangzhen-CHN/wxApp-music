@@ -1,6 +1,12 @@
+
 <!-- 背景图片 -->
 <image class="background_img" src="{{playlist.coverImgUrl}}"></image>
 
+<view class='nav-wrap' style='height: {{height*2 + 20}}px;'>
+    <view class='nav-capsule' bindtap='goBack' style='height: {{height*2 + 48}}px;'>
+				<van-icon name="arrow-left" size="25px" />
+    </view>
+</view>
 <view class="wrapper">
 	<view class="music-list-top" wx:if="{{isloading}}">
 		<van-skeleton title avatar row="4" />
@@ -62,10 +68,14 @@
 			</view>
 
 			<view class="songlistbox">
-				<view class="song-list" wx:for="{{playlist.tracks}}" wx:key="index" bindtap="playMusic" data-id="{{item.id}}" data-music="{{item}}">
+				<view class="song-list" wx:for="{{playlist.tracks}}" wx:key="index" bindtap="playMusic" data-id="{{item.id}}"
+					data-music="{{item}}">
 					<view class="song-img">
 						<image src="{{item.al.picUrl}}?param=100y100" class="img-num-{{item.id}}"></image>
-						<image src="{{item.al.picUrl}}?param=60y60" class="{{isAnimation===item.id?'img-animation':''}} img-noAnimation" style="left:{{animationLeft}};top:{{animationTop}};transition:{{animationTransition}};opacity:{{animationOpacity}}"></image>
+						<image src="{{item.al.picUrl}}?param=60y60"
+							class="{{isAnimation===item.id?'img-animation':''}} img-noAnimation"
+							style="left:{{animationLeft}};top:{{animationTop}};transition:{{animationTransition}};opacity:{{animationOpacity}}">
+						</image>
 					</view>
 					<view class="song">
 						<view class="song-name">{{item.name}}</view>

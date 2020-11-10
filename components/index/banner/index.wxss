@@ -3,9 +3,10 @@
   height: 150px;
   width: 100%;
   border-radius: 20rpx;
-  background: #f4f5f7;
+  background: #f2f3f5;
+  animation:van-skeleton-blink 1.2s ease-in-out infinite;
 }
-
+@keyframes van-skeleton-blink{50%{opacity:.6}}
 .swiper-view {
   position: relative;
   padding: 20rpx;

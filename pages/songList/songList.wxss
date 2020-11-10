@@ -1,12 +1,79 @@
 /* pages/songlist/songlist.wxss */
 
-.wrapper {
+page {
     width: 100%;
     height: 100%;
+    padding-top: 150rpx;
     display: block;
-    /* overflow:hidden */
+    overflow:hidden
+}
+/* 顶部要固定定位   标题要居中   自定义按钮和标题要和右边微信原生的胶囊上下对齐 */
+.nav-wrap {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  color: #000;
+  z-index: 9999999;
+}
+.nav-wrap-1{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    color: #000;
+    z-index: 9999999;
+    display: flex;
+    align-items: flex-end;
+}
+.nav-wrap-1 van-icon{
+    padding-bottom: 15rpx;
+}
+/* 标题要居中 */
+.nav-title {
+  position: absolute;
+  text-align: center;
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 36rpx;
+  color: #2c2b2b;
+  font-weight: 600;
 }
 
+.nav-capsule {
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+  width: 140rpx;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.navbar-v-line {
+  width: 1px;
+  height: 32rpx;
+  background-color: #e5e5e5;
+}
+
+.back-pre, .back-home {
+  width: 32rpx;
+   height: 36rpx;
+  margin-top: 4rpx;
+  padding: 10rpx;
+}
+.nav-capsule .back-home {
+  width: 36rpx;
+  height: 40rpx;
+  margin-top: 3rpx;
+}
+.wrapper{
+    height: calc(100% - 150rpx);
+}
 .background_img {
     position: fixed;
     top: 0;
@@ -15,7 +82,7 @@
     width: 100%;
     height: 100%;
     /* css3滤镜属性，blur设置高斯模糊  brightness设置变暗*/
-    filter: blur(50px) brightness(80%);
+    filter: blur(80px) opacity(20%);
     /* filter: blur(80px); */
     z-index: -1;
     /*和网易云音乐对比了一下，发现他们是也是放大1.5倍*/
@@ -23,6 +90,7 @@
 }
 
 .top {
+    height: 380rpx;
     width: 100%;
 }
 
@@ -59,15 +127,15 @@
     margin-right: 10rpx;
 }
 .user-nickname{
-    color: rgba(255,255,255,.8);
+    color: rgb(49, 48, 48)
 }
 .desc-name{
-    color: #ffffff;
+    color: #222;
     font-size: 30rpx;
     font-weight: 500;
 }
 .desc-description{
-    color:rgba(255,255,255,.5);
+    color:#a1a1a1;
     font-size: 26rpx;
     max-height: 68rpx;
     overflow: hidden;
@@ -90,9 +158,10 @@
 }
 
 .down {
+    height: calc(100% - 380rpx);
     width: 100%;
-    height: 100%;
-    padding: 20rpx 35rpx;
+    /* height: 100%; */
+    padding: 30rpx 35rpx;
     border-top-left-radius: 30rpx;
     border-top-right-radius: 30rpx;
     overflow: hidden;
@@ -151,22 +220,22 @@
     height: 50rpx;
 }
 .songlistbox{
-    padding-top: 25rpx;
+    /* padding-top: 25rpx; */
 }
 .song-list {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 30rpx;
+    margin: 40rpx 0;
 }
 
 .song-img {
-    width: 65rpx;
-    height: 65rpx;
+    width: 80rpx;
+    height: 80rpx;
 }
 .song-img image{
-    width: 65rpx;
-    height: 65rpx;
+    width: 80rpx;
+    height: 80rpx;
     border-radius: 15rpx;
 }
 

@@ -23,6 +23,9 @@ Page({
    */
   onLoad: function (options) { //接受其他页面传来的数据
     console.log(options)
+    this.setData({
+      height: app.globalData.statusBarHeight
+    })
     const listId = options.listId
     const type = options.type || ''
     console.log(type)
@@ -33,6 +36,9 @@ Page({
     }
     // if (Object.keys(this.data.playlist).length == 0)
     //   this.getPlaylistDetail(listId)
+  },
+  goBack(){
+    wx.navigateBack()
   },
   //获取歌单详情
   getPlaylistDetail(listId) {
@@ -102,7 +108,7 @@ Page({
       setTimeout(() => {
         this.setData({
           animationLeft: app.globalData.ww - 100 + 'px',
-          animationTop: app.globalData.hh - 100 + 'px',
+          animationTop: app.globalData.hh - 20 + 'px',
           animationOpacity: 0,
           animationTransition: 'left 0.8s linear, top 0.8s ease-in, opacity 1s',
         })

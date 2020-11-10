@@ -3,6 +3,7 @@ App({
   globalData: {
     ww: 0,
     hh: 0,
+    statusBarHeight:0,
     isPlay: false, //是否正在播放
     musicId: '', //当前歌曲ID
     musicUrl: '', //当前歌曲播放链接
@@ -25,6 +26,7 @@ App({
         wx.setStorageSync('systemInfo', res)
         this.globalData.ww = res.windowWidth;
         this.globalData.hh = res.windowHeight;
+        this.globalData.statusBarHeight = res.statusBarHeight
       }
     });
     this.createBackgroundAudioManager()//创建播放器
@@ -65,16 +67,7 @@ App({
   },
   // 音频播放
   createBackgroundAudioManager() {
-    // this.globalData.musicUrl = `https://music.163.com/song/media/outer/url?id=${musicId}.mp3`
     const backgroundAudioManager = wx.getBackgroundAudioManager(); //生成音乐播放器
-    // console.log('当前播放：', this.globalData.currentPlaySong.name);
-    // if (backgroundAudioManager.src != this.globalData.musicUrl) { //首次放歌或者切歌
-    //   backgroundAudioManager.title = this.globalData.currentPlaySong.name; //音频标题
-    //   backgroundAudioManager.singer = this.globalData.currentPlaySong.ar[0].name; //音频歌手
-    //   backgroundAudioManager.coverImgUrl = this.globalData.currentPlaySong.al.picUrl; //音频图片
-    //   // backgroundAudioManager.src = this.globalData.musicUrl; // 立即播放
-    // }
-    // this.globalData.isPlay = true
     this.globalData.backgroundAudioManager = backgroundAudioManager
 
     backgroundAudioManager.onEnded(() => { //下一首
