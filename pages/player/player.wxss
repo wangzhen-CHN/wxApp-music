@@ -1,7 +1,6 @@
 .play-container {}
 
 .play-top {
-  padding-top: 20rpx;
   display: flex;
   justify-content: center;
 }

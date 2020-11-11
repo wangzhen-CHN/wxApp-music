@@ -255,6 +255,7 @@ page {
 .song-author {
     color: #978e8e;
     font-size: 22rpx;
+    line-height: 40rpx;
     max-width: 500rpx;
     overflow: hidden;
     white-space: nowrap;
@@ -272,8 +273,9 @@ page {
   
   .img-animation {
     display: block;
+    width: 100rpx;
+    height: 100rpx;
     border-radius: 50%!important;
-  
   }
   .music-list-top{
       height: 280rpx;
@@ -286,4 +288,21 @@ page {
       width: 250rpx!important;
       height: 250rpx!important;
       border-radius: 20rpx;
+  }
+  .music-tag {
+    display: inline;
+    margin-right: 6rpx;
+    font-size: 18rpx;
+    border: 1px solid #19a6ff;
+    padding: 2rpx 4rpx;
+    border-radius: 6rpx;
+    color: #19a6ff;
+  }
+  .add-animation {
+    animation: newframes .3s;
+  }
+  @keyframes newframes {
+    0% {transform: scale(1);}
+    50% {transform: scale(0.95);}
+   100% {transform: scale(1);}
   }

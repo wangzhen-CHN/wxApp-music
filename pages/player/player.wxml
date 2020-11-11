@@ -40,9 +40,9 @@
 		<image src="../../images/icon/more.png"></image>
 	</view>
 	<view class="slider-box">
-		<van-slider value="{{currentProcessNum}}" bar-height="4px" use-button-slot active-color="#1ca7ff" max="{{totalProcessNum}}"
+		<van-slider value="{{currentProcessNum}}" bar-height="4px" bind:drag-start="start" bind:drag-end="end" active-color="#1ca7ff" max="{{totalProcessNum}}"
 			 min="0">
-		<view class="slider-custom-button" slot="button"></view>
+		<!-- <view class="slider-custom-button" slot="button"></view> -->
 		</van-slider>
 	</view>
 

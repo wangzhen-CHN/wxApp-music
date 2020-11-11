@@ -12,6 +12,7 @@ Page({
     music: {},
     isPlay: false,
     animationLeft: '',
+    animationPicUrl: '',
     animationTop: '',
     animationOpacity: '',
     animationTransition: '',
@@ -82,16 +83,19 @@ Page({
   playMusic(e) {
     let id = e.currentTarget.dataset.id
     const music = e.currentTarget.dataset.music;
-    app.play(id) //调用全局播放方法
-    this.animation(id, music)
+    app.play(id).then(res=>{
+      this.animation(id, music)
+    }) //调用全局播放方法
+    
   },
   playAll() {
     let playlist = this.data.playlist.tracks
     const playlistId = playlist.map(item => item.id)
-    app.play(playlistId[0]) //调用全局播放方法
-    this.animation(playlistId[0], playlist[0])
-    app.globalData.playList = playlistId
-    console.log('存入全局idList',app.globalData.playList)
+    app.play(playlistId[0]).then(res=>{
+      this.animation(playlistId[0], playlist[0])
+      app.globalData.playList = playlistId
+      console.log('存入全局idList',app.globalData.playList)
+    }) //调用全局播放方法
   },
   //miniPlayer动画
   animation: function (id, music) {
@@ -99,22 +103,21 @@ Page({
     query.select('.img-num-' + id).boundingClientRect()
     query.exec(res => {
       this.setData({
-        "isAnimation": id,
+        isAnimation: true,
+        animationPicUrl: music.al.picUrl,
         animationLeft: res[0].left + 'px',
         animationTop: res[0].top + 'px',
         animationOpacity: 1,
         animationTransition: 'left 0s, top 0s',
       })
-      setTimeout(() => {
+      // setTimeout(() => {
         this.setData({
           animationLeft: app.globalData.ww - 100 + 'px',
           animationTop: app.globalData.hh - 20 + 'px',
           animationOpacity: 0,
           animationTransition: 'left 0.8s linear, top 0.8s ease-in, opacity 1s',
         })
-      }, 1);
-    })
-    setTimeout(() => {
+      // }, 100);
       app.globalData.getTabBar.setData({
         "isPlay": false,
       })
@@ -131,6 +134,24 @@ Page({
           "text": ""
         }
       })
-    }, 800);
+    })
+    // setTimeout(() => {
+    //   app.globalData.getTabBar.setData({
+    //     "isPlay": false,
+    //   })
+    //   this.setData({
+    //     "isPlay": true,
+    //     music
+    //   })
+    //   app.globalData.getTabBar.setData({
+    //     "isPlay": true,
+    //     'routerList[2]': {
+    //       "iconPath": music.al.picUrl + '?param=200y200',
+    //       "selectedIconPath": music.al.picUrl + '?param=200y200',
+    //       "pagePath": "/pages/player/player",
+    //       "text": ""
+    //     }
+    //   })
+    // }, 800);
   },
 })

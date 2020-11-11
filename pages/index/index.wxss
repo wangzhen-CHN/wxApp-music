@@ -202,8 +202,8 @@
 }
 
 .img-noAnimation {
-  height: 80rpx;
-  width: 80rpx;
+  height: 120rpx;
+  width: 120rpx;
   display: none;
   position: fixed;
   z-index: 999;
@@ -211,8 +211,17 @@
 
 .img-animation {
   display: block;
-  border-radius: 50%!important;
+  border-radius: 50% !important;
 
+}
+
+.add-animation {
+  animation: newframes .3s;
+}
+@keyframes newframes {
+  0% {transform: scale(1);}
+  50% {transform: scale(0.95);}
+ 100% {transform: scale(1);}
 }
 
 /* 搜索 */

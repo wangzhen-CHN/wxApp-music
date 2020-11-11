@@ -33,18 +33,21 @@ App({
   },
   play(musicId) {
     console.log("播放歌曲ID",musicId)
-    this.globalData.musicId = musicId
+    return new Promise((resolve,reject)=>{
     api.get('/song/detail?ids=' + musicId).then(res => {
         if (res.songs.length !== 0) {
           console.log("播放歌曲名称",res.songs[0].ar[0].name)
           if (res.songs[0].fee===1) {
             wx.showToast({
-              title: '收费资源',
+              title: '还不能播放收费歌曲哦',
               icon: 'none',
             })
+            reject()
             this.nextSong()
             return
           }
+          resolve()
+          this.globalData.musicId = musicId
           this.globalData.currentPlaySong = res.songs[0]
           this.globalData.backgroundAudioManager.title = res.songs[0].name; //音频标题
           this.globalData.backgroundAudioManager.singer = res.songs[0].ar[0].name; //音频歌手
@@ -52,6 +55,7 @@ App({
           this.globalData.backgroundAudioManager.src=`https://music.163.com/song/media/outer/url?id=${musicId}.mp3`
           this.globalData.backgroundAudioManager.play()
         } else {
+          reject()
           wx.showToast({
             title: '音乐播放出了点状况~~',
             icon: 'none',
@@ -59,11 +63,13 @@ App({
         }
       })
       .catch(err => {
+        reject()
         wx.showToast({
           title: '音乐播放出了点状况~~',
           icon: 'none',
         })
       })
+    })
   },
   // 音频播放
   createBackgroundAudioManager() {
@@ -99,11 +105,6 @@ App({
       // const songId = this.globalData.playList.shift()
       // this.globalData.playList.push(songId)
       this.play(this.globalData.playList[0])
-    } else {
-      wx.showToast({
-        title: '播放列表为空',
-        icon: 'none',
-      })
     }
   },
 })
