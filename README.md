@@ -26,8 +26,8 @@
 ## 🌈 预览
 
 <div style="display:flex;flex-wrap: wrap;">
-  <div style="width: 50%"><image src="http://img.coder.wang/index.png" width="200px"/></div>
-  <div style="width: 50%"><image src="http://img.coder.wang/player.png" width="200px"/></div>
-  <div style="width: 50%"><image src="http://img.coder.wang/songList.png" width="200px"/></div>
-  <div style="width: 50%"><image src="http://img.coder.wang/hotList.png" width="200px"/></div>
+  <div><image src="http://img.coder.wang/index.png" width="300px"/></div>
+  <div><image src="http://img.coder.wang/player.png" width="300px"/></div>
+  <div><image src="http://img.coder.wang/songList.png" width="300px"/></div>
+  <div><image src="http://img.coder.wang/hotList.png" width="300px"/></div>
 </div>
