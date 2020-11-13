@@ -25,9 +25,5 @@
 
 ## 🌈 预览
 
-<div style="display:flex;flex-wrap: wrap;">
-  <div><image src="http://img.coder.wang/index.png" width="300px"/></div>
-  <div><image src="http://img.coder.wang/player.png" width="300px"/></div>
-  <div><image src="http://img.coder.wang/songList.png" width="300px"/></div>
-  <div><image src="http://img.coder.wang/hotList.png" width="300px"/></div>
-</div>
+首页![index](http://img.coder.wang/index.png) 歌单![searchList](http://img.coder.wang/songList.png) 播放![player](http://img.coder.wang/player.png) 热搜![hotList](http://img.coder.wang/hotList.png) 
+
