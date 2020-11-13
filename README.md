@@ -26,8 +26,8 @@
 ## 🌈 预览
 
 <p align="center">
-  <img src="http://img.coder.wang/index.png">
-  <img src="http://img.coder.wang/songList.png">
-  <img src="http://img.coder.wang/player.png">
+  <img width="30%" src="http://img.coder.wang/index.png">
+  <img width="30%" src="http://img.coder.wang/songList.png">
+  <img width="30%" src="http://img.coder.wang/player.png">
 </p>
 
