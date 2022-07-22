@@ -18,8 +18,8 @@ Component({
     }, {
       "selectedIconPath": "../images/nav-active/video.png",
       "iconPath": "../images/nav/video.png",
-      "pagePath": "/pages/video/video",
-      "text": "视频"
+      "pagePath": "/pages/logs/logs",
+      "text": "日志"
     }, {
       "selectedIconPath": "../images/nav-active/play.png",
       "iconPath": "../images/nav/play.png",

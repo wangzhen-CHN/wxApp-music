@@ -39,7 +39,12 @@ Page({
     console.log(tel, password)
     api.get(`/login/cellphone?phone=${tel}&password=${password}`).then(res => {
       console.log('登录：', res)
-      if (res.code !== 200) return
+        if (res.code !== 200) {
+          return wx.showToast({
+          title: res.msg||'登录失败',
+          icon: 'error',
+        })
+      }
       this.setData({
         'userInfo': res,
         'isLogin': true,

@@ -127,7 +127,7 @@
 		<view>
 			<form class="login-form">
 				<view class="page-section">
-					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ tel }}" placeholder="请输入手机号" />
+					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ tel }}" type="number" placeholder="请输入手机号" />
 					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ password }}" type="password" placeholder="请输入密码" />
 				</view>
 				<view class="btn-area">

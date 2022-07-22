@@ -1,5 +1,5 @@
 // const baseUrl = 'http://106.14.46.131:4000';
-const baseUrl = 'http://124.223.108.239:3000';
+const baseUrl = 'https://api.coder.wang';
 const http = ({ url = '', param = {}, ...other } = {}) => {
     let timeStart = Date.now();
     const cookie = wx.getStorageSync('login_token')
