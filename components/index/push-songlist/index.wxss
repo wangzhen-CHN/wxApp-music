@@ -75,6 +75,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal !important;
+  letter-spacing:2rpx;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }

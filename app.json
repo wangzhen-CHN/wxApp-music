@@ -50,5 +50,6 @@
     "van-field": "@vant/weapp/field/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-skeleton": "@vant/weapp/skeleton/index"
-  }
+  },
+  "lazyCodeLoading": "requiredComponents"
 }

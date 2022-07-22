@@ -27,6 +27,8 @@
 .day-push .day-push-content {
   color: #aaa;
   font-size: 24rpx;
+  height: 32rpx;
+  overflow: hidden;
   padding: 5rpx;
 }
 
@@ -49,8 +51,8 @@
 }
 
 .list-item image {
-  width: 60rpx;
-  height: 60rpx;
+  width: 56rpx;
+  height: 56rpx;
   display: block;
   margin: 30rpx auto 0 auto;
 }
