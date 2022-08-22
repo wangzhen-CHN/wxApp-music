@@ -52,12 +52,12 @@
 ## 🌈 预览
 
 <p align="center" style="display:flex;justify-content: space-around;">
-  <img width="18%" src="./assets/IMG_8680.png">
-  <img width="18%" src="./assets/IMG_8678.png">
-  <img width="18%" src="./assets/IMG_8677.png">
+  <img width="18%" src="./assets/IMG_8680.png" border="1">
+  <img width="18%" src="./assets/IMG_8678.png" border="1">
+  <img width="18%" src="./assets/IMG_8677.png" border="1">
 </p>
 <p align="center" style="display:flex;justify-content: space-around;">
-  <img width="18%" src="./assets/IMG_8671.png">
-  <img width="18%" src="./assets/IMG_8672.png">
+  <img width="18%" src="./assets/IMG_8671.png" border="1">
+  <img width="18%" src="./assets/IMG_8672.png" border="1">
 </p>
 
