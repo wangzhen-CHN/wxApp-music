@@ -1,3 +1,13 @@
+<style>
+.img-box {
+  display:flex;
+  justify-content: space-around;
+}
+.img-box img {
+    border:1px solid #f2f2f2;
+}
+</style>
+
 <p align="center">
    <img width="140" src="./images/logo.png">
 </p>
@@ -52,21 +62,12 @@
 ## 🌈 预览
 
 <p align="center" class="img-box">
-  <img width="18%" src="./assets/IMG_8680.png" border="1">
-  <img width="18%" src="./assets/IMG_8678.png" border="1">
-  <img width="18%" src="./assets/IMG_8677.png" border="1">
+  <img width="22%" src="./assets/IMG_8680.png" border="1">
+  <img width="22%" src="./assets/IMG_8678.png" border="1">
+  <img width="22%" src="./assets/IMG_8677.png" border="1">
 </p>
 <p align="center" class="img-box">
-  <img width="18%" src="./assets/IMG_8671.png" border="1">
-  <img width="18%" src="./assets/IMG_8672.png" border="1">
+  <img width="22%" src="./assets/IMG_8671.png" border="1">
+  <img width="22%" src="./assets/IMG_8672.png" border="1">
 </p>
 
-<style>
-.img-box {
-  display:flex;
-  justify-content: space-around;
-}
-.img-box img {
-    border:1px solid #f2f2f2;
-}
-</style>
