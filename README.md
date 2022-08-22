@@ -52,11 +52,11 @@
 ## 🌈 预览
 
 <p class="img-box">
-  <img width="22%" src="./assets/IMG_8680.png">
-  <img width="22%" src="./assets/IMG_8678.png">
-  <img width="22%" src="./assets/IMG_8677.png">
+  <img width="25%" src="./assets/IMG_8680.png">
+  <img width="25%" src="./assets/IMG_8678.png">
+  <img width="25%" src="./assets/IMG_8677.png">
 </p>
 <p class="img-box">
-  <img width="22%" src="./assets/IMG_8671.png">
-  <img width="22%" src="./assets/IMG_8672.png">
+  <img width="25%" src="./assets/IMG_8671.png">
+  <img width="25%" src="./assets/IMG_8672.png">
 </p>
