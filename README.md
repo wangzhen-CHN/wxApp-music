@@ -50,13 +50,17 @@
 <img src="./assets/qrcode.png" width="140" alt="qrcode" />
 
 ## 🌈 预览
-
-<p class="img-box">
+### 首页
   <img width="25%" src="./assets/IMG_8680.png">
-  <img width="25%" src="./assets/IMG_8678.png">
-  <img width="25%" src="./assets/IMG_8677.png">
-</p>
-<p class="img-box">
-  <img width="25%" src="./assets/IMG_8671.png">
+
+### 歌单
   <img width="25%" src="./assets/IMG_8672.png">
-</p>
+
+### 播放
+  <img width="25%" src="./assets/IMG_8678.png">
+
+### 搜索
+  <img width="25%" src="./assets/IMG_8677.png">
+  
+### 我的
+ <img width="25%" src="./assets/IMG_8671.png">
