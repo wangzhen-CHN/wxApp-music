@@ -1,5 +1,5 @@
 <p align="center">
-   <img width="200" src="http://img.coder.wang/logo.png">
+   <img width="200" src="./images/logo.png">
 </p>
 
 <h3 align="center">在线播放音乐的微信小程序</h3>
