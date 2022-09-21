@@ -1,9 +1,0 @@
-<!--logs.wxml-->
-<view class="container log-list">
-<view class="log-item">2020-04-22 项目初始化</view>
-<view class="log-item">2020-04-23 项目框架完成 引入vantUI</view>
-<view class="log-item">2020-04-24 小程序首页完成，我的页面完成</view>
-<view class="log-item">2020-04-26 播放页完成</view>
-<view class="log-item">2021-12-11 更新api</view>
-<view class="log-item">2022-07-22 更新api，完善代码</view>
-</view>

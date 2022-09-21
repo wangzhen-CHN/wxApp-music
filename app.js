@@ -1,5 +1,15 @@
 const api = require('./utils/request.js')
 App({
+  $get:api.get,
+  $post:api.post,
+  music:{
+    isPlay: false, //是否正在播放
+    musicId: '', //当前歌曲ID
+    musicUrl: '', //当前歌曲播放链接
+    currentPlaySong: {}, //当前歌曲
+    backgroundAudioManager: {}, //播放器
+    playList: [], //播放列表（musicId）
+  },
   globalData: {
     ww: 0,
     hh: 0,
@@ -82,7 +92,7 @@ App({
     backgroundAudioManager.onStop(() => { //停止
       this.globalData.getTabBar.setData({
         "isPlay": false,
-        'routerList[2]': {
+        'routerList[1]': {
           "selectedIconPath": "../images/nav/play.svg",
           "iconPath": "../images/nav/play.svg",
           "pagePath": "/pages/player/player",

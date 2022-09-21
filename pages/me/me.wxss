@@ -243,6 +243,10 @@ page{
 .music-car-word .music-desc {
   color: #abb0bf;
   font-size: 24rpx;
+  width: 85%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .btn-cancel button{
   margin-top: 40rpx;

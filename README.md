@@ -47,20 +47,20 @@
 
 - 可用过微信扫描二维码申请体验版，我看到后会通过的
 
-<img src="./assets/qrcode.png" width="140" alt="qrcode" />
+<img src="./public/qrcode.png" width="140" alt="qrcode" />
 
 ## 🌈 预览
 ### 首页
-  <img width="33%" src="./assets/IMG_8680.png">
+  <img width="33%" src="./public/IMG_8680.png">
 
 ### 歌单
-  <img width="33%" src="./assets/IMG_8672.png">
+  <img width="33%" src="./public/IMG_8672.png">
 
 ### 播放
-  <img width="33%" src="./assets/IMG_8678.png">
+  <img width="33%" src="./public/IMG_8678.png">
 
 ### 搜索
-  <img width="33%" src="./assets/IMG_8677.png">
+  <img width="33%" src="./public/IMG_8677.png">
   
 ### 我的
- <img width="33%" src="./assets/IMG_8671.png">
+ <img width="33%" src="./public/IMG_8671.png">

@@ -1,23 +1,24 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/home/home",
     "pages/player/player",
-    "pages/logs/logs",
-    "pages/video/video",
     "pages/songList/songList",
     "pages/me/me",
     "pages/search/search"
   ],
+  "resolveAlias":{
+    "@/*": "/*"
+  },
   "tabBar": {
     "custom": true,
     "color": "#888d93",
     "selectedColor": "#3341d5",
     "list": [
       {
-        "pagePath": "pages/index/index"
+        "pagePath": "pages/home/home"
       },
        {
-        "pagePath": "pages/video/video"
+        "pagePath": "pages/player/player"
       },
       {
         "pagePath": "pages/me/me"

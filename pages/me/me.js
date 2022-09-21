@@ -4,7 +4,6 @@ Page({
   data: {
     tel: '',
     password: '',
-    hotList: [],
     likeList: [],
     userInfo: {},
     userDetail: {},

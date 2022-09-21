@@ -13,7 +13,7 @@ Component({
     routerList: [{
       "selectedIconPath": "../images/nav/music-active.svg",
       "iconPath": "../images/nav/music.svg",
-      "pagePath": "/pages/index/index",
+      "pagePath": "/pages/home/home",
       "text": "音乐"
     }, {
       "selectedIconPath": "../images/nav/play.svg",
