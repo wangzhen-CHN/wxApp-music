@@ -1,0 +1,130 @@
+
+
+.search {
+  color: #abb0bf;
+  display: flex;
+  flex-direction: row;
+}
+
+.search-input {
+  padding: 0 30rpx;
+  background-color: #f8f8f8;
+  height: 64rpx;
+  flex: 1;
+  margin-left: 16px;
+  border-radius: 40rpx;
+}
+
+.search-input-placeholder {
+  color: #dadada;
+  font-size: 12px;
+}
+
+.search-btn {
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn image {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+/* 搜索 */
+.hot-search-item .van-grid-item__content {
+  padding: 0;
+}
+
+.hot-search-cell-label {
+  font-size: 10px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot-grid {
+  counter-reset: index;
+}
+
+.van-grid-item {
+  position: relative;
+  padding-left: 10px;
+}
+
+.van-grid-item:before {
+  content: counter(index);
+  counter-increment: index;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  z-index: 99;
+  font-size: 16px;
+  text-align: center;
+  line-height: 20px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 10px);
+  color: #969799;
+}
+
+.van-grid .search-grid-item:nth-child(-n+3) .van-cell__title {
+  color: #000;
+  font-size: 15px;
+}
+
+.van-grid .search-grid-item:nth-child(-n+3) .van-grid-item:before {
+  color: #47a8ef;
+}
+
+.hot-tag,
+.new-tag {
+  font-size: 15px;
+  padding-left: 15rpx;
+  display: inline-block;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.hot-tag {
+  color: red;
+}
+
+.new-tag {
+  color: green;
+}
+
+.search-cell-title {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-cell-main {
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.hot-list .item-label {
+  display: flex;
+  align-items: center;
+}
+
+.hot-list .music-tag {
+  margin-right: 10rpx;
+  padding: 0 4rpx;
+  font-size: 16rpx;
+  height: 14px;
+  width: 18px;
+  line-height: 14px;
+  text-align: center;
+}
+
+.hot-list .custom-icon {
+  font-size: 24rpx;
+}

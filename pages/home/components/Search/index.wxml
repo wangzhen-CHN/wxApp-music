@@ -1,0 +1,40 @@
+<view class="search">
+    <input class="search-input" bindtap="onShowSearch" disabled placeholder-class="search-input-placeholder" placeholder="{{searchDefaultWord}}" />
+    <view class="search-btn">
+      <image src="/images/icon/blue/music-a.svg" />
+    </view>
+    <van-popup show="{{ showSearch }}" position="bottom" custom-style="height: 100%;width:100%;padding:0 20rpx">
+    <van-search shape="round" clearable placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" bind:clear="onClearSearch" />
+    <view wx:if="{{searchMusicList.length===0}}">
+      <view>热搜榜</view>
+      <van-grid column-num="2" border="{{ false }}" class="hot-grid">
+        <van-grid-item use-slot wx:for="{{hotSearchList}}" wx:key="key" class="search-grid-item" custom-class="hot-search-item">
+          <van-cell center label="{{item.content}}" data-word="{{item.searchWord}}" bindtap="searchHot" label-class="hot-search-cell-label" style="width:100%" border="{{ false }}" center="{{ false }}">
+            <view slot="title" class="search-cell-title">
+              <view class="search-cell-main">{{item.searchWord}}</view>
+              <view class="hot-tag" wx:if="{{item.iconType===1}}">HOT</view>
+              <view class="new-tag" wx:if="{{item.iconType===2}}">NEW</view>
+            </view>
+          </van-cell>
+        </van-grid-item>
+      </van-grid>
+    </view>
+    <view wx:else class="hot-list">
+      <van-cell-group>
+        单曲
+        <van-divider />
+        <van-cell title="{{item.name}}" use-label-slot wx:for="{{searchMusicList}}" wx:key="key" data-music="{{item}}" bindtap="playSearch">
+          <view slot="label" class="item-label">
+            <!-- <view wx:if="{{item.album.copyrightId>0}}" class="music-tag">原唱</view> -->
+            <view wx:if="{{item.fee === 1}}" class="music-tag">VIP</view>
+            <!-- <view wx:if="{{item.copyrightId !== 0}}" class="music-tag" style="letter-spacing: 3rpx;">SQ</view> -->
+            <view wx:for="{{item.artists}}" wx:key="key" style="margin-right:4px">{{item.name}}</view>
+            <view style="padding-left:4px">- {{item.album.name}}</view>
+          </view>
+          <van-icon wx:if="{{item.mvid !== 0}}" slot="right-icon" name="video-o" size="24px" color="#aaa" style="margin-right:26px" />
+          <van-icon slot="right-icon" name="music-o" size="24px" color="#aaa" class="custom-icon" />
+        </van-cell>
+      </van-cell-group>
+    </view>
+  </van-popup>
+  </view>

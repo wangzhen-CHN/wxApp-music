@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "轻享云音",
+  "usingComponents": {
+    "components-search":"./components/Search/index",
+    "components-banner":"./components/Banner/index",
+    "components-middle":"./components/Middle/index",
+    "components-recommend":"./components/Recommend/index",
+    "components-HotSong":"./components/HotSong/index"
+  }
+}

@@ -1,0 +1,35 @@
+<view class="hot-list">
+    <view class="music-index-title">
+      <view class="index-title-name">热门单曲</view>
+      <view class="index-title-more">更多
+        <van-icon name="arrow" color="#abb0bf" />
+      </view>
+    </view>
+    <view class="hot-list-skeleton" wx:if="{{!recommendSongs.length>0}}">
+      <van-skeleton title avatar avatar-shape="square" row="1" />
+      <van-skeleton title avatar avatar-shape="square" row="1" />
+      <van-skeleton title avatar avatar-shape="square" row="1" />
+      <van-skeleton title avatar avatar-shape="square" row="1" />
+      <van-skeleton title avatar avatar-shape="square" row="1" />
+    </view>
+    <view wx:for="{{recommendSongs}}" wx:for-item="item" wx:key="key" class="music-car" hover-class="add-animation" bindtap="playMusic" data-id="{{item.id}}" data-music="{{item}}">
+      <view class="music-car-img">
+        <image src="{{item.al.picUrl}}?param=500y500" id="img-num-{{item.id}}"></image>
+      </view>
+      <view class="music-car-word">
+        <view class="music-name">{{item.name}}</view>
+        <view class="music-desc">
+          <view wx:if="{{item.copyright === 0}}" class="music-tag">独家</view>
+          <view wx:if="{{item.fee === 1}}" class="music-tag">VIP</view>
+          <view wx:if="{{item.no === 1}}" class="music-tag">SQ</view>
+          <!-- 0代表独家 1为否 -->
+          {{item.ar[0].name}} - {{item.al.name}}
+        </view>
+      </view>
+      <view class="music-car-option">
+        <van-icon name="like-o" />
+        <!-- <van-icon name="ellipsis" /> -->
+      </view>
+    </view>
+    <image src="{{animationPicUrl}}?param=200y200" class="{{isAnimation?'img-animation':''}} img-noAnimation" style="left:{{animationLeft}};top:{{animationTop}};transition:{{animationTransition}};opacity:{{animationOpacity}}" />
+  </view>

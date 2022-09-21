@@ -1,0 +1,131 @@
+
+
+.hot-list {
+  padding: 20rpx 20rpx;
+  margin-bottom: 100px;
+}
+
+.hot-list-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+
+}
+
+.hot-list-title .music-title-name {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.hot-list-title .music-title-more {
+  font-size: 28rpx;
+  color: #444;
+}
+
+.music-car {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 24rpx 0;
+}
+
+.hot-list .van-skeleton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music-car-img {
+  display: flex;
+  margin-right: 24rpx;
+  justify-content: left;
+  align-items: center;
+}
+
+.hot-list image {
+  border-radius: 20rpx;
+  height: 96rpx;
+  width: 96rpx;
+}
+
+.music-car-word {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  letter-spacing: 1rpx;
+  font-size: 28rpx;
+  padding: 8rpx;
+  color: #444;
+}
+
+.music-car-option {
+  flex: 1;
+  color: #abb0bf;
+  display: flex;
+  margin-right: 10rpx;
+  justify-content: space-around;
+}
+
+.music-car-word .music-desc {
+  color: #abb0bf;
+  font-size: 24rpx;
+  height: 26px;
+  line-height: 26px;
+  width: 85%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.music-tag {
+  display: inline;
+  font-size: 18rpx;
+  margin-right: 6rpx;
+  border: 1px solid #00af80;
+  padding: 2rpx 4rpx;
+  border-radius: 6rpx;
+  color: #00af80;
+}
+
+.music-index-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8rpx;
+}
+
+.index-title-name {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.index-title-more {
+  font-size: 24rpx;
+  color: #abb0bf;
+}
+
+.img-noAnimation {
+  height: 120rpx;
+  width: 120rpx;
+  display: none;
+  position: fixed;
+  z-index: 999;
+}
+
+.img-animation {
+  display: block;
+  border-radius: 50% !important;
+
+}
+
+.add-animation {
+  animation: newframes .3s;
+}
+@keyframes newframes {
+  0% {transform: scale(1);}
+  50% {transform: scale(0.95);}
+ 100% {transform: scale(1);}
+}

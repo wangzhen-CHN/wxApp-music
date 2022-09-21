@@ -1,0 +1,9 @@
+/**index.wxss**/
+.index-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 100rpx;
+  /* background-color: #f4f5f7; */
+  color: #2e3340;
+}
