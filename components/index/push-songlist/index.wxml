@@ -11,7 +11,7 @@
 			<view class="music-recommend-ul">
 				<view class="music-recommend-li" hover-class="add-animation"  wx:for="{{pushSongList}}" wx:key="key" >
 					<view class="music-recommend-img" bindtap="goSangList" data-id="{{item.id}}">
-						<image src="{{item.picUrl}}?param=200y200"></image>
+						<image src="{{item.picUrl}}?param=500y500"></image>
 						<view class="music-recommend-play" wx:if="{{item.playcount>99999999}}">
 							<van-icon name="play" color="#fff" />{{filter.toFixed(item.playcount/100000000,1)}}亿
 						</view>

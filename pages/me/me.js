@@ -8,8 +8,8 @@ Page({
     likeList: [],
     userInfo: {},
     userDetail: {},
-    defaultAvatarUrl: '../../images/nav/play.png',
     loginPopup: false,
+    defaultAvatarUrl: '../../images/nav/user.svg',
     isLogin: false,
     userList: [],
     addList: []
@@ -17,7 +17,7 @@ Page({
   onShow: function () {
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
       this.getTabBar().setData({
-        selected: 4
+        selected: 2
       })
     }
   },
@@ -57,6 +57,7 @@ Page({
       wx.setStorageSync("userInfo", res);
       wx.setStorageSync("login_token", 'MUSIC_U=' + res.token);
       wx.setStorageSync("uid", res.account.id);
+      wx.showToast("登录成功")
       this.getSubcount()
     })
   },

@@ -7,27 +7,27 @@
 	</view>
 	<view class="option-list">
 		<view class="list-item">
-			<image src="/images/icon/blue/music-list.png"></image>
+			<image src="/images/icon/blue/music-list.svg"></image>
 			歌单
 		</view>
 		<view class="list-item">
-			<image src="/images/icon/blue/songer.png"></image>
+			<image src="/images/icon/blue/songer.svg"></image>
 			歌手
 		</view>
 		<view class="list-item">
-			<image src="/images/icon/blue/lisent.png"></image>
+			<image src="/images/icon/blue/lisent.svg"></image>
 			电台
 		</view>
 		<view class="list-item">
-			<image src="/images/icon/blue/love.png"></image>
+			<image src="/images/icon/blue/love.svg"></image>
 			猜你喜欢
 		</view>
 		<view class="list-item">
-			<image src="/images/icon/blue/sort.png"></image>
+			<image src="/images/icon/blue/sort.svg"></image>
 			排行
 		</view>
 		<view class="list-item">
-			<image src="/images/icon/blue/more.png"></image>
+			<image src="/images/icon/blue/more.svg"></image>
 			更多
 		</view>
 	</view>

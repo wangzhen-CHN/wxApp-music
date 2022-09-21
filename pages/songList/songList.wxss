@@ -293,10 +293,10 @@ page {
     display: inline;
     margin-right: 6rpx;
     font-size: 18rpx;
-    border: 1px solid #19a6ff;
+    border: 1px solid #00af80;
     padding: 2rpx 4rpx;
     border-radius: 6rpx;
-    color: #19a6ff;
+    color: #00af80;
   }
   .add-animation {
     animation: newframes .3s;

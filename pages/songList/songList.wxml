@@ -70,7 +70,7 @@
 				<view wx:for="{{playlist.tracks}}" wx:key="index" bindtap="playMusic" class="song-list" hover-class="add-animation"  data-id="{{item.id}}"
 					data-music="{{item}}">
 					<view class="song-img">
-						<image src="{{item.al.picUrl}}?param=100y100" class="img-num-{{item.id}}"></image>
+						<image src="{{item.al.picUrl}}?param=200y200" class="img-num-{{item.id}}"></image>
 					</view>
 					<view class="song">
 						<view class="song-name">{{item.name}}</view>
@@ -88,7 +88,7 @@
 		</view>
 	</scroll-view>
 	<components-miniPlayer wx:if="{{isPlay}}" music="{{music}}" isPlay="{{isPlay}}"></components-miniPlayer>
-	<image src="{{animationPicUrl}}?param=60y60" class="{{isAnimation?'img-animation':''}} img-noAnimation"
+	<image src="{{animationPicUrl}}?param=200y200" class="{{isAnimation?'img-animation':''}} img-noAnimation"
 		style="left:{{animationLeft}};top:{{animationTop}};transition:{{animationTransition}};opacity:{{animationOpacity}}">
 	</image>
 

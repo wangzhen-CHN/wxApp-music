@@ -1,38 +1,28 @@
 Component({
   data: {
     selected: 0,
-    color: "#888d93",
+    color: "#999",
     isPlay:false,
     isPause:false,
-    selectedColor: "#19a6ff",
+    selectedColor: "#00b872",
     gradientColor: {
       '0%': '#5bc2fe',
       '100%': '#388ef5',
     },
     borderStyle: "white",
     routerList: [{
-      "selectedIconPath": "../images/nav-active/music.png",
-      "iconPath": "../images/nav/music.png",
+      "selectedIconPath": "../images/nav/music-active.svg",
+      "iconPath": "../images/nav/music.svg",
       "pagePath": "/pages/index/index",
       "text": "音乐"
     }, {
-      "selectedIconPath": "../images/nav-active/video.png",
-      "iconPath": "../images/nav/video.png",
-      "pagePath": "/pages/logs/logs",
-      "text": "日志"
-    }, {
-      "selectedIconPath": "../images/nav-active/play.png",
-      "iconPath": "../images/nav/play.png",
+      "selectedIconPath": "../images/nav/play.svg",
+      "iconPath": "../images/nav/play.svg",
       "pagePath": "/pages/player/player",
       "text": ""
     }, {
-      "selectedIconPath": "../images/nav-active/me.png",
-      "iconPath": "../images/nav/me.png",
-      "pagePath": "/pages/logs/logs",
-      "text": "日志"
-    }, {
-      "selectedIconPath": "../images/nav-active/v.png",
-      "iconPath": "../images/nav/v.png",
+      "selectedIconPath": "../images/nav/me-active.svg",
+      "iconPath": "../images/nav/me.svg",
       "pagePath": "/pages/me/me",
       "text": "我的"
     }]

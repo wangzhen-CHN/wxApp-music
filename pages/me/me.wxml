@@ -1,7 +1,7 @@
 <!--logs.wxml-->
 <view class="my-content">
 	<view class="my" bindtap="showLogin">
-		<view class="my-pic">
+		<view class="user-avatar">
 			<image src="{{userInfo.profile.avatarUrl||defaultAvatarUrl}}"> </image>
 		</view>
 
@@ -25,22 +25,22 @@
 		</view>
 		<view class="list">
 			<view class="item">
-				<image src="/images/icon/blue/love.png"></image>
+				<image src="/images/icon/blue/love.svg"></image>
 				<text class="item-class">喜欢</text>
 				<text class="item-class-num">{{likeList.ids.length||0}}</text>
 			</view>
 			<view class="item">
-				<image src="/images/icon/blue/music-list.png"></image>
+				<image src="/images/icon/blue/music-list.svg"></image>
 				<text class="item-class">最近</text>
 				<text class="item-class-num">{{userDetail.listenSongs||0}}</text>
 			</view>
 			<view class="item">
-				<image src="/images/icon/blue/lisent.png"></image>
+				<image src="/images/icon/blue/lisent.svg"></image>
 				<text class="item-class">电台</text>
 				<text class="item-class-num">0</text>
 			</view>
 			<view class="item">
-				<image src="/images/icon/blue/music-a.png"></image>
+				<image src="/images/icon/blue/music-a.svg"></image>
 				<text class="item-class">本地</text>
 				<text class="item-class-num">0</text>
 			</view>
@@ -53,7 +53,7 @@
 					<scroll-view class="music-list-content" scroll-y wx:if="{{isLogin}}">
 						<view class="music-car" wx:for="{{userList}}" wx:for-item="item" wx:key="key" bindtap="goSangList" data-id="{{item.id}}">
 							<view class="music-car-img">
-								<image src="{{item.coverImgUrl}}?param=200y200" class="img-num-{{item.id}}"></image>
+								<image src="{{item.coverImgUrl}}?param=400y400" class="img-num-{{item.id}}"></image>
 							</view>
 							<view class="music-car-word">
 								<view class="music-name">{{item.name}}</view>
@@ -115,7 +115,7 @@
 </view>
 
 </view>
-<van-popup show="{{ loginPopup }}" position="bottom" custom-style="height: 100%;width:100%;padding:0 20rpx">
+<van-popup show="{{ loginPopup }}" position="bottom" custom-style="height: 100%;width:100%;padding:0 20rpx;z-index:99999">
 	<view class="my-page">
 
 		<view class="logo">

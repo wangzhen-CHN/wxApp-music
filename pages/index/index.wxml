@@ -7,11 +7,11 @@
 					placeholder="{{searchDefaultWord}}" />
 			</view>
 			<view class="nav-btn">
-				<image src="../../images/icon/blue/music-a.png" />
+				<image src="../../images/icon/blue/music-a.svg" />
 			</view>
-			<view class="nav-btn">
+			<!-- <view class="nav-btn">
 				<image src="../../images/icon/blue/more.png"></image>
-			</view>
+			</view> -->
 		</view>
 	</view>
 	<components-banner></components-banner>
@@ -36,7 +36,7 @@
 			class="music-car" hover-class="add-animation" bindtap="playMusic" data-id="{{item.id}}"
 			data-music="{{item}}">
 			<view class="music-car-img">
-				<image src="{{item.al.picUrl}}?param=200y200" class="img-num-{{item.id}}"></image>
+				<image src="{{item.al.picUrl}}?param=500y500" class="img-num-{{item.id}}"></image>
 			</view>
 			<view class="music-car-word">
 				<view class="music-name">{{item.name}}</view>
@@ -93,7 +93,7 @@
 			</van-cell-group>
 		</view>
 	</van-popup>
-	<image src="{{animationPicUrl}}?param=60y60" class="{{isAnimation?'img-animation':''}} img-noAnimation"
+	<image src="{{animationPicUrl}}?param=200y200" class="{{isAnimation?'img-animation':''}} img-noAnimation"
 		style="left:{{animationLeft}};top:{{animationTop}};transition:{{animationTransition}};opacity:{{animationOpacity}}">
 	</image>
 </view>

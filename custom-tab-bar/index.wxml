@@ -1,13 +1,14 @@
 <!--miniprogram/custom-tab-bar/index.wxml-->
 <view class="tab-bar">
 	<view wx:for="{{routerList}}" wx:key="index" class="tab-bar-item" data-router="{{item}}" data-index="{{index}}" bindtap="switch">
-		<view wx:if="{{index===2}}" class="cover-min">
-			<image class="cover-image {{isPlay?'play-animation':''}}" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+		
+    <view wx:if="{{index===1}}" class="nav-player">
+      <image class="nav-image {{isPlay?'play-animation':''}}" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
 		</view>
 
 		<view wx:else>
-			<image class="cover-image" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
-			<view class="cover-view" style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
+			<image class="nav-image" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+			<view class="nav-view" style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
 		</view>
 	</view>
 </view>

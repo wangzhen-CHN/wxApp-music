@@ -23,7 +23,7 @@ Page({
     slide: false, //进度条是否在滑动
     currentPlaySong: {
       name: "暂无歌曲",
-      pic: '../../images/nav/play.png'
+      pic: '../../images/nav/play.svg'
     },
     lrcDir: "",
     //文稿数组，转化完成用来在wxml中使用

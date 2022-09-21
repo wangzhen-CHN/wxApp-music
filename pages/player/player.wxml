@@ -15,7 +15,7 @@
 	</view>
 	<view class="player">
 		<view class="player-song-pic {{isPlay?'player-song-animation-run':'player-song-animation-pause'}}">
-			<image src="{{currentPlaySong.al.picUrl||currentPlaySong.pic}}?param=300y300"></image>
+			<image src="{{currentPlaySong.al.picUrl||currentPlaySong.pic}}?param=600y600"></image>
 			<view class="player-song-pic-min"></view>
 		</view>
 		<view class="player-song-lyrics">

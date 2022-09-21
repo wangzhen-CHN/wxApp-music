@@ -83,8 +83,8 @@ App({
       this.globalData.getTabBar.setData({
         "isPlay": false,
         'routerList[2]': {
-          "selectedIconPath": "../images/nav-active/play.png",
-          "iconPath": "../images/nav/play.png",
+          "selectedIconPath": "../images/nav/play.svg",
+          "iconPath": "../images/nav/play.svg",
           "pagePath": "/pages/player/player",
         }
       })

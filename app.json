@@ -19,9 +19,6 @@
        {
         "pagePath": "pages/video/video"
       },
-       {
-        "pagePath": "pages/logs/logs"
-      }, 
       {
         "pagePath": "pages/me/me"
       }

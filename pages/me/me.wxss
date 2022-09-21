@@ -105,14 +105,14 @@ page{
   line-height: 40rpx;
 }
 
-.my-pic {
+.user-avatar {
   width: 120rpx;
   height: 100rpx;
   padding: 10rpx 0;
   text-align: center;
 }
 
-.my-pic image {
+.user-avatar image {
   width: 100rpx;
   height: 100rpx;
   border-radius: 100rpx;

@@ -19,21 +19,21 @@
 }
 
 .nav-input {
-  width: 80%;
+  width: 90%;
   display: flex;
   align-items: center;
 }
 
 .search-input {
   padding: 0 30rpx;
-  background-color: #f4f5f7;
+  background-color: #f8f8f8;
   height: 64rpx;
   width: 100%;
   border-radius: 40rpx;
 }
 
 .search-input-placeholder {
-  color: #d2d2d2;
+  color: #dadada;
 }
 
 .nav-btn {
@@ -178,10 +178,10 @@
 .music-tag {
   display: inline;
   font-size: 18rpx;
-  border: 1px solid #19a6ff;
+  border: 1px solid #00af80;
   padding: 2rpx 4rpx;
   border-radius: 6rpx;
-  color: #19a6ff;
+  color: #00af80;
 }
 
 .music-index-title {
