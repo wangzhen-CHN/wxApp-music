@@ -3,3 +3,4 @@
 # dependencies
 **/node_modules
 **/miniprogram_npm
+.DS_Store

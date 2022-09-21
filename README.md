@@ -1,5 +1,5 @@
 <p align="center">
-   <img width="200" src="http://img.coder.wang/logo.png">
+   <img width="140" src="./images/logo.png">
 </p>
 
 <h3 align="center">在线播放音乐的微信小程序</h3>
@@ -47,13 +47,20 @@
 
 - 可用过微信扫描二维码申请体验版，我看到后会通过的
 
- ![code](http://img.coder.wang/code.png)
+<img src="./assets/qrcode.png" width="140" alt="qrcode" />
 
 ## 🌈 预览
+### 首页
+  <img width="33%" src="./assets/IMG_8680.png">
 
-<p align="center">
-  <img width="30%" src="http://img.coder.wang/index1.png">
-  <img width="30%" src="http://img.coder.wang/songList1.png">
-  <img width="30%" src="http://img.coder.wang/player1.png">
-</p>
+### 歌单
+  <img width="33%" src="./assets/IMG_8672.png">
 
+### 播放
+  <img width="33%" src="./assets/IMG_8678.png">
+
+### 搜索
+  <img width="33%" src="./assets/IMG_8677.png">
+  
+### 我的
+ <img width="33%" src="./assets/IMG_8671.png">
