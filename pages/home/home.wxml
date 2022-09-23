@@ -1,9 +1,10 @@
 <!--index.wxml-->
+<page-meta page-style="{{ noScroll ? 'overflow: hidden;' : '' }}" />
 <view class="container index-container">
-  <components-search />
+  <components-search bind:onSearchPopupShow="onSearchPopupShow"/>
   <components-banner />
   <components-middle />
   <components-recommend />
   <components-HotSong />
-  <components-miniPlayer></components-miniPlayer>
+  <!-- <components-miniPlayer></components-miniPlayer> -->
 </view>

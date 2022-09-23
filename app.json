@@ -3,8 +3,7 @@
     "pages/home/home",
     "pages/player/player",
     "pages/songList/songList",
-    "pages/me/me",
-    "pages/search/search"
+    "pages/me/me"
   ],
   "resolveAlias":{
     "@/*": "/*"

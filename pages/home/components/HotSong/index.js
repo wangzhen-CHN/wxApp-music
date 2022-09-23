@@ -1,6 +1,5 @@
 const APP = getApp();
 Component({
-
   data: {
     recommendSongs:[],
     isAnimation: false,

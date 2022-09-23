@@ -1,3 +1,7 @@
+
 {
-  "component": true
+  "component": true,
+  "usingComponents": {
+    "components-song-item":"/components/songItem/index"
+  }
 }

@@ -1,73 +1,25 @@
 
-
-.hot-song {
-  padding: 20rpx 20rpx;
-  margin-bottom: 100px;
-}
-
-.hot-song-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: 30rpx;
-
-}
-
-.hot-song-title .music-title-name {
-  font-size: 40rpx;
-  font-weight: 600;
-}
-
-.hot-song-title .music-title-more {
-  font-size: 28rpx;
-  color: #444;
-}
-.music-index-title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 8rpx;
-}
-
-.index-title-name {
-  font-size: 40rpx;
-  font-weight: 600;
-}
-
-.index-title-more {
-  font-size: 24rpx;
-  color: #abb0bf;
-}
-.hot-song .van-skeleton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/* 
-.music-car {
+.song-item {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin: 24rpx 0;
 }
 
-
-
-.music-car-img {
+.song-item-img {
   display: flex;
   margin-right: 24rpx;
   justify-content: left;
   align-items: center;
 }
 
-.hot-song image {
+.song-item-img image {
   border-radius: 20rpx;
   height: 96rpx;
   width: 96rpx;
 }
 
-.music-car-word {
+.song-item-word {
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -78,7 +30,7 @@
   color: #444;
 }
 
-.music-car-option {
+.song-item-option {
   flex: 1;
   color: #abb0bf;
   display: flex;
@@ -86,7 +38,7 @@
   justify-content: space-around;
 }
 
-.music-car-word .music-desc {
+.song-item-word .music-desc {
   color: #abb0bf;
   font-size: 24rpx;
   height: 26px;
@@ -105,22 +57,6 @@
   padding: 2rpx 4rpx;
   border-radius: 6rpx;
   color: #00af80;
-}
-
- */
-
-.img-noAnimation {
-  height: 120rpx;
-  width: 120rpx;
-  display: none;
-  position: fixed;
-  z-index: 999;
-}
-
-.img-animation {
-  display: block;
-  border-radius: 50% !important;
-
 }
 
 .add-animation {

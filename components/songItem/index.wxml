@@ -1,0 +1,17 @@
+<view class="song-item" hover-class="add-animation" bindtap="playMusic" data-id="{{music.id}}" data-music="{{music}}">
+      <view class="song-item-img">
+        <image src="{{music.al.picUrl}}?param=500y500" id="img-num-{{music.id}}"></image>
+      </view>
+      <view class="song-item-word">
+        <view class="music-name">{{music.name}}</view>
+        <view class="music-desc">
+          <view wx:if="{{music.copyright === 0}}" class="music-tag">独家</view>
+          <view wx:if="{{music.fee === 1}}" class="music-tag">VIP</view>
+          <view wx:if="{{music.no === 1}}" class="music-tag">SQ</view>
+          {{music.ar[0].name}} - {{music.al.name}}
+        </view>
+      </view>
+      <view class="song-item-option">
+        <van-icon name="like-o" />
+      </view>
+    </view>

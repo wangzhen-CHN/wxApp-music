@@ -3,21 +3,14 @@
 const APP = getApp()
 Page({
   data: {
-    userInfo: {},
-    hasUserInfo: false,
-    showSearch: false,
     isloading: true,
-    animationPicUrl: "../../images/logo.png",
-    playMusicPicUrl: "",
-    playMusicId: "",
-    recommends: [],
-    recommendList: [],
-    hotSearchList: [],
-    searchMusicList: [],
+    noScroll:false,
     currentSwiper: 0
   },
+  onSearchPopupShow: function (value) {
+      this.setData({noScroll:value.detail})
+  },
   onShow: function () {
-    // console.log('xxxxxxxxxxx',this.getTabBar())
     if (typeof this.getTabBar === "function" && this.getTabBar()) {
       APP.globalData.getTabBar = this.getTabBar()
       this.getTabBar().setData({
@@ -37,4 +30,5 @@ Page({
       backgroundColor: "#fff"
     })
   },
+
 })

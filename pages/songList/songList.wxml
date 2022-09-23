@@ -1,5 +1,5 @@
 <!-- 背景图片 -->
-<image class="background_img" src="{{playlist.coverImgUrl}}"></image>
+<view class="background_img" style="background-image:url({{playlist.coverImgUrl}})" ></view>
 
 <view class='nav-wrap' style='height: {{height*2 + 20}}px;'>
 	<view class='nav-capsule' bindtap='goBack' style='height: {{height*2 + 48}}px;'>
@@ -81,7 +81,7 @@
 						</view>
 					</view>
 					<!-- <image class="broadcast-pic" bindtap="playMusic" data-id="{{item.id}}" src="../../images/control_play.png" /> -->
-					<image class="broadcast-img" src="../../images/songList_daohang.png" />
+					<!-- <image class="broadcast-img" src="../../images/songList_daohang.png" /> -->
 				</view>
 			</view>
 

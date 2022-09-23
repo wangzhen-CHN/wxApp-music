@@ -3,12 +3,17 @@
 const APP = getApp()
 
 Component({
+  options: {
+    styleIsolation: "shared"
+  },
   data: {
-    searchWord: "",
-    showSearch: false,
-    searchDefaultWord: "",
+    currentSearchWord: "",
+    showSearchPopup: false,
+    focusSearch: false,
+    searchHistory:[],
+    defaultSearchWord: "",
     hotSearchList: [],
-    searchMusicList: [],
+    searchMusicList: []
   },
   ready: function () {
     Promise.all([
@@ -17,9 +22,8 @@ Component({
     ])
       .then((res) => {
         this.setData({
-          searchDefaultWord: res[0].data.showKeyword,
-          searchWord: res[0].data.showKeyword,
-          hotSearchList: res[1].data
+          defaultSearchWord: res[0].data.showKeyword,
+          hotSearchList: res[1].data.slice(0, 10)
         })
       })
       .catch((e) => {
@@ -27,38 +31,72 @@ Component({
       })
   },
   methods: {
+    //打开搜索弹窗
     onShowSearch() {
+      this.triggerEvent("onSearchPopupShow", true)
+      const searchHistory = wx.getStorageSync('searchHistory')||[]
       this.setData({
-        showSearch: true,
+        searchHistory,
+        showSearchPopup: true,
+        focusSearch: true
       })
     },
+    //关闭搜索弹窗
     onCloseSearch() {
-      this.setData({
-        showSearch: false,
-        searchWord: this.data.searchDefaultWord,
-        searchMusicList: []
-      })
+      const searchHistory = wx.getStorageSync('searchHistory')||[]
+      if (this.data.searchMusicList.length) {
+        this.setData({
+          searchHistory,
+          currentSearchWord: "",
+          searchMusicList: []
+        })
+      } else {
+        this.triggerEvent("onSearchPopupShow", false)
+        this.setData({
+          showSearchPopup: false,
+          currentSearchWord: [],
+          searchMusicList: []
+        })
+      }
     },
+    //清空搜索框
     onClearSearch() {
       this.setData({
         searchMusicList: []
       })
     },
+    //添加历史记录
+    addHistory(current){
+      const searchHistory = wx.getStorageSync('searchHistory')||[]
+      const arr = [...new Set([current,...searchHistory])].slice(0,5)
+      wx.setStorageSync('searchHistory',arr)
+    },    
+    //删除历史记录
+    onDeleteHistory(){
+      wx.setStorageSync('searchHistory',[])
+      this.setData({ searchHistory:[]  })
+    },
+    //搜索
     onSearch(val) {
-      // APP.$get('/search/suggest?type=mobile&keywords='+val.detail).then(res => {
-      // 获取热搜词
       wx.showLoading({
         title: "正在搜索.."
       })
-      this.setData({
-        searchWord: val.detail ? val.detail : this.data.searchDefaultWord
-      })
-      APP.$get("/search?limit=10&keywords=" + this.data.searchWord).then((res) => {
+      const currentSearchWord = val.detail ? val.detail : this.data.defaultSearchWord
+     this.addHistory(currentSearchWord)
+      APP.$get("/cloudsearch?limit=20&keywords=" + currentSearchWord).then((res) => {
         console.log(res.result.songs)
-        this.setData({
-          searchMusicList: res.result.songs
-        })
-        wx.hideLoading()
+        if (res.result.songs.length > 0) {
+          this.setData({
+            currentSearchWord,
+            searchMusicList: res.result.songs
+          })
+          wx.hideLoading()
+        } else {
+          wx.showToast({
+            title: "搜索有点问题~~",
+            icon: "none"
+          })
+        }
       })
     },
     searchHot(e) {

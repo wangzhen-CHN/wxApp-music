@@ -31,10 +31,7 @@ Page({
     }
   },
   handleLogin() {
-    const {
-      tel,
-      password,
-    } = this.data
+    const {tel,  password, } = this.data
     console.log(tel, password)
     api.get(`/login/cellphone?phone=${tel}&password=${password}`).then(res => {
       console.log('登录：', res)

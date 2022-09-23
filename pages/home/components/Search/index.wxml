@@ -1,40 +1,61 @@
 <view class="search">
-    <input class="search-input" bindtap="onShowSearch" disabled placeholder-class="search-input-placeholder" placeholder="{{searchDefaultWord}}" />
-    <view class="search-btn">
-      <image src="/images/icon/blue/music-a.svg" />
-    </view>
-    <van-popup show="{{ showSearch }}" position="bottom" custom-style="height: 100%;width:100%;padding:0 20rpx">
-    <van-search shape="round" clearable placeholder="{{searchDefaultWord}}" show-action bind:search="onSearch" bind:cancel="onCloseSearch" bind:clear="onClearSearch" />
+  <input class="search-input" bindtap="onShowSearch" disabled placeholder-class="search-input-placeholder" placeholder="{{defaultSearchWord}}" />
+  <view class="search-btn">
+    <image src="/images/icon/blue/music-a.svg" />
+  </view>
+  <van-popup show="{{ showSearchPopup }}" lock-scroll overlay="{{false}}" custom-style="height: 100%;width:100%;padding:0 20rpx;margin-top: -1px;">
+    <van-search shape="round" value="{{ currentSearchWord }}" focus="{{focusSearch}}" input-class="popup-search-input" clearable placeholder="{{defaultSearchWord}}" show-action bind:search="onSearch" use-action-slot bind:clear="onClearSearch">
+      <view slot="action" class="custom-search" bind:tap="onCloseSearch">返回</view>
+    </van-search>
     <view wx:if="{{searchMusicList.length===0}}">
-      <view>热搜榜</view>
-      <van-grid column-num="2" border="{{ false }}" class="hot-grid">
-        <van-grid-item use-slot wx:for="{{hotSearchList}}" wx:key="key" class="search-grid-item" custom-class="hot-search-item">
-          <van-cell center label="{{item.content}}" data-word="{{item.searchWord}}" bindtap="searchHot" label-class="hot-search-cell-label" style="width:100%" border="{{ false }}" center="{{ false }}">
-            <view slot="title" class="search-cell-title">
-              <view class="search-cell-main">{{item.searchWord}}</view>
-              <view class="hot-tag" wx:if="{{item.iconType===1}}">HOT</view>
-              <view class="new-tag" wx:if="{{item.iconType===2}}">NEW</view>
-            </view>
-          </van-cell>
-        </van-grid-item>
-      </van-grid>
-    </view>
-    <view wx:else class="hot-list">
-      <van-cell-group>
-        单曲
-        <van-divider />
-        <van-cell title="{{item.name}}" use-label-slot wx:for="{{searchMusicList}}" wx:key="key" data-music="{{item}}" bindtap="playSearch">
-          <view slot="label" class="item-label">
-            <!-- <view wx:if="{{item.album.copyrightId>0}}" class="music-tag">原唱</view> -->
-            <view wx:if="{{item.fee === 1}}" class="music-tag">VIP</view>
-            <!-- <view wx:if="{{item.copyrightId !== 0}}" class="music-tag" style="letter-spacing: 3rpx;">SQ</view> -->
-            <view wx:for="{{item.artists}}" wx:key="key" style="margin-right:4px">{{item.name}}</view>
-            <view style="padding-left:4px">- {{item.album.name}}</view>
+      <view class="search-history" wx:if="{{searchHistory.length}}">
+        <view class="search-history-title">
+          <text> 历史 </text>
+          <view class="search-history-delete" bindtap="onDeleteHistory">
+            <van-icon name="delete" color="#aaa" />
           </view>
-          <van-icon wx:if="{{item.mvid !== 0}}" slot="right-icon" name="video-o" size="24px" color="#aaa" style="margin-right:26px" />
-          <van-icon slot="right-icon" name="music-o" size="24px" color="#aaa" class="custom-icon" />
+        </view>
+        <view class="search-history-list">
+          <view class="search-history-item" wx:for="{{searchHistory}}" bindtap="searchHot" data-word="{{item}}" wx:key="item">{{item}}</view>
+        </view>
+      </view>
+      <view class="hot-search-title">热搜榜</view>
+      <view wx:for="{{hotSearchList}}" wx:key="key" class="hot-search-item" data-word="{{item.searchWord}}" bindtap="searchHot">
+        <view class="hot-search-index">
+          {{index+1}}
+        </view>
+        <view class="hot-search-content">
+          <view class="hot-search-word">{{item.searchWord}}</view>
+          <view class="hot-tag" wx:if="{{item.iconType===1}}">HOT</view>
+          <view class="new-tag" wx:if="{{item.iconType===2}}">NEW</view>
+        </view>
+        <view class="hot-search-desc">
+          {{item.content}}
+        </view>
+      </view>
+    </view>
+    <view wx:else class="search-result-list">
+      <van-cell-group>
+        <view class="hot-search-title">单曲</view>
+        <van-cell border="{{index+1 !==searchMusicList.length}}" use-title-slot use-label-slot wx:for="{{searchMusicList}}" wx:key="key" data-music="{{item}}" bindtap="playSearch">
+          <view slot="title" class="item-title">
+            {{item.name}}
+            <view class="item-alia" wx:if="{{item.alia.length}}"> - {{item.alia[0]}}</view>
+          </view>
+          <view slot="label" class="item-label">
+            <view wx:if="{{item.originCoverType===1}}" class="music-tag">原唱</view>
+            <view wx:if="{{item.fee === 1}}" class="music-tag">VIP</view>
+            <view wx:if="{{item.privilege.maxBrLevel === 'hires'}}" class="music-tag-long" style="letter-spacing: 3rpx;">Hi-Res</view>
+            <view wx:for="{{item.ar}}" wx:key="key" style="margin-right:4px">
+              <text wx:if="{{index>0}}">/</text>
+              {{item.name}}
+            </view>
+            <view wx:if="{{item.al.name}}">- {{item.al.name}}</view>
+          </view>
+          <van-icon slot="right-icon" name="play-circle-o" size="20px" color="#ccc" class="custom-icon" />
         </van-cell>
+        <van-divider contentPosition="center">没有了</van-divider>
       </van-cell-group>
     </view>
   </van-popup>
-  </view>
+</view>
