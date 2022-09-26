@@ -3,12 +3,15 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 24rpx 0;
+  padding-bottom: 24rpx;
 }
 
+.song-item.boder{
+  border-bottom: 1px solid #f0f0f0;
+}
 .song-item-img {
   display: flex;
-  margin-right: 24rpx;
+  margin-right: 10rpx;
   justify-content: left;
   align-items: center;
 }
@@ -17,6 +20,11 @@
   border-radius: 20rpx;
   height: 96rpx;
   width: 96rpx;
+}
+.song-item-img image.mini-image {
+  border-radius: 20rpx;
+  height: 80rpx;
+  width: 80rpx;
 }
 
 .song-item-word {
@@ -39,24 +47,30 @@
 }
 
 .song-item-word .music-desc {
-  color: #abb0bf;
-  font-size: 24rpx;
-  height: 26px;
-  line-height: 26px;
+  display: flex;
+  align-items: center;
   width: 85%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
-
+.music-desc-info{
+  font-size: 20rpx;
+  color: #abb0bf;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 .music-tag {
   display: inline;
-  font-size: 18rpx;
-  margin-right: 6rpx;
+  font-size: 16rpx;
+  margin-right: 8rpx;
   border: 1px solid #00af80;
-  padding: 2rpx 4rpx;
+  padding: 1rpx 4rpx;
   border-radius: 6rpx;
   color: #00af80;
+}
+.music-tag-fill {
+  background-color: #00af80;
+  color: #fff;
 }
 
 .add-animation {
@@ -67,3 +81,9 @@
   50% {transform: scale(0.95);}
  100% {transform: scale(1);}
 }
+.ellipsis{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

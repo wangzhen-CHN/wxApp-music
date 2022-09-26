@@ -69,7 +69,9 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
+.van-search{
+  padding-top: 0;
+}
 
 .hot-tag,
 .new-tag {

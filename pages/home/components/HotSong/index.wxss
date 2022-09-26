@@ -27,7 +27,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 8rpx;
+  margin-bottom: 24rpx;
 }
 
 .index-title-name {
@@ -36,7 +36,9 @@
 }
 
 .index-title-more {
-  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
   color: #abb0bf;
 }
 .hot-song .van-skeleton {

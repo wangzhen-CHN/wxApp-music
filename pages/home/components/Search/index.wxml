@@ -35,27 +35,11 @@
       </view>
     </view>
     <view wx:else class="search-result-list">
-      <van-cell-group>
-        <view class="hot-search-title">单曲</view>
-        <van-cell border="{{index+1 !==searchMusicList.length}}" use-title-slot use-label-slot wx:for="{{searchMusicList}}" wx:key="key" data-music="{{item}}" bindtap="playSearch">
-          <view slot="title" class="item-title">
-            {{item.name}}
-            <view class="item-alia" wx:if="{{item.alia.length}}"> - {{item.alia[0]}}</view>
-          </view>
-          <view slot="label" class="item-label">
-            <view wx:if="{{item.originCoverType===1}}" class="music-tag">原唱</view>
-            <view wx:if="{{item.fee === 1}}" class="music-tag">VIP</view>
-            <view wx:if="{{item.privilege.maxBrLevel === 'hires'}}" class="music-tag-long" style="letter-spacing: 3rpx;">Hi-Res</view>
-            <view wx:for="{{item.ar}}" wx:key="key" style="margin-right:4px">
-              <text wx:if="{{index>0}}">/</text>
-              {{item.name}}
-            </view>
-            <view wx:if="{{item.al.name}}">- {{item.al.name}}</view>
-          </view>
-          <van-icon slot="right-icon" name="play-circle-o" size="20px" color="#ccc" class="custom-icon" />
-        </van-cell>
+      <view class="hot-search-title">单曲</view>
+      <view wx:if="{{searchMusicList.length}}" wx:for="{{searchMusicList}}" wx:for-item="item" wx:key="key">
+        <components-song-item music="{{item}}" showImg="{{false}}" boder/>
+      </view>
         <van-divider contentPosition="center">没有了</van-divider>
-      </van-cell-group>
     </view>
   </van-popup>
 </view>

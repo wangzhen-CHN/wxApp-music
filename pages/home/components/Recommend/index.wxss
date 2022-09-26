@@ -29,8 +29,10 @@
 }
 
 .index-title-more {
-  font-size: 24rpx;
+  font-size: 22rpx;
   color: #abb0bf;
+  display: flex;
+  align-items: center;
 }
 
 .music-recommend-box {

@@ -70,6 +70,7 @@ padding: 10rpx;
 width: 36rpx;
 height: 40rpx;
 margin-top: 3rpx;
+
 }
 .wrapper{
   height: calc(100% - 150rpx);
@@ -84,7 +85,7 @@ margin-top: 3rpx;
   background-size: contain;
   background-repeat: no-repeat;
   /* css3滤镜属性，blur设置高斯模糊  brightness设置变暗*/
-  filter: blur(30px) opacity(30%);
+  filter: blur(30px) opacity(50%);
   z-index: -1;
   /*和网易云音乐对比了一下，发现他们是也是放大1.5倍*/
   /* transform: scale(1.2); */
@@ -136,8 +137,8 @@ margin-top: 3rpx;
   font-weight: 500;
 }
 .desc-description{
-  color:#a1a1a1;
-  font-size: 26rpx;
+  color:#777777;
+  font-size: 24rpx;
   max-height: 68rpx;
   overflow: hidden;
 }
@@ -177,13 +178,13 @@ margin-top: 3rpx;
   justify-content: space-between;
 }
 .buttonBox .play-icon{
-  width: 80rpx;
+  width: 50rpx;
   height: 50rpx;
-  border-radius: 25rpx;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to right, #80bba4, #00b872);
+  background: #00b872;
 }
 
 .broadcast {
@@ -191,9 +192,9 @@ margin-top: 3rpx;
   height: 30rpx;
 }
 
-.collectBox image{
-  width: 50rpx;
-  height: 50rpx;
+.collectBox{
+  text-align: center;
+  width: 100rpx;
 }
 
 
@@ -221,7 +222,7 @@ margin-top: 3rpx;
   height: 50rpx;
 }
 .songlistbox{
-  /* padding-top: 25rpx; */
+   padding-top: 24rpx; 
 }
 .song-list {
   display: flex;
@@ -306,4 +307,14 @@ margin-top: 3rpx;
   0% {transform: scale(1);}
   50% {transform: scale(0.95);}
  100% {transform: scale(1);}
+}
+.music-desc-img{
+  position: relative;
+}
+.music-desc-img .music-recommend-play {
+  position: absolute;
+  top: 12rpx;
+  right: 50rpx;
+  color: #fff;
+  font-size: 24rpx;
 }
