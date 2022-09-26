@@ -24,10 +24,10 @@ Component({
       APP.play(music.id) //调用全局播放方法
       setTimeout(() => {
         APP.globalData.getTabBar.setData({
-          "isPlay": false,
+          "isPlaying": false,
         })
         APP.globalData.getTabBar.setData({
-          "isPlay": true,
+          "isPlaying": true,
           'routerList[2]': {
             "iconPath": music.album.picUrl + '?param=200y200',
             "selectedIconPath": music.album.picUrl + '?param=200y200',

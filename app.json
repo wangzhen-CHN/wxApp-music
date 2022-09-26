@@ -16,9 +16,6 @@
       {
         "pagePath": "pages/home/home"
       },
-       {
-        "pagePath": "pages/player/player"
-      },
       {
         "pagePath": "pages/me/me"
       }

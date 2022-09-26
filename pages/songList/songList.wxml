@@ -94,7 +94,7 @@
 
 		</view>
 	</scroll-view>
-	<components-miniPlayer wx:if="{{isPlay}}" music="{{music}}" isPlay="{{isPlay}}"></components-miniPlayer>
+	<components-miniPlayer wx:if="{{isPlaying}}" music="{{music}}" isPlaying="{{isPlaying}}"></components-miniPlayer>
 	<image src="{{animationPicUrl}}?param=200y200" class="{{isAnimation?'img-animation':''}} img-noAnimation"
 		style="left:{{animationLeft}};top:{{animationTop}};transition:{{animationTransition}};opacity:{{animationOpacity}}">
 	</image>

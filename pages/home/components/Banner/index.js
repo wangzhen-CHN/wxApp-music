@@ -30,7 +30,7 @@ Component({
         APP.play(music.id)
         console.log('music', music)
         APP.globalData.getTabBar.setData({
-          "isPlay": true,
+          "isPlaying": true,
           'routerList[2]': {
             "iconPath": music.al.picUrl + '?param=200y200',
             "selectedIconPath": music.al.picUrl + '?param=200y200',

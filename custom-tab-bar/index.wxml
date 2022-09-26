@@ -3,7 +3,7 @@
 	<view wx:for="{{routerList}}" wx:key="index" class="tab-bar-item" data-router="{{item}}" data-index="{{index}}" bindtap="switch">
 		
     <view wx:if="{{index===1}}" class="nav-player">
-      <image class="nav-image {{isPlay?'play-animation':''}}" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+      <image class="nav-image {{isPlaying?'play-animation':''}}" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
 		</view>
 
 		<view wx:else>

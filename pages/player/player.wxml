@@ -1,25 +1,30 @@
+<!-- 背景图片 -->
+<view class="background_img">
+  <image src="{{currentPlaySong.al.picUrl||coverImgUrl}}?param=100y100"></image>
+</view>
+<view class='nav-wrap' style='height: {{height*2 + 48}}px;'>
+  <view class='nav-back' bindtap='goBack' style='height: {{height*2 + 48}}px;'>
+    <van-icon name="arrow-left" color="#fff" size="25px" />
+  </view>
+  <view class="nav-title" style='height: {{height*2 + 48}}px;'>
+    <van-notice-bar speed="45" scrollable="{{currentPlaySong.name.length>11}}" class="nav-song-name" background="transparent" color="#fff" text="{{currentPlaySong.name}}" />
+  </view>
+</view>
 <!--index.wxml-->
-<view class="container play-container">
-	<!-- nav -->
-	<view class="play-top">
-		<!-- <image src="../../images/icon/down.png" bindtap="back"></image> -->
-		<view class="song-name">{{currentPlaySong.name}}</view>
-		<!-- <view class="right"></view> -->
-		<!-- <image src="../../images/icon/share.png"></image> -->
-	</view>
-	<view class="play-player-name">- {{currentPlaySong.ar[0].name}} -</view>
-	<view class="play-effect">
-		<view class="play-effect-item">音效</view>
-		<view class="play-effect-item">动感</view>
-		<view class="play-effect-item">MV</view>
-	</view>
-	<view class="player">
-		<view class="player-song-pic {{isPlay?'player-song-animation-run':'player-song-animation-pause'}}">
-			<image src="{{currentPlaySong.al.picUrl||currentPlaySong.pic}}?param=600y600"></image>
-			<view class="player-song-pic-min"></view>
-		</view>
-		<view class="player-song-lyrics">
-			<view class="shadow-top"></view>
+<view class="player-container">
+  <view class="play-player-name">- {{currentPlaySong.ar[0].name||"歌手"}} -</view>
+  <view class="{{isPlaying?'play-stick active':'play-stick'}}">
+    <image src="/images/play_stick.png" bindtap="back"></image>
+  </view>
+  <view class="player">
+    <view class="player-song-pic {{isPlaying?'player-song-animation-run':'player-song-animation-pause'}}">
+      <view class="player-song-pic-min">
+        <image src="{{currentPlaySong.al.picUrl||coverImgUrl}}?param=500y500"></image>
+      </view>
+    </view>
+    <view class="player-song-lyrics">
+      <view>歌词</view>
+      <!-- <view class="shadow-top"></view>
 			<view class="shadow-bottom"></view>
 			<view class="player-song-lyrics-content">
 				<scroll-view scroll-y="true" scroll-with-animation='true' scroll-top='{{marginTop}}'>
@@ -29,28 +34,25 @@
 						</block>
 					</view>
 				</scroll-view>
-			</view>
-		</view>
-	</view>
-	<view class="song-option">
-		<image src="../../images/icon/heart.png"></image>
-		<image class="share" src="../../images/icon/share.png"></image>
-		<image src="../../images/icon/k.png"></image>
-		<image src="../../images/icon/discuss.png"></image>
-		<image src="../../images/icon/more.png"></image>
-	</view>
-	<view class="slider-box">
-		<van-slider value="{{currentProcessNum}}" bar-height="4px" bind:drag-start="start" bind:drag-end="end" active-color="#1ca7ff" max="{{totalProcessNum}}"
-			 min="0">
-		<!-- <view class="slider-custom-button" slot="button"></view> -->
-		</van-slider>
-	</view>
+			</view> -->
+    </view>
+  </view>
 
-	<view class="player-option">
-		<image src="../../images/icon/way.png"></image>
-		<image class="player-back" bindtap="nextSong" src="../../images/icon/player-back.png"></image>
-		<image class="player-play" bindtap="handleToggleBGAudio" src="{{isPlay?'../../images/icon/blue/pause.png':'../../images/icon/blue/play.png'}}"></image>
-		<image class="player-go" bindtap="nextSong" src="../../images/icon/player-go.png"></image>
-		<image src="../../images/icon/list.png"></image>
-	</view>
+  <view class="paly-time">
+    <view class="paly-time-current">
+      {{currentTime}}
+    </view>
+    <van-progress class="paly-time-progress" percentage="{{processNum}}" pivot-text=" " color="#fff" track-color="#a5a5a560" stroke-width="2" />
+    <view class="paly-time-end">
+      {{totalTime}}
+    </view>
+  </view>
+
+  <view class="player-option">
+    <van-icon name="like-o" color="#DADCD9" size="24" />
+    <van-icon name="arrow-left" color="#DADCD9" size="24" />
+    <van-icon name="{{isPlaying?'pause-circle-o':'play-circle-o'}}" color="#DADCD9" size="65" bindtap="onPlay"/>
+    <van-icon name="arrow" color="#DADCD9" size="24" />
+    <image src="/images/icon/playlist.svg"></image>
+  </view>
 </view>

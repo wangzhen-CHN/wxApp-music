@@ -1,4 +1,9 @@
 {
-  "navigationBarTitleText": "",
-  "usingComponents": { "van-slider": "@vant/weapp/slider/index"}
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "轻享云音",
+  "navigationBarTextStyle":"white",
+  "usingComponents": { 
+    "van-progress": "@vant/weapp/progress/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index"
+  }
 }

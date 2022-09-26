@@ -5,7 +5,7 @@ Component({
       type: Object,
       value: {}
     },
-    isPlay: {
+    isPlaying: {
       type: Boolean,
       value: false
     },

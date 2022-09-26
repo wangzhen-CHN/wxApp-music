@@ -1,17 +1,114 @@
-.play-container {}
+page {
+  width: 100%;
+  height: 100%;
+  padding-top: 150rpx;
+  display: block;
+  overflow:hidden;
+}
+.background_img {
+  position: fixed;
+  top: 0;
+  left: -20%;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /*和网易云音乐对比了一下，发现他们是也是放大1.5倍*/
+  transform: scale(1.1);
+}
+.background_img image{
+  width: 150%;
+  height: 100%;
+  /* css3滤镜属性，blur设置高斯模糊  brightness设置变暗*/
+  filter: blur(25px) brightness(0.27) opacity(0.8);
+}
+/* 顶部要固定定位   标题要居中   自定义按钮和标题要和右边微信原生的胶囊上下对齐 */
+.nav-wrap {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  color: #000;
+  z-index: 9999999;
+  /* display: flex;
+  align-items: center; */
+  }
+.nav-song-name{
+  width: 100%;
+  text-align: center;
 
-.play-top {
-  display: flex;
-  justify-content: center;
+}
+.van-notice-bar__content.van-ellipsis{
+  margin: 0 auto;
+  position:relative;
+}
+/* 标题要居中 */
+.nav-title {
+position: absolute;
+width: 350rpx;
+text-align: center;
+display: flex;
+justify-content: center;
+color: #fff;
+align-items: center;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+font-size: 28rpx;
+font-weight: 600;
 }
 
-.play-top image {
-  width: 40rpx;
-  height: 40rpx;
+.nav-back {
+display: flex;
+align-items: center;
+margin-left: 30rpx;
+width: 140rpx;
+justify-content: space-between;
+height: 100%;
 }
-.play-top .right {
-  width: 40rpx;
-  height: 40rpx;
+
+.navbar-v-line {
+width: 1px;
+height: 32rpx;
+background-color: #e5e5e5;
+}
+
+.back-pre, .back-home {
+width: 32rpx;
+  height: 36rpx;
+margin-top: 4rpx;
+padding: 10rpx;
+}
+.nav-back .back-home {
+width: 36rpx;
+height: 40rpx;
+margin-top: 3rpx;
+
+}
+.player-container{
+  position: relative;
+
+  height: calc(100% - 150rpx);
+}
+.play-stick{
+  position: absolute;
+  top: 48rpx;
+  left: calc(50% - 48rpx);
+  z-index: 999;
+  transform: rotate3d(0, 0, 1, -25deg);
+  transform-origin: 19px 19px;
+  transition: 0.3s all;
+}
+.play-stick.active{
+  transform: rotate3d(0, 0, 0, 0);
+}
+.play-stick image{
+  width: 220rpx;
+  height: 331rpx;
 }
 .play-player-name {
   width: 100%;
@@ -20,41 +117,28 @@
   padding-top: 10rpx;
   font-size: 22rpx;
 }
-
-.play-effect {
-  padding: 40rpx 0;
-  width: 100%;
-  display: flex;
-  justify-content: center
-}
-
-.play-effect-item {
-  width: 80rpx;
-  height: 40rpx;
-  line-height: 40rpx;
-  text-align: center;
-  margin: 0 10rpx;
-  border-radius: 40rpx;
-  font-size: 22rpx;
-  color: #ccc;
-  border: 1px solid #ccc;
-}
-
 .player {
   width: 100%;
-  margin-top: 20rpx;
+  margin-top: 180rpx;
 }
 
 .player-song-pic {
   position: relative;
-  width: 600rpx;
-  height: 600rpx;
+  width: 580rpx;
+  height: 580rpx;
   margin: 0 auto;
-  border: 15rpx solid #fff;
-  box-shadow: 0 0 30rpx 20rpx #3341d532;
-  border-radius: 600rpx;
+  border: 24rpx solid #11111115;
+  border-radius: 100%;
   overflow: hidden;
   animation: turn 25s linear infinite;
+}
+.player-song-pic::before {
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  border-radius: 100%;
+  background-color: #222;
 }
 .player-song-animation-run{
   animation-play-state:running;
@@ -87,13 +171,12 @@
 
 .player-song-pic-min {
   position: absolute;
-  width: 80rpx;
-  height: 80rpx;
-  left: calc(50% - 50rpx);
-  top: calc(50% - 50rpx);
-  background-color: #e2e2e2;
-  border: 10rpx solid #fff;
-  border-radius: 80rpx;
+  width: 420rpx;
+  height: 420rpx;
+  left: calc(50% - 210rpx);
+  top: calc(50% - 210rpx);
+  overflow: hidden;
+  border-radius: 100%;
 }
 
 .player-song-pic image {
@@ -104,11 +187,14 @@
 .player-song-lyrics {
   position:relative;
   width: 100%;
+  color: #e1e1e1;
+  text-align: center;
+  height: 240rpx;
   margin-top: 40rpx;
 }
 .player-song-lyrics-content {
   height: 150rpx;
-overflow: scroll;
+  overflow: scroll;
 }
 .player-song-lyrics p {
   display: block;
@@ -131,11 +217,11 @@ overflow: scroll;
   bottom: 0;
   background-image: linear-gradient(-180deg,rgba(255,255,255,0) 0%,#fff 100%);
 }
-.progress-box{
-  margin: 20rpx;
-}
-.song-option{
-  padding: 30rpx 0;
+/* .song-option{
+  color:#fff;
+  font-size: 32rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
   width: 100%;
   display: flex;
   justify-content:space-around
@@ -148,9 +234,11 @@ overflow: scroll;
   width: 40rpx;
   height: 40rpx;
   padding-top: 10rpx;
-}
+} */
 .player-option{
-  padding: 30rpx 0;
+  padding: 24rpx 32rpx;
+  margin-top: 16rpx;
+  box-sizing: border-box;
   width: 100%;
   display: flex;
   justify-content:space-around;
@@ -185,10 +273,27 @@ overflow: scroll;
 .slider-box{  
   padding:20rpx 40rpx;
 }
-.slider-box .slider-custom-button{
-    width: 25rpx;
-    height: 25rpx;
-    border-radius: 100%;
-    background-color: #1ca7ff;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+.van-progress__pivot{
+  width: 16rpx!important;
+  height: 16rpx!important;
+  min-width: 0!important;
+  padding: 0!important;
+  right: -8px!important;
+  border-radius:100%!important;
+}
+.paly-time{
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: #DADCD980;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.paly-time-current,.paly-time-end{
+  width: 100rpx;
+  text-align: center;
+}
+.paly-time-progress{
+  flex: 1;
 }

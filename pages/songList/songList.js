@@ -10,7 +10,7 @@ Page({
     userInfo: {},
     login_token: '',
     music: {},
-    isPlay: false,
+    isPlaying: false,
     animationLeft: '',
     animationPicUrl: '',
     animationTop: '',
@@ -119,14 +119,14 @@ Page({
         })
       // }, 100);
       app.globalData.getTabBar.setData({
-        "isPlay": false,
+        "isPlaying": false,
       })
       this.setData({
-        "isPlay": true,
+        "isPlaying": true,
         music
       })
       app.globalData.getTabBar.setData({
-        "isPlay": true,
+        "isPlaying": true,
         'routerList[2]': {
           "iconPath": music.al.picUrl + '?param=200y200',
           "selectedIconPath": music.al.picUrl + '?param=200y200',
@@ -137,14 +137,14 @@ Page({
     })
     // setTimeout(() => {
     //   app.globalData.getTabBar.setData({
-    //     "isPlay": false,
+    //     "isPlaying": false,
     //   })
     //   this.setData({
-    //     "isPlay": true,
+    //     "isPlaying": true,
     //     music
     //   })
     //   app.globalData.getTabBar.setData({
-    //     "isPlay": true,
+    //     "isPlaying": true,
     //     'routerList[2]': {
     //       "iconPath": music.al.picUrl + '?param=200y200',
     //       "selectedIconPath": music.al.picUrl + '?param=200y200',

@@ -2,7 +2,7 @@ Component({
   data: {
     selected: 0,
     color: "#999",
-    isPlay:false,
+    isPlaying:false,
     isPause:false,
     selectedColor: "#00b872",
     gradientColor: {
@@ -33,15 +33,11 @@ Component({
       console.log(data)
       const url = data.router.pagePath
       if (url === '/pages/player/player') {
-        if (this.data.isPlay||this.data.isPause) {
-          wx.navigateTo({
-            url
-          })
-        }
+        // if (this.data.isPlaying||this.data.isPause) {
+          wx.navigateTo({ url })
+        // }
       } else {
-        wx.switchTab({
-          url
-        })
+        wx.switchTab({ url })
       }
     }
   }
