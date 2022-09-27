@@ -51,13 +51,13 @@
 
 ## 🌈 预览
 ### 首页
-  <img width="33%" src="./public/IMG_1.png">
+  <img width="33%" src="./public/IMG_1.PNG">
 
 ### 歌单
-  <img width="33%" src="./public/IMG_2.png">
+  <img width="33%" src="./public/IMG_2.PNG">
 
 ### 播放
-  <img width="33%" src="./public/IMG_3.png">
+  <img width="33%" src="./public/IMG_3.PNG">
 
 <!-- ### 搜索
   <img width="33%" src="./public/IMG_8677.png">
