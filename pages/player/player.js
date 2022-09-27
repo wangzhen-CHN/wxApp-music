@@ -1,9 +1,5 @@
-//index.js
 //获取应用实例
-const api = require('../../utils/request.js')
-const app = getApp()
-// 初始化播放器
-
+const APP = getApp()
 Page({
   data: {
     coverImgUrl: 'https://p1.music.126.net/5ps6sZV7wq0OG1V2JjnuDA==/109951165040573781.jpg',
@@ -26,9 +22,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const musicId = app.globalData.musicId
-    const currentPlaySong = app.globalData.currentPlaySong
-
+    const musicId = APP.globalData.currentPlaying.musicId
+    const currentPlaySong = APP.globalData.currentPlaying.songInfo
     if (currentPlaySong.name) {
       this.setData({
         musicId,
@@ -60,31 +55,31 @@ Page({
 
   // 播放上一首歌曲
   beforeSong() {
-    // if (app.globalData.history_songId.length > 1) {
-    //   app.globalData.playList.unshift(app.globalData.history_songId.pop())//将当前播放歌曲从前插入待放列表
-    //   this.play(app.globalData.history_songId[app.globalData.history_songId.length - 1])  //播放历史歌单歌曲
+    // if (APP.globalData.history_songId.length > 1) {
+    //   APP.globalData.playList.unshift(APP.globalData.history_songId.pop())//将当前播放歌曲从前插入待放列表
+    //   this.play(APP.globalData.history_songId[APP.globalData.history_songId.length - 1])  //播放历史歌单歌曲
     // } else {
     //   this.tips('前面没有歌曲了哦', '去选歌', true)
     // }
   },
   // 下一首歌曲
   nextSong() {
-    app.nextSong()
+    APP.nextSong()
     setTimeout(() => {
-      console.log('音乐信息', app.globalData.currentPlaySong)
+      console.log('音乐信息', APP.globalData.currentPlaySong)
       this.setData({
-        currentPlaySong: app.globalData.currentPlaySong
+        currentPlaySong: APP.globalData.currentPlaySong
       })
     }, 500)
-    // if (app.globalData.playList.length > 0) {
-    //   this.play(app.globalData.playList.shift())//删除待放列表第一个元素并返回播放
+    // if (APP.globalData.playList.length > 0) {
+    //   this.play(APP.globalData.playList.shift())//删除待放列表第一个元素并返回播放
     // } else {
     //   this.tips('后面没有歌曲了哦', '去选歌', true)
     // }
   },
   // 播放和暂停
   onPlay() {
-    const BGM = app.globalData.backgroundAudioManager
+    const BGM = APP.globalData.BGM
     if (this.data.isPlaying) {
       BGM.pause() //暂停
     } else {
@@ -100,5 +95,5 @@ Page({
     this.setData({
       hiddenLyric: !this.data.hiddenLyric
     })
-  }
+  },
 })
