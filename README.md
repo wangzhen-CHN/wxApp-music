@@ -51,16 +51,16 @@
 
 ## 🌈 预览
 ### 首页
-  <img width="33%" src="./public/IMG_8680.png">
+  <img width="33%" src="./public/IMG_1.png">
 
 ### 歌单
-  <img width="33%" src="./public/IMG_8672.png">
+  <img width="33%" src="./public/IMG_2.png">
 
 ### 播放
-  <img width="33%" src="./public/IMG_8678.png">
+  <img width="33%" src="./public/IMG_3.png">
 
-### 搜索
+<!-- ### 搜索
   <img width="33%" src="./public/IMG_8677.png">
   
 ### 我的
- <img width="33%" src="./public/IMG_8671.png">
+ <img width="33%" src="./public/IMG_8671.png"> -->
