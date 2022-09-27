@@ -3,7 +3,7 @@
   "navigationBarTitleText": "轻享云音",
   "navigationBarTextStyle":"white",
   "usingComponents": { 
-    "van-progress": "@vant/weapp/progress/index",
-    "van-notice-bar": "@vant/weapp/notice-bar/index"
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "components-lyric":"./components/Lyric/index"
   }
 }

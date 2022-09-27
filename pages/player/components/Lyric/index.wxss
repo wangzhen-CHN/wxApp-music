@@ -1,0 +1,49 @@
+
+.player-song-lyrics {
+  position:relative;
+  width: 100%;
+  color: #e1e1e1;
+  text-align: center;
+  height: 240rpx;
+  margin-top: 40rpx;
+}
+.player-song-lyrics-content {
+  height: 240rpx;
+  overflow: scroll;
+}
+.contentText .row{
+  color: #DADCD980;
+  font-size: 28rpx;
+  margin:16rpx 0;
+}
+.contentText .currentRow{
+  color: #fff!important;
+}
+.player-song-lyrics-content scroll-view{
+  height: 240rpx;
+  box-shadow: 10px 10px 10px #000000;
+}
+
+.van-progress__pivot{
+  width: 16rpx!important;
+  height: 16rpx!important;
+  min-width: 0!important;
+  padding: 0!important;
+  right: -8px!important;
+  border-radius:100%!important;
+}
+.paly-time{
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: #DADCD980;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.paly-time-current,.paly-time-end{
+  width: 100rpx;
+  text-align: center;
+}
+.paly-time-progress{
+  flex: 1;
+}

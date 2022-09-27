@@ -2,7 +2,6 @@
   "navigationStyle": "custom",
   "navigationBarTextStyle":"white",
   "usingComponents": {
-    "components-miniPlayer":"/components/miniPlayer/index",
     "components-song-item":"/components/songItem/index"
   }
 }

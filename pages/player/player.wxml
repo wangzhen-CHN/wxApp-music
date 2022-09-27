@@ -3,11 +3,11 @@
   <image src="{{currentPlaySong.al.picUrl||coverImgUrl}}?param=100y100"></image>
 </view>
 <view class='nav-wrap' style='height: {{height*2 + 48}}px;'>
-  <view class='nav-back' bindtap='goBack' style='height: {{height*2 + 48}}px;'>
-    <van-icon name="arrow-left" color="#fff" size="25px" />
+  <view class='nav-back'>
+    <van-icon name="arrow-left" color="#fff" size="25px" bindtap='goBack' />
   </view>
-  <view class="nav-title" style='height: {{height*2 + 48}}px;'>
-    <van-notice-bar speed="45" scrollable="{{currentPlaySong.name.length>11}}" class="nav-song-name" background="transparent" color="#fff" text="{{currentPlaySong.name}}" />
+  <view class="nav-title">
+    <van-notice-bar speed="45" scrollable="{{currentPlaySong.name.length>11}}" class="nav-song-name" background="transparent" color="#fff" text="{{currentPlaySong.name||'轻享云音'}}" />
   </view>
 </view>
 <!--index.wxml-->
@@ -22,32 +22,9 @@
         <image src="{{currentPlaySong.al.picUrl||coverImgUrl}}?param=500y500"></image>
       </view>
     </view>
-    <view class="player-song-lyrics">
-      <view>歌词</view>
-      <!-- <view class="shadow-top"></view>
-			<view class="shadow-bottom"></view>
-			<view class="player-song-lyrics-content">
-				<scroll-view scroll-y="true" scroll-with-animation='true' scroll-top='{{marginTop}}'>
-					<view class='contentText'>
-						<block wx:for='{{storyContent}}' wx:key='key'>
-							<text class="{{currentIndex222 == index ? 'currentTime' : ''}}">{{item[1]}}</text>
-						</block>
-					</view>
-				</scroll-view>
-			</view> -->
-    </view>
   </view>
-
-  <view class="paly-time">
-    <view class="paly-time-current">
-      {{currentTime}}
-    </view>
-    <van-progress class="paly-time-progress" percentage="{{processNum}}" pivot-text=" " color="#fff" track-color="#a5a5a560" stroke-width="2" />
-    <view class="paly-time-end">
-      {{totalTime}}
-    </view>
-  </view>
-
+  <!-- 歌词&&进度条 -->
+  <components-lyric />
   <view class="player-option">
     <van-icon name="like-o" color="#DADCD9" size="24" />
     <van-icon name="arrow-left" color="#DADCD9" size="24" />

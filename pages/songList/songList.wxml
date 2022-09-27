@@ -3,7 +3,7 @@
 <view class="background_img" style="background-image:url({{playlist.coverImgUrl}})" ></view>
 <view class='nav-wrap' style='height: {{height*2 + 20}}px;'>
 	<view class='nav-capsule' bindtap='goBack' style='height: {{height*2 + 48}}px;'>
-		<van-icon name="arrow-left" color="#222" size="25px" />
+		<van-icon name="arrow-left" color="#fff" size="25px" />
 	</view>
 </view>
 <view class="wrapper">
@@ -77,26 +77,8 @@
 
 			<view class="songlistbox">
           <components-song-item wx:if="{{playlist.tracks.length}}" wx:for="{{playlist.tracks}}" wx:for-item="item" wx:key="key" music="{{item}}" />
-				<!-- <view wx:for="{{playlist.tracks}}" wx:key="index" bindtap="playMusic" class="song-list" hover-class="add-animation"  data-id="{{item.id}}"
-					data-music="{{item}}">
-					<view class="song-img">
-						<image src="{{item.al.picUrl}}?param=200y200" class="img-num-{{item.id}}"></image>
-					</view>
-					<view class="song">
-						<view class="song-name">{{item.name}}</view>
-						<view class="song-author">
-							<view wx:if="{{item.fee === 1}}" class="music-tag">VIP</view>
-							<text>{{item.ar[0].name}} - {{item.al.name}}</text>
-						</view>
-					</view>
-				</view> -->
 			</view>
 
 		</view>
 	</scroll-view>
-	<components-miniPlayer wx:if="{{isPlaying}}" music="{{music}}" isPlaying="{{isPlaying}}"></components-miniPlayer>
-	<image src="{{animationPicUrl}}?param=200y200" class="{{isAnimation?'img-animation':''}} img-noAnimation"
-		style="left:{{animationLeft}};top:{{animationTop}};transition:{{animationTransition}};opacity:{{animationOpacity}}">
-	</image>
-
 </view>

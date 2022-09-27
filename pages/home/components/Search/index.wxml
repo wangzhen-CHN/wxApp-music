@@ -1,7 +1,7 @@
 <view class="search">
   <input class="search-input" bindtap="onShowSearch" disabled placeholder-class="search-input-placeholder" placeholder="{{defaultSearchWord}}" />
   <view class="search-btn">
-    <image src="/images/icon//music-a.svg" />
+    <image src="/images/icon/music-a.svg" />
   </view>
   <van-popup show="{{ showSearchPopup }}" lock-scroll overlay="{{false}}" custom-style="height: 100%;width:100%;padding:0 20rpx;margin-top: -1px;">
     <van-search shape="round" value="{{ currentSearchWord }}" focus="{{focusSearch}}" input-class="popup-search-input" clearable placeholder="{{defaultSearchWord}}" show-action bind:search="onSearch" use-action-slot bind:clear="onClearSearch">

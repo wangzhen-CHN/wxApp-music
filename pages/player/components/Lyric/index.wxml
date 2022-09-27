@@ -1,0 +1,21 @@
+<view class="player-song-lyrics">
+			<view class="player-song-lyrics-content">
+				<scroll-view scroll-y="true" scroll-with-animation='true' scroll-top='{{marginTop}}'>
+					<view class='contentText'>
+						<block wx:for='{{lyricList}}' wx:key='key'>
+							<view class="{{currentIndex == index + 1 ? 'row currentRow' : 'row'}}">{{item[1]}}</view>
+							<!-- <view class="row">{{item[1]}}</view> -->
+						</block>
+					</view>
+				</scroll-view>
+			</view>
+    </view>
+  <view class="paly-time">
+    <view class="paly-time-current">
+      {{currentTime}}
+    </view>
+    <van-progress class="paly-time-progress" percentage="{{processNum}}" pivot-text=" " color="#fff" track-color="#a5a5a560" stroke-width="2" />
+    <view class="paly-time-end">
+      {{totalTime}}
+    </view>
+  </view>

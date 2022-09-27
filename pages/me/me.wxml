@@ -25,22 +25,22 @@
 		</view>
 		<view class="list">
 			<view class="item">
-				<image src="/images/icon//love.svg"></image>
+				<image src="/images/icon/love.svg"></image>
 				<text class="item-class">喜欢</text>
 				<text class="item-class-num">{{likeList.ids.length||0}}</text>
 			</view>
 			<view class="item">
-				<image src="/images/icon//music-list.svg"></image>
+				<image src="/images/icon/music-list.svg"></image>
 				<text class="item-class">最近</text>
 				<text class="item-class-num">{{userDetail.listenSongs||0}}</text>
 			</view>
 			<view class="item">
-				<image src="/images/icon//lisent.svg"></image>
+				<image src="/images/icon/lisent.svg"></image>
 				<text class="item-class">电台</text>
 				<text class="item-class-num">0</text>
 			</view>
 			<view class="item">
-				<image src="/images/icon//music-a.svg"></image>
+				<image src="/images/icon/music-a.svg"></image>
 				<text class="item-class">本地</text>
 				<text class="item-class-num">0</text>
 			</view>
