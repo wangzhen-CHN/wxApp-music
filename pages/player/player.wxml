@@ -28,7 +28,7 @@
   <view class="player-option">
     <van-icon name="like-o" color="#DADCD9" size="24" />
     <van-icon name="arrow-left" color="#DADCD9" size="24" />
-    <van-icon name="{{isPlaying?'pause-circle-o':'play-circle-o'}}" color="#DADCD9" size="65" bindtap="onPlay"/>
+    <van-icon name="{{isPlaying?'pause-circle-o':'play-circle-o'}}" color="#DADCD9"  bindtap="onPlay"/>
     <van-icon name="arrow" color="#DADCD9" size="24" />
     <image src="/images/icon/playlist.svg"></image>
   </view>

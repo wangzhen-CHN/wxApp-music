@@ -36,7 +36,6 @@ App({
     console.log('播放歌曲ID', musicId)
     //获取歌词
     api.get('/lyric?id=' + musicId).then((res) => {
-      console.log(parseLyric(res.lrc.lyric))
       this.globalData.currentPlaying.lyricList = parseLyric(res.lrc.lyric)
     })
     api.get('/song/detail?ids=' + musicId).then((res) => {
@@ -76,10 +75,12 @@ App({
     this.globalData.BGM = BGM
     BGM.onPlay(() => {
       this.globalData.isPlaying = true
-      this.globalData.currentPlaying.totalTime = formatSecond(BGM.totalTime)
     })
     //监听背景音乐进度更新事件
     BGM.onTimeUpdate(() => {
+      if (BGM.duration && this.globalData.currentPlaying.totalTime == '99:99') {
+        this.globalData.currentPlaying.totalTime = formatSecond(BGM.duration)
+      }
       const lyricList = this.globalData.currentPlaying.lyricList
       //判断当前行
       if (index == lyricList.length) return
@@ -122,9 +123,7 @@ App({
   // 下一首
   nextSong() {
     if (this.globalData.playList.length > 0) {
-      console.log(this.globalData.playList)
       this.globalData.playList.shift()
-      console.log(this.globalData.playList)
       // const songId = this.globalData.playList.shift()
       // this.globalData.playList.push(songId)
       this.play(this.globalData.playList[0])
