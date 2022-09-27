@@ -1,26 +1,38 @@
 //index.js
-const APP = getApp()
+const Event = require('../../../../utils/event.js')
 Component({
+  properties: {
+    _currentPlaying: {
+      type: Object,
+      value: {}
+    }
+  },
   options: {
     styleIsolation: 'shared'
   },
   data: {
-    currentPlaying: APP.globalData.currentPlaying,
-    lyricScrollH: APP.globalData.currentPlaying.lyricScrollH, //歌词滚动高度
-    lyricIndex: APP.globalData.currentPlaying.lyricIndex, //当前播放行
-    currentTime: APP.globalData.currentPlaying.currentTime, //音乐当前播放时间（00:00格式）
-    processNum: APP.globalData.currentPlaying.processNum, //当前播放百分百
-    lyricList: APP.globalData.currentPlaying.lyricList, //歌词列表
-    totalTime: APP.globalData.currentPlaying.totalTime
+    currentPlaying: {}
   },
   observers: {
-    //监听n1 和 n2 的数值变化
-    currentPlaying: function (newN1) {
-      console.log('aaaaaaa', newN1)
-    },
-    'APP.globalData.currentPlaying': function (newN1) {
-      console.log('bbbbbb', newN1)
+    //监听
+    _currentPlaying: function (value) {
+      this.setData({
+        currentPlaying: value
+      })
     }
+  },
+  ready: function () {
+    this.setData({
+      currentPlaying: this.data._currentPlaying
+    })
+    // console.log('onLoad----')
+    // Event.$on({
+    //   name: 'noti',
+    //   tg: this,
+    //   success: (res) => {
+    //     console.log('收到消息了-------', res)
+    //   }
+    // })
   },
   methods: {}
 })

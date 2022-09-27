@@ -1,5 +1,6 @@
 const api = require('/utils/request.js')
 const { parseLyric, formatSecond } = require('/utils/tools.js')
+const Event = require('/utils/event.js')
 App({
   $get: api.get,
   $post: api.post,
@@ -86,13 +87,16 @@ App({
       if (index == lyricList.length) return
       const currentTime = BGM.currentTime //播放器时间
       if (parseFloat(lyricList[index][0]) <= currentTime) {
-        console.log('当前行:', index)
         index++
         this.globalData.currentPlaying.lyricIndex = index
         this.globalData.currentPlaying.lyricScrollH = index > 3 ? (index - 3) * 28 : 0
+        this.globalData.currentPlaying.currentTime = formatSecond(BGM.currentTime)
+        this.globalData.currentPlaying.processNum = (BGM.currentTime / BGM.duration).toFixed(3) * 100
+        Event.$emit({
+          name: 'currentPlaying',
+          data: this.globalData.currentPlaying
+        })
       }
-      this.globalData.currentPlaying.currentTime = formatSecond(BGM.currentTime)
-      this.globalData.currentPlaying.processNum = (BGM.currentTime / BGM.duration).toFixed(3) * 100
     })
     //播放结束
     BGM.onEnded(() => {

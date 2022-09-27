@@ -1,9 +1,11 @@
 //获取应用实例
 const APP = getApp()
+const Event = require('../../utils/event.js')
 Page({
   data: {
     coverImgUrl: 'https://p1.music.126.net/5ps6sZV7wq0OG1V2JjnuDA==/109951165040573781.jpg',
     musicId: -1, //音乐id
+    currentPlaying:{},
     hidden: false, //加载动画是否隐藏
     height: 44,
     isPlaying: false, //歌曲是否播放
@@ -22,6 +24,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    Event.$on({
+      name:"currentPlaying",
+      tg:this,
+      success:(res)=>{
+        this.setData({currentPlaying:res})
+      }
+    })
     const musicId = APP.globalData.currentPlaying.musicId
     const currentPlaySong = APP.globalData.currentPlaying.songInfo
     if (currentPlaySong.name) {
