@@ -47,7 +47,7 @@
 
 - 可用过微信扫描二维码申请体验版，我看到后会通过的
 
-<img src="./public/qrcode.png" width="140" alt="qrcode" />
+<img src="./public/qrcode.jpg" width="140" alt="qrcode" />
 
 ## 🌈 预览
 ### 首页
