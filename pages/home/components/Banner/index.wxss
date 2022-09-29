@@ -10,6 +10,7 @@
 .swiper-view {
   position: relative;
   padding: 20rpx;
+  padding-top: 80rpx;
   transform: translateY(0);
 }
 

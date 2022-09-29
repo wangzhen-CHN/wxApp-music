@@ -1,9 +1,11 @@
 <view class="search">
-  <input class="search-input" bindtap="onShowSearch" disabled placeholder-class="search-input-placeholder" placeholder="{{defaultSearchWord}}" />
-  <view class="search-btn">
-    <image src="/images/icon/music-a.svg" />
+  <view class="search-input-box">
+    <input class="search-input" bindtap="onShowSearch" disabled placeholder-class="search-input-placeholder" placeholder="{{defaultSearchWord}}" />
+    <view class="search-btn">
+      <image src="/images/icon/music-a.svg" />
+    </view>
   </view>
-  <van-popup show="{{ showSearchPopup }}" lock-scroll overlay="{{false}}" custom-style="height: 100%;width:100%;padding:0 20rpx;margin-top: -1px;">
+  <van-popup show="{{ showSearchPopup }}" lock-scroll overlay="{{false}}" custom-style="height: 100%;width:100%;padding:0 20rpx 60rpx 20rpx ;margin-top: -1px;">
     <van-search shape="round" value="{{ currentSearchWord }}" focus="{{focusSearch}}" input-class="popup-search-input" clearable placeholder="{{defaultSearchWord}}" show-action bind:search="onSearch" use-action-slot bind:clear="onClearSearch">
       <view slot="action" class="custom-search" bind:tap="onCloseSearch">返回</view>
     </van-search>
@@ -36,10 +38,10 @@
     </view>
     <view wx:else class="search-result-list">
       <view class="hot-search-title">单曲</view>
-      <view wx:if="{{searchMusicList.length}}" wx:for="{{searchMusicList}}" wx:for-item="item" wx:key="key">
-        <components-song-item music="{{item}}" showImg="{{false}}" boder/>
-      </view>
-        <van-divider contentPosition="center">没有了</van-divider>
+      <block wx:if="{{searchMusicList.length}}" wx:for="{{searchMusicList}}" wx:for-item="item" wx:key="key">
+        <components-song-item music="{{item}}" showImg="{{false}}" boder="{{index+1 != searchMusicList.length }}" class="song-list"/>
+      </block>
+      <van-divider contentPosition="center">没有了</van-divider>
     </view>
   </van-popup>
 </view>

@@ -1,9 +1,9 @@
 <view class="player-song-lyrics">
   <view class="player-song-lyrics-content">
-    <scroll-view scroll-y="true" scroll-with-animation='true' scroll-top='{{currentPlaying.lyricScrollH}}'>
+    <scroll-view scroll-y="true" scroll-with-animation='true' scroll-top='{{lyricScrollH}}'>
       <view class='contentText'>
-        <block wx:for='{{currentPlaying.lyricList}}' wx:key='key'>
-          <view class="{{currentPlaying.lyricIndex == index + 1 ? 'row currentRow' : 'row'}}">{{item[1]}}</view>
+        <block wx:for='{{lyricList}}' wx:key='key'>
+          <view class="{{lyricIndex == index+1 ? 'row currentRow' : 'row'}}">{{item[1]}}</view>
         </block>
       </view>
     </scroll-view>
@@ -11,10 +11,10 @@
 </view>
 <view class="paly-time">
   <view class="paly-time-current">
-    {{currentPlaying.currentTime}}
+    {{currentTime}}
   </view>
-  <van-progress class="paly-time-progress" percentage="{{currentPlaying.processNum}}" pivot-text=" " color="#fff" track-color="#a5a5a560" stroke-width="2" />
+  <van-progress class="paly-time-progress" percentage="{{processNum}}" pivot-text=" " color="#fff" track-color="#a5a5a560" stroke-width="2" />
   <view class="paly-time-end">
-    {{currentPlaying.totalTime}}
+    {{totalTime}}
   </view>
 </view>

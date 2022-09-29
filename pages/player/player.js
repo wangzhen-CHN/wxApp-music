@@ -1,6 +1,6 @@
 //获取应用实例
 const APP = getApp()
-const Event = require('../../utils/event.js')
+const Event = require('@/utils/event.js')
 Page({
   data: {
     coverImgUrl: 'https://p1.music.126.net/5ps6sZV7wq0OG1V2JjnuDA==/109951165040573781.jpg',

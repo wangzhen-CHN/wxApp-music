@@ -79,28 +79,28 @@ App({
     })
     //监听背景音乐进度更新事件
     BGM.onTimeUpdate(() => {
-      if (BGM.duration && this.globalData.currentPlaying.totalTime == '99:99') {
-        this.globalData.currentPlaying.totalTime = formatSecond(BGM.duration)
-      }
       const lyricList = this.globalData.currentPlaying.lyricList
       //判断当前行
       if (index == lyricList.length) return
-      const currentTime = BGM.currentTime //播放器时间
-      if (parseFloat(lyricList[index][0]) <= currentTime) {
+      this.globalData.currentPlaying.totalTime = BGM.duration
+      this.globalData.currentPlaying.currentTime = BGM.currentTime + 0.5
+      // this.globalData.currentPlaying.processNum = (BGM.currentTime / BGM.duration).toFixed(3) * 100
+      if (parseFloat(lyricList[index][0]) <= BGM.currentTime) {
         index++
         this.globalData.currentPlaying.lyricIndex = index
-        this.globalData.currentPlaying.lyricScrollH = index > 3 ? (index - 3) * 28 : 0
-        this.globalData.currentPlaying.currentTime = formatSecond(BGM.currentTime)
-        this.globalData.currentPlaying.processNum = (BGM.currentTime / BGM.duration).toFixed(3) * 100
-        Event.$emit({
-          name: 'currentPlaying',
-          data: this.globalData.currentPlaying
-        })
+        this.globalData.currentPlaying.lyricScrollH = index > 3 ? (index - 3) * 26 : 0
+        // Event.$emit({
+        //   name: 'EMIT_PlayingData',
+        //   data: {lyricIndex:index,isPlaying:true}
+        // })
       }
     })
     //播放结束
     BGM.onEnded(() => {
-      this.globalData.isPlaying = false
+      Event.$emit({
+        name: 'EMIT_PlayingData',
+        data: {isPlaying:false}
+      })
       this.nextSong()
     })
     //停止

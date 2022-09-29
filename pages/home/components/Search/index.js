@@ -37,9 +37,11 @@ Component({
       const searchHistory = wx.getStorageSync('searchHistory')||[]
       this.setData({
         searchHistory,
-        showSearchPopup: true,
-        focusSearch: true
+        showSearchPopup: true
       })
+      setTimeout(() => {
+        this.setData({ focusSearch: true})
+      }, 200);
     },
     //关闭搜索弹窗
     onCloseSearch() {
