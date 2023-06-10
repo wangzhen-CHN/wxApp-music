@@ -1,0 +1,34 @@
+<!-- 背景图片 -->
+<view class="background_img" style="background-image:url({{playlist.coverImgUrl}})"></view>
+<view class='nav-wrap' style='height: {{height*2 + 20}}px;'>
+  <view class='nav-capsule' bindtap='goBack' style='height: {{height*2 + 48}}px;'>
+    <van-icon name="arrow-left" color="#fff" size="25px" />
+  </view>
+</view>
+<view class="wrapper">
+  <view class="music-list-top" wx:if="{{isloading}}">
+    <van-skeleton title avatar row="4" />
+  </view>
+  <view class="top" wx:else>
+    <view class="top-desc">
+      <view class="music-desc-img">
+        <image class="desc-img" src="{{playlist.coverImgUrl}}"></image>
+      </view>
+      <view class="desc-right">
+        <view class="desc-name">
+          {{playlist.name}}
+        </view>
+        <view class="user-info">
+          <image class="info-pic" src="{{playlist.creator.avatarUrl}}"></image>
+          <view class="user-nickname">
+            {{playlist.creator.nickname}}
+          </view>
+        </view>
+        <view class="desc-description">
+          {{playlist.description}}
+        </view>
+      </view>
+    </view>
+  </view>
+  
+</view>

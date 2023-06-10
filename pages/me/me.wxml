@@ -1,105 +1,106 @@
 <!--logs.wxml-->
-<view class="my-content">
-	<view class="my" bindtap="showLogin">
-		<view class="user-avatar">
-			<image src="{{userInfo.profile.avatarUrl||defaultAvatarUrl}}"> </image>
-		</view>
+<view class="my-content" wx:if="{{isLogin}}">
+  <view class="my">
+    <view class="user-avatar">
+      <image src="{{userInfo.profile.avatarUrl||defaultAvatarUrl}}"> </image>
+    </view>
 
-		<view class="my-info" wx:if="{{isLogin}}">
-			<view class="my-name">{{userInfo.profile.nickname}}
-				<view class="my-lv">Lv.{{userDetail.level}}</view>
-			</view>
-			<view class="my-num">粉丝 {{userDetail.profile.followeds}} | 关注 {{userDetail.profile.follows}}</view>
-		</view>
-		<view class="my-info-no" wx:else>
-			<view class="my-name-no">点击登录</view>
-		</view>
-	</view>
-	<view class="my-info-top">
-		<view class="vip">
-			<view class="vip-left">
-				<van-icon name="vip-card-o" />VIP会员</view>
-			<view class="vip-right">首月6元，畅听百万好音乐
-				<van-icon name="arrow" color="#abb0bf" />
-			</view>
-		</view>
-		<view class="list">
-			<view class="item">
-				<image src="/images/icon/love.svg"></image>
-				<text class="item-class">喜欢</text>
-				<text class="item-class-num">{{likeList.ids.length||0}}</text>
-			</view>
-			<view class="item">
-				<image src="/images/icon/music-list.svg"></image>
-				<text class="item-class">最近</text>
-				<text class="item-class-num">{{userDetail.listenSongs||0}}</text>
-			</view>
-			<view class="item">
-				<image src="/images/icon/lisent.svg"></image>
-				<text class="item-class">电台</text>
-				<text class="item-class-num">0</text>
-			</view>
-			<view class="item">
-				<image src="/images/icon/music-a.svg"></image>
-				<text class="item-class">本地</text>
-				<text class="item-class-num">0</text>
-			</view>
-		</view>
-	</view>
-	<view class="my-song-list">
-		<van-tabs animated color="#000" line-width="15" nav-class="tabs-nav-class" custom-class="tabs-custom-class">
-			<van-tab title="自建歌单({{userList.length}})" title-style="font-size:16px">
-				<view class="music-list-box">
-					<scroll-view class="music-list-content" scroll-y wx:if="{{isLogin}}">
-						<view class="music-car" wx:for="{{userList}}" wx:for-item="item" wx:key="key" bindtap="goSangList" data-id="{{item.id}}">
-							<view class="music-car-img">
-								<image src="{{item.coverImgUrl}}?param=400y400" class="img-num-{{item.id}}"></image>
-							</view>
-							<view class="music-car-word">
-								<view class="music-name">{{item.name}}</view>
-								<view class="music-desc">
-									<text>{{item.trackCount}}</text>首歌
-								</view>
-							</view>
-							<view class="music-car-option">
-								<van-icon name="arrow" />
-							</view>
-						</view>
-					</scroll-view>
-					<view class="music-list-skeleton" wx:else>
-						<van-skeleton title avatar avatar-shape="square" row="1" />
-						<van-skeleton title avatar avatar-shape="square" row="1" />
-					</view>
-				</view>
-			</van-tab>
-			<van-tab title="收藏歌单({{addList.length}})" title-style="font-size:16px">
-				<view class="music-list-box">
-					<scroll-view class="music-list-content" scroll-y wx:if="{{isLogin}}">
-						<view class="music-car" wx:for="{{addList}}" wx:for-item="item" wx:key="key" bindtap="goSangList" data-id="{{item.id}}">
-							<view class="music-car-img">
-								<image src="{{item.coverImgUrl}}?param=200y200" class="img-num-{{item.id}}"></image>
-							</view>
-							<view class="music-car-word">
-								<view class="music-name">{{item.name}}</view>
-								<view class="music-desc">
-									<text>{{item.trackCount}}</text>首歌
-								</view>
-							</view>
-							<view class="music-car-option">
-								<van-icon name="arrow" />
-							</view>
-						</view>
-					</scroll-view>
-					<view class="music-list-skeleton" wx:else>
-						<van-skeleton title avatar avatar-shape="square" row="1" />
-						<van-skeleton title avatar avatar-shape="square" row="1" />
-						<van-skeleton title avatar avatar-shape="square" row="1" />
-					</view>
-				</view>
-			</van-tab>
-		</van-tabs>
-	</view>
-	<!-- <view class="my-song-list">
+    <view class="my-info">
+      <view class="my-name">{{userInfo.profile.nickname}}
+        <view class="my-lv">Lv.{{userDetail.level}}</view>
+      </view>
+      <view class="my-num">粉丝 {{userDetail.profile.followeds}} | 关注 {{userDetail.profile.follows}}</view>
+    </view>
+  </view>
+  <view class="my-info-top">
+    <view class="vip">
+      <view class="vip-left">
+        <van-icon name="vip-card-o" />VIP会员
+      </view>
+      <view class="vip-right">首月6元，畅听百万好音乐
+        <van-icon name="arrow" color="#abb0bf" />
+      </view>
+    </view>
+    <view class="list">
+      <view class="item">
+        <image src="/images/icon/love.svg"></image>
+        <text class="item-class">喜欢</text>
+        <text class="item-class-num">{{likeList.ids.length||0}}</text>
+      </view>
+      <view class="item">
+        <image src="/images/icon/music-list.svg"></image>
+        <text class="item-class">最近</text>
+        <text class="item-class-num">{{userDetail.listenSongs||0}}</text>
+      </view>
+      <view class="item">
+        <image src="/images/icon/lisent.svg"></image>
+        <text class="item-class">电台</text>
+        <text class="item-class-num">0</text>
+      </view>
+      <view class="item">
+        <image src="/images/icon/music-a.svg"></image>
+        <text class="item-class">本地</text>
+        <text class="item-class-num">0</text>
+      </view>
+    </view>
+  </view>
+  <view class="my-song-list">
+    <van-tabs animated color="#000" line-width="15" nav-class="tabs-nav-class" custom-class="tabs-custom-class">
+      <van-tab title="自建歌单({{userList.length}})" title-style="font-size:16px">
+        <view class="music-list-box">
+          <scroll-view class="music-list-content" scroll-y wx:if="{{isLogin}}">
+            <view class="music-car" wx:for="{{userList}}" wx:for-item="item" wx:key="key" bindtap="goSangList" data-id="{{item.id}}">
+              <view class="music-car-img">
+                <image src="{{item.coverImgUrl}}?param=400y400" class="img-num-{{item.id}}"></image>
+              </view>
+              <view class="music-car-word">
+                <view class="music-name">{{item.name}}</view>
+                <view class="music-desc">
+                  <text>{{item.trackCount}}</text>首歌
+                </view>
+              </view>
+              <view class="music-car-option">
+                <van-icon name="arrow" />
+              </view>
+            </view>
+          </scroll-view>
+          <view class="music-list-skeleton" wx:else>
+            <van-skeleton title avatar avatar-shape="square" row="1" />
+            <van-skeleton title avatar avatar-shape="square" row="1" />
+            <van-skeleton title avatar avatar-shape="square" row="1" />
+            <van-skeleton title avatar avatar-shape="square" row="1" />
+            <van-skeleton title avatar avatar-shape="square" row="1" />
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="收藏歌单({{addList.length}})" title-style="font-size:16px">
+        <view class="music-list-box">
+          <scroll-view class="music-list-content" scroll-y wx:if="{{isLogin}}">
+            <view class="music-car" wx:for="{{addList}}" wx:for-item="item" wx:key="key" bindtap="goSangList" data-id="{{item.id}}">
+              <view class="music-car-img">
+                <image src="{{item.coverImgUrl}}?param=200y200" class="img-num-{{item.id}}"></image>
+              </view>
+              <view class="music-car-word">
+                <view class="music-name">{{item.name}}</view>
+                <view class="music-desc">
+                  <text>{{item.trackCount}}</text>首歌
+                </view>
+              </view>
+              <view class="music-car-option">
+                <van-icon name="arrow" />
+              </view>
+            </view>
+          </scroll-view>
+          <view class="music-list-skeleton" wx:else>
+            <van-skeleton title avatar avatar-shape="square" row="1" />
+            <van-skeleton title avatar avatar-shape="square" row="1" />
+            <van-skeleton title avatar avatar-shape="square" row="1" />
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+  <!-- <view class="my-song-list">
 		<text>推荐歌单</text>
 		<view class="music-list-box">
 			<view class="music-list-skeleton">
@@ -109,40 +110,57 @@
 			</view>
 		</view>
 	</view> -->
-<view class="btn-login-out" wx:if="{{isLogin}}">
-	<van-button round type="default" class="btn-cancel" bindtap="handleLoginOut" block>
-						退出登录</van-button>
-</view>
+  <view class="btn-login-out" wx:if="{{isLogin}}">
+    <van-button round type="default" class="btn-cancel" bindtap="handleLoginOut" block>
+      退出登录</van-button>
+  </view>
 
 </view>
-<van-popup show="{{ loginPopup }}" position="bottom" custom-style="height: 100%;width:100%;padding:0 20rpx;z-index:99999">
-	<view class="my-page">
+<view class="my-page">
 
-		<view class="logo">
-			<image src="../../images/logo.png"></image>
-		</view>
-		<view class="login-word">
-			手机号登陆
-		</view>
-		<view>
-			<form class="login-form">
-				<view class="page-section">
-					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ tel }}" type="number" placeholder="请输入手机号" />
-					<input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ password }}" type="password" placeholder="请输入密码" />
-				</view>
-				<view class="btn-area">
-					<van-button round type="info" bindtap="handleLogin" block color="linear-gradient(to right, #82d6fe, #1ca7ff)">
-						登录</van-button>
-					<van-button round type="default" class="btn-cancel" bindtap="handleCancel" block>
-						取消</van-button>
-				</view>
-				<!-- <view class="login-way">
-				  <view class="login-way-img"><image src="../../images/icon/login-wx.png"></image></view>
-          <view class="login-way-img"><image src="../../images/icon/login-qq.png"></image></view>
-          <view class="login-way-img"><image src="../../images/icon/login-tel.png"></image></view>
-          <view class="login-way-img"><image src="../../images/icon/login-email.png"></image></view>
-			</view> -->
-			</form>
-		</view>
-	</view>
-</van-popup>
+  <view class="logo">
+    <image src="../../images/logo.svg"></image>
+  </view>
+  <view class="login-word">
+    验证码登陆
+  </view>
+  <view>
+    <form class="login-form">
+      <view class="page-section">
+        <!-- <input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ tel }}" type="number" placeholder="请输入手机号" /> -->
+        <van-cell-group>
+          <van-field model:value="{{ phone }}" placeholder="手机号" />
+          <van-field model:value="{{ sms }}" center clearable placeholder="请输入短信验证码" use-button-slot>
+            <van-button slot="button" size="small" bindtap="handleSms" :disabled="{{isSms}}">
+              发送验证码
+            </van-button>
+          </van-field>
+        </van-cell-group>
+        <!-- <input class="login-input" placeholder-class="login-input-placeholder" model:value="{{ password }}" type="password" placeholder="请输入密码" /> -->
+      </view>
+      <view class="btn-area">
+        <van-button round type="info" bindtap="handleLogin" block color="#00af80">
+          登录</van-button>
+      </view>
+      <view class="btn-back">
+        <van-button round type="default" bindtap="handleBack" block>
+          返回</van-button>
+      </view>
+      <view class="login-tip">请使用网易云绑定的手机号登录</view>
+      <!-- <view class="login-way">
+        <view class="login-way-img">
+          <image src="../../images/icon/login-wx.png"></image>
+        </view>
+        <view class="login-way-img">
+          <image src="../../images/icon/login-qq.png"></image>
+        </view>
+        <view class="login-way-img">
+          <image src="../../images/icon/login-tel.png"></image>
+        </view>
+        <view class="login-way-img">
+          <image src="../../images/icon/login-email.png"></image>
+        </view>
+      </view> -->
+    </form>
+  </view>
+</view>

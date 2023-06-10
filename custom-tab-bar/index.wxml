@@ -1,5 +1,5 @@
 <!--miniprogram/custom-tab-bar/index.wxml-->
-<view class="tab-bar">
+<view class="tab-bar" wx:if="{{isShow}}">
 	<view wx:for="{{routerList}}" wx:key="index" class="tab-bar-item" data-router="{{item}}" data-index="{{index}}" bindtap="switch">
 		
     <view wx:if="{{index===1}}" class="nav-player">

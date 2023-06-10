@@ -1,14 +1,17 @@
 .my-page {
   padding: 0 40rpx;
 }
-page{
+
+page {
   height: 100%;
 }
-.my-content{
+
+.my-content {
   height: 100%;
-  padding: 0 20rpx ;
+  padding: 0 20rpx;
   background-color: #fafafa;
 }
+
 .my-page .logo {
   width: 100%;
   height: 400rpx;
@@ -17,8 +20,8 @@ page{
 }
 
 .my-page .logo image {
-  width: 400rpx;
-  height: 400rpx;
+  width: 360rpx;
+  height: 360rpx;
 }
 
 .my-page .login-word {
@@ -48,7 +51,11 @@ page{
 }
 
 .login-form .btn-area {
-  margin: 80rpx 20rpx;
+  margin: 80rpx 20rpx 0 20rpx;
+}
+
+.btn-back {
+  margin: 40rpx 20rpx;
 }
 
 .login-form .login-way {
@@ -65,7 +72,7 @@ page{
 
 .my {
   display: flex;
-  padding-bottom: 20rpx ;
+  padding-bottom: 20rpx;
 }
 
 .my-info {
@@ -79,11 +86,13 @@ page{
   display: flex;
 
 }
-.my-info-no{
+
+.my-info-no {
   height: 100rpx;
   padding: 10rpx 0;
 }
-.my-name-no{
+
+.my-name-no {
   padding-left: 15rpx;
   color: #666;
   line-height: 100rpx;
@@ -117,7 +126,8 @@ page{
   height: 100rpx;
   border-radius: 100rpx;
 }
-.my-info-top{
+
+.my-info-top {
   border-radius: 20rpx;
   background-color: #fff;
   overflow: hidden;
@@ -167,34 +177,43 @@ page{
   width: 60rpx;
   height: 60rpx;
 }
-.item-class{
+
+.item-class {
   padding: 5rpx;
 }
-.item-class-num{
+
+.item-class-num {
   color: #aaa;
   font-size: 24rpx;
 }
-.my-song-list{
+
+.my-song-list {
   border-radius: 20rpx;
   margin-top: 20rpx;
   background-color: #fff;
   overflow: hidden;
 }
+
 .tabs-custom-class .van-hairline--top-bottom:after {
-  border:none;
+  border: none;
 }
-.tabs-nav-class{
+
+.tabs-nav-class {
   width: 60%;
 }
+
 .tabs-nav-class .van-tabs__line {
-     border-radius: var(--tabs-bottom-bar-height,40%)!important;
+  border-radius: var(--tabs-bottom-bar-height, 40%) !important;
 }
-.music-list-box{
+
+.music-list-box {
   padding: 20rpx 0;
 }
-.music-list-content{
+
+.music-list-content {
   max-height: 430rpx;
 }
+
 .music-car {
   display: flex;
   flex-direction: row;
@@ -248,10 +267,18 @@ page{
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.btn-cancel button{
+
+.btn-cancel button {
   margin-top: 40rpx;
 }
-.btn-login-out{
+
+.login-tip {
+  font-size: 26rpx;
+  text-align: center;
+  color: rgb(158, 161, 158);
+}
+
+.btn-login-out {
   padding: 20px 0 40rpx 0;
   margin-bottom: 100px;
 }

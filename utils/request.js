@@ -1,14 +1,14 @@
 // const baseUrl = 'http://106.14.46.131:4000';
-const baseUrl = "https://api.coder.wang"
-const http = ({ url = "", param = {}, ...other } = {}) => {
+const baseUrl = 'https://api.coder.wang/music'
+const http = ({ url = '', param = {}, ...other } = {}) => {
   let timeStart = Date.now()
-  const cookie = wx.getStorageSync("login_token")
+  const cookie = wx.getStorageSync('login_token')
   return new Promise((resolve, reject) => {
     wx.request({
       url: getUrl(url),
       data: param,
       header: {
-        "content-type": "application/json",
+        'content-type': 'application/json',
         cookie
       },
       ...other,
@@ -18,8 +18,8 @@ const http = ({ url = "", param = {}, ...other } = {}) => {
         } else {
           reject(res)
           wx.showToast({
-            title: res.data.message || "登录失败",
-            icon: ""
+            title: res.data.message || '登录失败',
+            icon: 'error'
           })
         }
       }
@@ -28,7 +28,7 @@ const http = ({ url = "", param = {}, ...other } = {}) => {
 }
 
 const getUrl = (url) => {
-  if (url.indexOf("://") == -1) {
+  if (url.indexOf('://') == -1) {
     url = baseUrl + url
   }
   return url
@@ -46,7 +46,7 @@ const post = (url, param = {}) => {
   return http({
     url,
     param,
-    method: "post"
+    method: 'post'
   })
 }
 

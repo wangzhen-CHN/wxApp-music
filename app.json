@@ -3,17 +3,17 @@
     "pages/home/home",
     "pages/player/player",
     "pages/songList/songList",
+    "pages/bpage/index",
     "pages/me/me"
   ],
-  "resolveAlias":{
+  "resolveAlias": {
     "@/*": "/*"
   },
   "tabBar": {
     "custom": true,
     "color": "#888d93",
     "selectedColor": "#3341d5",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/home/home"
       },
       {

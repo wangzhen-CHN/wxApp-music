@@ -24,8 +24,13 @@ Page({
    */
   onLoad: function (options) { //接受其他页面传来的数据
     console.log(options)
-    this.setData({
-      height: app.globalData.statusBarHeight
+    wx.getSystemInfo({
+      success: (res) => {
+        wx.setStorageSync('systemInfo', res)
+        this.setData({
+          height: res.statusBarHeight || 44
+        })
+      }
     })
     const listId = options.listId
     const type = options.type || ''

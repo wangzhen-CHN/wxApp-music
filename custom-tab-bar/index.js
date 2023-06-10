@@ -5,6 +5,7 @@ Component({
     color: '#999',
     isPlaying: false,
     isPause: false,
+    isShow: true,
     selectedColor: '#00b872',
     gradientColor: {
       '0%': '#5bc2fe',
@@ -34,9 +35,13 @@ Component({
   },
   methods: {
     switch(e) {
+      this.setData({ isShow: true })
       const url = e.currentTarget.dataset.router.pagePath
       if (url === '/pages/player/player') {
-        APP.globalData.isPlaying ? wx.navigateTo({ url }) : wx.showToast({title:'还没有播放音乐哟~~',icon:'none'})
+        APP.globalData.isPlaying ? wx.navigateTo({ url }) : wx.showToast({ title: '还没有播放音乐哟~~', icon: 'none' })
+      } else if (url === '/pages/me/me') {
+        this.setData({ isShow: false })
+        wx.switchTab({ url })
       } else {
         wx.switchTab({ url })
       }

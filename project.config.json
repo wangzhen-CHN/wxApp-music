@@ -45,7 +45,8 @@
     "useCompilerPlugins": false,
     "minifyWXML": true,
     "packNpmManually": false,
-    "packNpmRelationList": []
+    "packNpmRelationList": [],
+    "condition": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.13.1",

@@ -27,16 +27,20 @@
   height: 60rpx;
   vertical-align: bottom;
 }
-.tab-bar-item .nav-player .nav-player-container{
+
+.tab-bar-item .nav-player .nav-player-container {
   position: relative;
   width: 300px;
 }
+
 .tab-bar-item .nav-player {
   position: relative;
   margin-top: -56rpx;
   width: 120rpx;
   height: 120rpx;
-
+  background-color: #efefef;
+  border-radius: 100%;
+  border: 12rpx solid #fff;
 }
 
 
@@ -47,11 +51,9 @@
 } */
 
 .tab-bar-item .nav-player .nav-image {
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 100%;
-  background-color: #efefef;
-  border: 12rpx solid #fff;
+  width: 100%;
+  height: 100%;
+
 
 }
 
